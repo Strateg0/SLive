@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prisma</title>
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Add in the <head> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
+  <link href="./style.css" rel="stylesheet">
+  <style>
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100%;
+    }
+    </style>
+  </head>
+<body>
+<main>
+  <div class="container-fluid px-0">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
+  <div class="container-fluid">
+    <a href="index.html" class="navbar-brand d-flex align-items-center">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-4"><img src="./img/logo.png" id="logo" class="dark-logo" style="width: 180px;"></span>
+      <!-- <span class="fs-4"><img src="./img/logo-light.png" class="light-logo" style="width: 180px;"></span> -->
+    </a>
+    <!-- Hamburger button for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible menu items -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+        <li class="nav-item"><a href="index.html" class="nav-link active">Начало</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">за нас</a></li>
+        <!-- <li class="nav-item"><a href="#" class="nav-link">дейности и проекти</a></li> -->
+         <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="projects.html" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">дейности и проекти</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown01">
+              <li><a class="dropdown-item" href="#">граждански профили на ключови институции</a></li>
+              <li><a class="dropdown-item" href="#">завършили проекти</a></li>
+              <li><a class="dropdown-item" href="#">основни дейсноти</a></li>
+            </ul>
+          </li>
+        <li class="nav-item"><a href="public.html" class="nav-link">публичност</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link">контакти</a></li>
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
+            <li><a class="dropdown-item" href="#"><span class="fi fi-es"></span> Spanish</a></li>
+            <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> Frensh</a></li>
+          </ul>
+        </div>
+        <li class="nav-item mt-0 pt-0" id="themeToggle" style="font-size: 25px;cursor:pointer;"><a href="#" class="nav-link">🌙</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="px-0 py-5 text-center" id="heroBG">
+<h1 class="display-5 fw-bold py-5 mt-5 header animate__animated animate__zoomIn">мисия</h1>
+<p class="lead mb-1 mx-auto px-5 headerP text-center animate__animated animate__zoomIn">Мисия на ПРИЗМА-АИ е да допринесе за осъществяване на зеления преход, като предоставя на 
+    организациите от публичния сектор инструменти и данни за оценяване на състоянието и предприемане на действия за 
+    напредък по екологичните цели на Европа. Нашата дейност включва наблюдение на изисквания и параметри, идентифициране 
+    на източници на данни, определяне на показатели, които да дават ориентация за напредъка, пропуските, възможностите и подходящите решения.</p>
+</div>
+<!-- <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGqhRgY_do/pAB3zA34I1DNG2e4nBfDWA/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div> -->
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGqhRgY_do&#x2F;pAB3zA34I1DNG2e4nBfDWA&#x2F;view?utm_content=DAGqhRgY_do&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
+<div class="px-0 py-5 text-center" id="underheroBG">
+    <div class="row row-cols-1 row-cols-md-3 mt-4 px-3 text-center">
+       <div class="col col-md-3 mb-3 themed-grid-col animate__animated animate__zoomIn">
+        <div class="card mb-0 rounded-3 shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><img src="./img/barchart.png" style="width: 48px;height: 48px;"></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>години опит</li>
+              <li class="count" data-target="10">0+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-3 mb-3 themed-grid-col animate__animated animate__zoomIn">
+        <div class="card mb-0 rounded-3 shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><img src="./img/Users.png"></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>доволни клиенти</li>
+              <li class="count" data-target="10000">0+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-3 mb-3 themed-grid-col animate__animated animate__zoomIn">
+        <div class="card mb-0 rounded-3 shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><img src="./img/Calendar.png"></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>проекти</li>
+              <li class="count" data-target="800">0+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-3 mb-3 themed-grid-col animate__animated animate__zoomIn">
+        <div class="card mb-0 rounded-3 shadow-sm">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><img src="./img/Clock.png"></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>доверие</li>
+              <li class="count" data-target="10000">0+</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<section class="S3">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row align-items-center g-5 py-5 animate__animated animate__zoomIn">
+      <div class="col-10 col-sm-8 col-lg-6 order-1 order-md-2">
+        <img src="./img/img.jpg" class="d-block mx-lg-auto img-fluid" alt="" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6 order-1 order-md-2">
+        <h1 class="display-5 fw-bold lh-1 mb-3 headerS3">Responsive left-aligned hero with image</h1>
+        <p class="lead">Фондация ПРИЗМА-АИ е създадена през октомври 2021 г. от група съмишленици като гражданска инициатива за 
+            утвърждаване на принципите на доброто управление и на мястото на гражданското общество в него. Тя е сдружение на група съмишленици, 
+            които започнаха да развиват дейност в обществена полза и впоследствие взеха съвместно решение да регистрират организация, за могат да 
+            разгърнат дейността и да разширят мащаба на действие.</p>
+        <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="S4 animate__animated animate__zoomIn">
+<div class="row mt-4 px-3 text-center">
+    <div class="col col-md-12 mb-3 themed-grid-col">
+    <h1 class="display-5 fw-bold lh-1 mb-3 headerS3">Партньори</h1>
+  </div>
+</div>
+<div id="carouselExampleControls" class="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="./img/ldn.png" alt="...">
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+         <img src="./img/peurope_logo 1.png" alt="...">
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="./img/logo_bg_wakeup 1.png" alt="...">
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="./img/cmp_logo_w-120.png" alt="...">
+        </div>
+      </div>
+    </div>
+     <div class="carousel-item">
+      <div class="card">
+        <div class="img-wrapper">
+          <img src="./img/cmp_logo_w-120.png" alt="...">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+</div>
+<footer class="footer mt-auto py-3 bg-dark">
+  <div class="container">
+    <p class="text-center text-aligne-center pt-4">Всички права запазени &copy; ПРИЗМА-АИ, 2021-2024</p>
+  </div>
+</footer>
+<script src="./js/active.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > 250) {
+        $('nav').addClass('sticky-nav').css('top', '0');
+      } else {
+        $('nav').removeClass('sticky-nav').css('top', '-100px');
+      }
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".count");
+    const runCounter = (el) => {
+      const raw = el.getAttribute("data-target").replace(/,/g, "");
+      const target = parseFloat(raw);
+      const duration = 4000;
+      const start = 0;
+      const startTime = performance.now();
+
+      const animate = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = start + (target - start) * progress;
+
+        el.textContent = target % 1 === 0
+          ? `${Math.floor(value).toLocaleString()}+`
+          : `${value.toFixed(1).toLocaleString()}+`;
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        } else {
+          el.textContent = target % 1 === 0
+            ? `${Math.floor(target).toLocaleString()}+`
+            : `${target.toFixed(1).toLocaleString()}+`;
+        }
+      };
+
+      requestAnimationFrame(animate);
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
+          runCounter(entry.target);
+          entry.target.classList.add("counted");
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => observer.observe(counter));
+  });
+</script>
+<script>
+const themeToggle = document.getElementById('themeToggle');
+const logo = document.getElementById('logo');
+const body = document.body;
+
+function setTheme(mode) {
+  if (mode === 'dark') {
+    body.classList.add('dark-mode');
+    themeToggle.textContent = '☀️';
+    logo.src = './img/logo.png';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    body.classList.remove('dark-mode');
+    themeToggle.textContent = '🌙';
+    logo.src = './img/logo.png';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+// Toggle click
+themeToggle.addEventListener('click', () => {
+  const isDark = body.classList.contains('dark-mode');
+  setTheme(isDark ? 'light' : 'dark');
+});
+
+// Apply saved theme
+const savedTheme = localStorage.getItem('theme') || 'light';
+setTheme(savedTheme);
+</script>
+
+<script>
+const multipleItemCarousel = document.querySelector("#carouselExampleControls");
+
+const carouselInner = $(".carousel-inner");
+const carouselWidth = carouselInner[0].scrollWidth;
+const cardWidth = $(".carousel-item").outerWidth(true); // includes margin if any
+const visibleWidth = carouselInner.width();
+
+let scrollPosition = 0;
+
+// Set auto scroll every 5 seconds
+setInterval(() => {
+  // If not at the end, scroll by 1 card
+  if (scrollPosition < carouselWidth - visibleWidth) {
+    scrollPosition += cardWidth;
+  } else {
+    // Loop back to start
+    scrollPosition = 0;
+  }
+
+  carouselInner.animate({ scrollLeft: scrollPosition }, 600);
+}, 3000);
+
+</script>
+
+
+</body>
+</html>
