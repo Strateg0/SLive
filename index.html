@@ -53,11 +53,10 @@
   </head>
 <body>
 <main>
-  <div class="container-fluid px-0">
+<div class="container-fluid px-0">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
   <div class="container-fluid">
     <a href="index.html" class="navbar-brand d-flex align-items-center">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-4"><img src="./img/logo.png" id="logo" class="dark-logo" style="width: 180px;"></span>
       <!-- <span class="fs-4"><img src="./img/logo-light.png" class="light-logo" style="width: 180px;"></span> -->
     </a>
@@ -70,7 +69,7 @@
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0">
         <div class="dropdown">
-          <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
            <span class="fi fi-us"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -79,24 +78,25 @@
             <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> Frensh</a></li>
           </ul>
         </div>
-        <li class="nav-item mt-0 pt-0" id="themeToggle" style="font-size: 25px;cursor:pointer;"><a href="#" class="nav-link">🌙</a></li>
+        <!-- <li class="nav-item mt-0 pt-0" id="themeToggle" style="font-size: 25px;cursor:pointer;"><a href="#" class="nav-link">🌙</a></li> -->
+         <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><span class="icon">🌙</span></button></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center" id="heroBG">
+<section class="px-0 py-0 py-lg-5 text-center fx-reveal" id="heroBG">
   <div class="innerText px-3 px-lg-5 mt-1 mt-lg-5 pt-1 pt-lg-4">
     <h1 class="display-4 fw-bold pt-5 pb-4 mt-5 px-0 header animate__animated animate__zoomIn">ОРГАНИЗАЦИОННО РАЗВИТИЕ И КОНСУЛТИРАНЕ</h1>
     <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегма има дългогодишен опит в организационното развитие и се е утвърдила като консултант, 
       който помага на своите клиенти да постигнат устойчиви подобрения чрез прилагане на модерни решения. Ние се стремим да оценим реалните нужди и да предложим съвети, 
       които носят добавена стойност на организациите. За целта изграждаме трайни партньорства с нашите клиенти. Разчитаме на проверени и доказани методи, основани на 
       универсални принципи.</p>
-      <button type="button" class="btn mt-2 mx-auto px-5 text-left animate__animated animate__zoomIn">свържете се с нас</button>
+      <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn mt-2 mx-auto px-5 text-left animate__animated animate__zoomIn">свържете се с нас</button>
   </div>
 </section>
 
-<section class="S3">
+<section class="S3 fx-reveal">
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-5 py-5 animate__animated animate__zoomIn">
       <div class="col-lg-12">
@@ -104,28 +104,28 @@
         <p class="lead">Агенция СТРАТЕГМА ООД e професионална компания, специализирана в
         предоставяне на персонализирани консултантски услуги за развитие на 
         организациите от публичния и частния сектор.</p>
-        <button type="button" class="btn contact mt-1 mx-auto px-5 text-center animate__animated animate__zoomIn">свържете се с нас</button>
+        <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn contact mt-1 mx-auto px-5 text-center animate__animated animate__zoomIn">свържете се с нас</button>
       </div>
   </div>
 </div>
- <div class="container-fluid col-xxl-8 px-4 py-5">
-      <div class="row d-flex justify-content-center g-5 py-5 animate__animated animate__zoomIn">
-        <div class="col-12 col-sm-12 col-lg-3 img1">
+ <div class="container-fluid col-xxl-8 px-4 py-5 fx-reveal">
+      <div class="row animatedW d-flex justify-content-center g-5 py-5 animate__animated animate__zoomIn">
+        <div class="col-12 col-sm-12 col-lg-3 animZoom img1">
           <h5 class="fw-bold lh-1 mb-3 text-center overlayText">организационно развитие и консултиране</h5>
         </div>
-        <div class="col-12 col-sm-12 col-lg-3 img2">
+        <div class="col-12 col-sm-12 col-lg-3 animZoom img2">
           <h5 class="fw-bold lh-1 mb-3 text-center overlayText">СТРАТЕГИЧЕСКО ПЛАНИРАНЕ И ОЦЕНКА</h5>
         </div>
-        <div class="col-12 col-sm-12 col-lg-3 img3">
+        <div class="col-12 col-sm-12 col-lg-3 animZoom img3">
           <h5 class=" fw-bold lh-1 mb-3 text-center overlayText">УПРАВЛЕНИЕ</h5>
         </div>
-        <div class="col-12 col-sm-12 col-lg-3 img4">
+        <div class="col-12 col-sm-12 col-lg-3 animZoom img4">
           <h5 class="fw-bold lh-1 mb-3 text-center overlayText">ОБУЧЕНИЕ И ИНОВАЦИИ</h5>
         </div>
-        <div class="col-12 col-sm-12 col-lg-3 img5">
+        <div class="col-12 col-sm-12 col-lg-3 animZoom img5">
           <h5 class="fw-bold lh-1 mb-3 text-center overlayText">ОБЩЕСТВЕНИ КОМУНИКАЦИИ</h5>
         </div>
-        <div class="col-12 col-sm-12 col-lg-3 img6">
+        <div class="col-12 col-sm-12 col-lg-3 animZoom img6">
           <h5 class=" fw-bold lh-1 mb-3 text-center overlayText">ИНФОРМАЦИОННИ ТЕХНОЛОГИИ</h5>
         </div>
       </div>
@@ -133,13 +133,13 @@
   </div>
 </section>
 
-<section class="px-0 py-5 text-right" id="projectBG">
+<section class="px-0 py-5 text-right fx-reveal" id="projectBG">
     <div class="container col-xxl-8 px-4 py-1 py-lg-5">
     <div class="row align-items-center g-5 py-1 py-lg-5 animate__animated animate__zoomIn">
       <div class="col-lg-4 d-none d-sm-block d-md-block d-lg-block"></div>
-      <div class="col-lg-8">
+      <div class="col-lg-8 mt-lg-0">
          <div class="project px-3 px-lg-5">
-          <h1 class="display-5 fw-bold pt-0 pb-4 mt-4 mt-lg-5 pt-lg-5 px-0 header animate__animated animate__zoomIn">За проекта</h1>
+          <h1 class="display-5 fw-bold pt-0 pb-4 mt-4 mt-xl-5 pt-xl-5 px-0 header animate__animated animate__zoomIn">За проекта</h1>
           <p class="mt-2 mx-auto px-0 headerP animate__animated animate__zoomIn">Проектът „Хибриден асистент за институционално съвършенство“ е 
           иновативно уеб приложение, което анализира състоянието на публични 
           институции, идентифицира предизвикателства и предлага решения за 
@@ -152,37 +152,40 @@
                 <li><i class="flaticon-tick"></i> Институционална рамка – утвърждаване на принципи за управление, прозрачност и етика</li>
               </ul>
             </div>
-          <button type="button" class="btn mb-1 mx-auto px-5 text-left animate__animated animate__zoomIn">свържете се с нас</button>
+          <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn mb-1 mx-auto px-5 text-left animate__animated animate__zoomIn">свържете се с нас</button>
         </div>
       </div>
   </div>
   </div>
 </section>
 
-<section class="S4">
+<section class="S4 fx-reveal">
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-5 py-5 animate__animated animate__zoomIn">
       <div class="col-lg-12">
         <h1 class="display-5 fw-bold lh-1 mb-3 text-center headerS3">Ключови области на управление</h1>
         <p class="lead">С помощта на усъвършенствани аналитични инструменти и високотехнологични услуги платформата осигурява
  задълбочен преглед, обработка и визуализация на данни за ефективността на институциите</p>
-        <button type="button" class="btn contact mt-1 mx-auto px-5 text-center animate__animated animate__zoomIn">свържете се с нас</button>
+        <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn contact mt-1 mx-auto px-5 text-center animate__animated animate__zoomIn">свържете се с нас</button>
       </div>
   </div>
   </div>
  <div class="container-fluid col-xxl-12 py-5 animate__animated animate__zoomIn ">
-        <div class="row graphic">
+        <div class="row graphic fx-reveal">
           <div class="col-12 col-sm-12 col-lg-8">
             <div class="graphList">
-                <ul class="list">
+                <ul class="list ">
                   <li><i class="bi bi-bar-chart-fill"></i> Управление на институцията</li>
                   <li><i class="bi bi-clipboard2-data-fill"></i> Човешки и материални ресурси</li>
                   <li><i class="bi bi-person-vcard-fill"></i> Формулиране на политики и участие на заинтересованите страни</li>
                   <li><i class="bi bi-graph-up-arrow"></i> Разработка и оценка на нормативни актове</li>
+                  <li class="d-block d-sm-block d-md-none d-lg-none"><i class="bi bi-diagram-3-fill"></i> Предоставяне на услуги</li>
+                  <li class="d-block d-sm-block d-md-none d-lg-none"><i class="bi bi-file-bar-graph-fill"></i> Етични стандарти</li>
+                  <li class="d-block d-sm-block d-md-none d-lg-none"><i class="bi bi-person-gear"></i> Отчетност и откритост</li>
                 </ul>
               </div>
           </div>
-          <div class="col-12 col-sm-12 col-lg-3">
+          <div class="col-12 col-sm-12 col-lg-3 d-none d-sm-none d-md-block d-lg-block">
             <div class="graphList">
                 <ul class="list">
                   <li><i class="bi bi-diagram-3-fill"></i> Предоставяне на услуги</li>
@@ -197,18 +200,20 @@
   </div>
 </section>
 
-<section class="S5 px-2 animate__animated animate__zoomIn">
+<section class="S5 px-2 fx-reveal animate__animated animate__zoomIn">
 <div class="row mt-2 mt-lg-5 pt-2 pt-lg-5 px-3 text-center">
     <div class="col col-md-12 mb-3 themed-grid-col">
     <h1 class="display-5 fw-bold lh-1 mb-3 headerS3">Партньори</h1>
   </div>
 </div>
-<div class="home-carousel mt-lg-5">
+<div class="home-carousel mt-lg-5 fx-reveal">
   <div class="owl-carousel owl-theme">
     <div class="item">
       <div class="card">
         <div class="img-wrapper">
+          <div class="img-overlay-wrapper"></div>
           <img src="./img/img-1.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Специализиран софтуер "Профил на купувача"</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -216,11 +221,11 @@
         </div>
       </div>
   </div>
-
     <div class="item">
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-2.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Специализиран софтуер "Архивиране на документация"</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -232,6 +237,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-3.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Специализиран софтуер "Регистър на общинската собственост"</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -243,6 +249,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-4.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Система за резервация и продажба на билети на каса и онлайн</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -254,6 +261,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-5.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Система за Интернет въпросници и набиране на данни</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -265,6 +273,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-6.jpg" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Уеб система за мониторинг на заболеваемостта в България</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -276,6 +285,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-7.jpg" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Интеррег-ИПП програми за трансгранично сътрудничество, управлявани от България</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -287,6 +297,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-8.jpg" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Виртуални маршрути</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -298,6 +309,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-9.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Уебдизайн</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -309,6 +321,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-10.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Графичен дизайн</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -320,6 +333,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-11.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Рекламни материали</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -331,6 +345,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-12.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Печатни материали</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -342,6 +357,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-13.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Информационни кампании за Общата селскостопанска политика на ЕС</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -353,6 +369,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-14.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Информация и публичност на Интегриран проект за водния цикъл на град Габрово</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -364,6 +381,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-15.png" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Mаркетинг на туристически продукти на Община Смядово</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -375,6 +393,7 @@
       <div class="card">
         <div class="img-wrapper">
           <img src="./img/img-16.jpg" alt="...">
+           <div class="mobile-overlay"></div>
             <div class="text-wrapper px-3">
               <h2 class="text-left pt-0">Mаркетинг на туристически продукти на Община Летница</h2>
               <a href="#"><h6 class="text-left py-3">виж повече <i class="bi bi-chevron-right"></i></h6></a>
@@ -387,10 +406,7 @@
 </section>
 </div>
 
-
-
-
-<footer class="footer mt-auto py-3">
+<footer id="footer" class="footer mt-auto py-3">
   <div class="container-fluid">
     <div class="container py-lg-4">
       <div class="row">
@@ -436,6 +452,8 @@
         </div>
       </div>
     </div>
+    <!-- Back to top button -->
+    <a id="btnTop"><i class="bi bi-chevron-up"></i></a>
     <div class="footer_copyright">
       <p class="text-center text-aligne-center pt-4">Всички права запазени &copy; ПРИЗМА-АИ, 2021-2024</p>
     </div>
@@ -461,61 +479,109 @@
 <!-- Dark mode -->
 <script>
 const themeToggle = document.getElementById('themeToggle');
+const icon = themeToggle.querySelector('.icon');
 const logo = document.getElementById('logo');
 const body = document.body;
 
 function setTheme(mode) {
   if (mode === 'dark') {
     body.classList.add('dark-mode');
-    themeToggle.textContent = '☀️';
+    icon.textContent = '☀️';
     logo.src = './img/logo.png';
     localStorage.setItem('theme', 'dark');
   } else {
     body.classList.remove('dark-mode');
-    themeToggle.textContent = '🌙';
+    icon.textContent = '🌙';
     logo.src = './img/logo.png';
     localStorage.setItem('theme', 'light');
   }
 }
 
-// Toggle click
 themeToggle.addEventListener('click', () => {
   const isDark = body.classList.contains('dark-mode');
-  setTheme(isDark ? 'light' : 'dark');
+  icon.style.transform = 'scale(0)';
+  setTimeout(() => {
+    setTheme(isDark ? 'light' : 'dark');
+    icon.style.transform = 'scale(1)';
+  }, 150);
 });
 
-// Apply saved theme
 const savedTheme = localStorage.getItem('theme') || 'light';
 setTheme(savedTheme);
 </script>
+
 <!-- carousel script -->
 <script>
   $(function() {
     var owl = $(".owl-carousel");
     owl.owlCarousel({
-      items: 3,
+      items: 4,
       margin: 3,
       loop: true,
       nav: true,
       center: true,
       autoplay: true,
-      autoplayTimeout: 3000,
+      autoplayTimeout: 5000,
       autoplayHoverPause: true,
       responsive: {
         0: {
-          items: 1  //1 item for screens 0px and up
+          items: 1,  //1 item for screens 0px and up
         },
         768: {
-          items: 2  //Optional: 2 items for tablets
+          items: 1  //Optional: 2 items for tablets
         },
         992: {
-          items: 3  //3 items for larger desktops
+          items: 2  //3 items for larger desktops
+        },
+        1024: {
+          items: 2  //3 items for larger desktops
         }
       }
     });
   });
 </script>
+<!-- FX reveal animation -->
+<script>
+const ratio = 0.1;
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: ratio
+}
 
+function handleIntersect(entries, observer) {
+  entries.forEach(function(entry) {
+    if(entry.intersectionRatio > ratio) {
+      entry.target.classList.add('fx-reveal-visible')
+      observer.unobserve(entry.target);
+    }
+  })
+}
 
+const observer = new IntersectionObserver(handleIntersect, options);
+document.querySelectorAll('.fx-reveal').forEach(function(r) {
+  observer.observe(r);
+});
+</script>
+<!-- Btn to Top  -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('btnTop');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 500) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  });
+
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+   window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+</script>
 </body>
 </html>
