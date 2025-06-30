@@ -60,11 +60,23 @@
       <span class="fs-4"><img src="./img/logo.png" id="logo" class="dark-logo" style="width: 180px;"></span>
       <!-- <span class="fs-4"><img src="./img/logo-light.png" class="light-logo" style="width: 180px;"></span> -->
     </a>
-    <!-- Hamburger button for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Hamburger button for mobile not active-->
+    <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <!-- button for Mobile dark/light mode-->
+   <button id="themeToggle" class="theme-toggle ms-5 d-block d-sm-block d-md-block d-lg-none d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
+    <!-- dropdown selection menu Mobile -->
+     <div class="dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
+        <a class="btn dropdown-toggle mb-0 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="fi fi-us"></span>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
+          <li><a class="dropdown-item" href="#"><span class="fi fi-es"></span> Spanish</a></li>
+          <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> French</a></li>
+        </ul>
+      </div>
     <!-- Collapsible menu items -->
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0 mb-lg-0">
@@ -75,7 +87,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
             <li><a class="dropdown-item" href="#"><span class="fi fi-es"></span> Spanish</a></li>
-            <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> Frensh</a></li>
+            <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> French</a></li>
           </ul>
         </div>
          <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><span class="icon">🌙</span></button></li>
@@ -84,8 +96,8 @@
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center fx-reveal" id="heroBG">
-  <div class="innerText justify-content-center align-self-center px-3 px-lg-5 mt-1 mt-lg-1 pt-1 pt-lg-1">
+<section class="px-0 py-0 py-lg-5 text-center" id="heroBG">
+  <div class="innerText justify-content-center align-self-center px-3 px-lg-5 mt-1 mt-lg-1 pt-1 pt-lg-1 fx-reveal">
     <h1 class="display-4 fw-bold pt-5 pb-2 mt-3 px-0 header animate__animated animate__zoomIn">ОРГАНИЗАЦИОННО РАЗВИТИЕ И КОНСУЛТИРАНЕ</h1>
     <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегма има дългогодишен опит в организационното развитие и се е утвърдила като консултант, 
       който помага на своите клиенти да постигнат устойчиви подобрения чрез прилагане на модерни решения. Ние се стремим да оценим реалните нужди и да предложим съвети, 
@@ -133,11 +145,11 @@
   </div>
 </section>
 
-<section class="px-0 py-5 text-right fx-reveal" id="projectBG">
-    <div class="container col-xxl-8 px-4 py-1 py-lg-5">
+<section class="px-0 py-5 text-right" id="projectBG">
+    <div class="container col-xxl-8 px-4 py-1 py-lg-5 fx-reveal">
     <div class="row align-items-center g-5 py-1 py-lg-5 animate__animated animate__zoomIn">
       <div class="col-lg-4 d-none d-sm-block d-md-block d-lg-block"></div>
-      <div class="col-lg-8 mt-lg-0">
+      <div class="col-lg-8 mt-0 mt-lg-0">
          <div class="project px-3 px-lg-5">
           <h1 class="display-5 fw-bold pt-0 pb-4 mt-4 mt-xl-5 pt-xl-5 px-0 header animate__animated animate__zoomIn">За проекта</h1>
           <p class="mt-2 mx-auto px-0 headerP animate__animated animate__zoomIn">Проектът „Хибриден асистент за институционално съвършенство“ е 
@@ -455,7 +467,7 @@
     <!-- Back to top button -->
     <a id="btnTop"><i class="bi bi-chevron-up"></i></a>
     <div class="footer_copyright">
-      <p class="text-center text-aligne-center pt-4">Всички права запазени &copy; ПРИЗМА-АИ, 2021-2024</p>
+      <p class="text-center text-aligne-center pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
     </div>
   </div>
 </footer>

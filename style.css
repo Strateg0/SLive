@@ -635,7 +635,7 @@ footer p {
   margin: 0;
   width: 40px;
   height: 40px;
-    border: 1px solid #008177;
+    border: 1px solid #6c757d;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -1145,6 +1145,10 @@ a#btnTop > i {
   .img-wrapper {
         height: 70vw;
     }
+  .theme-toggle {
+    position: absolute;
+    right: 11vw;
+  }
 }
 
 @media screen and (max-width: 768px) and (min-width:320px){
@@ -1248,10 +1252,19 @@ a#btnTop > i {
   .price-list > ul {
     padding-left: 0;
   }
+  .dropdown {
+    background: #ffffff;
+    border-radius: 20px;
+  }
+  .dropdown > a {backdrop-filter:inherit;}
+  .theme-toggle {
+    font-size: 1.6em;
+  }
 }
 
 @media screen and (max-width: 480px) and (min-width:320px){
   a.navbar-brand > svg {width: 0 !important;}
   .details .value{font-size: 15px;}
   ul.footer-list li a {font-size: 16px;}
+  #heroBG{background-size: inherit;}
 }
