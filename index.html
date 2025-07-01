@@ -65,7 +65,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- button for Mobile dark/light mode-->
-   <button id="themeToggle" class="theme-toggle ms-4 d-block d-sm-block d-md-block d-lg-none d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
+   <button id="themeToggle" class="theme-toggle ms-4 d-block d-sm-block d-md-block d-lg-block d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
     <!-- dropdown selection menu Mobile -->
      <div class="dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
         <a class="btn dropdown-toggle mb-0 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -75,11 +75,18 @@
           <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
           <li><a class="dropdown-item" href="#"><span class="fi fi-es"></span> Spanish</a></li>
           <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> French</a></li>
+          <li><a class="dropdown-item" href="#"><span class="fi fi-hr"></span> Croatia</a></li>
         </ul>
       </div>
     <!-- Collapsible menu items -->
     <div class="collapse navbar-collapse" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0 mb-lg-0">
+        <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">сектори</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">какво предлагаме</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">новости</a></li>
+        <li class="nav-item"><a href="aboutUs.html" class="nav-link">за нас</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link">блог</a></li>
         <div class="dropdown">
           <a class="btn dropdown-toggle mb-2 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
            <span class="fi fi-us"></span>
@@ -88,27 +95,39 @@
             <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
             <li><a class="dropdown-item" href="#"><span class="fi fi-es"></span> Spanish</a></li>
             <li><a class="dropdown-item" href="#"><span class="fi fi-fr"></span> French</a></li>
+            <li><a class="dropdown-item" href="#"><span class="fi fi-hr"></span> Croatia</a></li>
           </ul>
         </div>
-         <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><span class="icon">🌙</span></button></li>
+        <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="iconDesk">🌙</span></button></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <section class="px-0 py-0 py-lg-5 text-center" id="heroBG">
-  <div class="innerText justify-content-center align-self-center px-3 px-lg-5 mt-1 mt-lg-1 pt-1 pt-lg-1 fx-reveal">
-    <h1 class="display-4 fw-bold pt-0 pb-2 mt-3 px-0 header animate__animated animate__zoomIn">ОРГАНИЗАЦИОННО РАЗВИТИЕ И КОНСУЛТИРАНЕ</h1>
-    <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегма има дългогодишен опит в организационното развитие и се е утвърдила като консултант, 
-      който помага на своите клиенти да постигнат устойчиви подобрения чрез прилагане на модерни решения. Ние се стремим да оценим реалните нужди и да предложим съвети, 
-      които носят добавена стойност на организациите. За целта изграждаме трайни партньорства с нашите клиенти. Разчитаме на проверени и доказани методи, основани на 
-      универсални принципи.</p>
-      <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn mt-2 mx-auto px-5 text-left animate__animated animate__zoomIn">свържете се с нас</button>
+   <div class="container-fluid px-3 py-5">
+    <div class="row py-5 animate__animated animate__zoomIn">
+       <div class="col-12 col-sm-6 col-lg-6">
+        <div class="innerText align-self-start px-0 px-lg-3 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
+           <img src="./img/abstract.png" alt="abstract image">
+        </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-6">
+        <div class="innerText justify-content-center align-self-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
+          <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">ОРГАНИЗАЦИОННО РАЗВИТИЕ И КОНСУЛТИРАНЕ</h1>
+          <p class="h6 mt-2 fw-bold mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегическите решения се основават на стратегическо знание.</p>
+          <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегма има дългогодишен опит в организационното развитие и се е утвърдила като консултант, 
+            който помага на своите клиенти да постигнат устойчиви подобрения чрез прилагане на модерни решения. Ние се стремим да оценим реалните нужди и да предложим съвети, 
+            които носят добавена стойност на организациите. За целта изграждаме трайни партньорства с нашите клиенти. Разчитаме на проверени и доказани методи, основани на 
+            универсални принципи.</p>
+            <a href="aboutUs.html"><button type="button" class="btn mt-2 mx-auto px-5 text-left animate__animated animate__zoomIn">виж повече</button></a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-
-<section class="S3 fx-reveal">
+<section class="S3 fx-reveal" id="S3">
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-5 py-5 animate__animated animate__zoomIn">
       <div class="col-lg-12">
@@ -489,7 +508,9 @@
 <!-- Dark mode -->
 <script>
 const themeToggle = document.getElementById('themeToggle');
+const themeToggleDesk = document.getElementById('themeToggleDesk');
 const icon = themeToggle.querySelector('.icon');
+const iconDesk = themeToggleDesk.querySelector('.icon');
 const logo = document.getElementById('logo');
 const body = document.body;
 
@@ -508,6 +529,15 @@ function setTheme(mode) {
 }
 
 themeToggle.addEventListener('click', () => {
+  const isDark = body.classList.contains('dark-mode');
+  icon.style.transform = 'scale(0)';
+  setTimeout(() => {
+    setTheme(isDark ? 'light' : 'dark');
+    icon.style.transform = 'scale(1)';
+  }, 150);
+});
+
+themeToggleDesk.addEventListener('click', () => {
   const isDark = body.classList.contains('dark-mode');
   icon.style.transform = 'scale(0)';
   setTimeout(() => {
