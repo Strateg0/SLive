@@ -12,7 +12,7 @@
   --bs-white: #fff;
   --bs-gray: #6c757d;
   --bs-gray-dark: #343a40;
-  --bs-primary: #008177;
+  --bs-primary: #008177!important;
   --bs-secondary: #872557;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -139,6 +139,9 @@ body{transition: background-color 0.3s ease, color 0.3s ease;}
     color: var(--bs-navbar-active-active-color);
     text-transform: capitalize;
 }
+li.nav-item {
+    margin: 0px 15px;
+}
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #ffffff;
@@ -147,11 +150,21 @@ body{transition: background-color 0.3s ease, color 0.3s ease;}
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color: var(--bs-navbar-active-active-color);
     background: #008177;
-    border-radius: 40px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.nav-link:focus, .nav-link:hover {
+    color: #872557!important;
+    font-weight: 400;
 }
 .bg-dark {
     background-color: var(--bs-footer-color)!important;
     color: var(--bs-white);
+}
+
+.btn-primary{
+  background-color: var(--bs-primary)!important;
+  border: 1px solid #008177;
 }
 
 #heroBG{
@@ -166,6 +179,39 @@ background-position: center;
 background-attachment: fixed;
 height: 100vh;
 min-height: 100vh;
+display: flex;
+justify-content: center; 
+align-items: center;
+}
+
+#aboutus_heroBG{
+z-index: 0;
+position: relative;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: linear-gradient(to right, rgb(1 0 6 / 55%), rgb(1 0 10 / 55%)), url('./img/aboutbg.png');
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: center;
+background-attachment: fixed;
+height: 100vh;
+min-height: 100vh;
+display: flex;
+justify-content: center; 
+align-items: center;
+}
+
+#blog_heroBG{
+z-index: 0;
+position: relative;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: linear-gradient(to right, rgb(1 0 6 / 55%), rgb(1 0 10 / 55%)), url('./img/aboutbg.png');
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: center;
+background-attachment: fixed;
+height: auto;
 display: flex;
 justify-content: center; 
 align-items: center;
@@ -198,6 +244,11 @@ height: 100vh;
   position: absolute;
   width: 100% !important;
   background-origin: content-box;
+}
+
+#aboutus_heroBG .innerText{
+  text-align: justify;
+   width: 100%;
 }
 
 .price-table.style-2 .price-list {
@@ -245,7 +296,7 @@ height: 100vh;
     content: "\2713";
 }
 
-.innerText > a button, .project > a button {
+.innerText > a button, .project > button {
     border: 1px solid #008177;
     color: #008177;
     font-weight: bold;
@@ -256,7 +307,7 @@ height: 100vh;
     width: auto;
 }
 
-.innerText > a button:hover, .project > a button:hover {
+.innerText > a button:hover, .project > button:hover {
     border: 1px solid #ffffff;
     color: #ffffff;
     transition: all ease-in-out 0.3s;
@@ -473,6 +524,12 @@ p.lead, ul.list-group > li {
     text-align: center;
 }
 
+.img_storege > p a {
+    text-decoration: none;
+    color: #872557;
+    font-weight: bold;
+}
+
 footer{
   position: relative;
   bottom: 0;
@@ -540,7 +597,6 @@ footer p {
     margin-top: var(--bs-dropdown-spacer);
 }
 
-
 .card-custom {
   background-color: #008177;
   color: white;
@@ -592,18 +648,18 @@ footer p {
 
 /* dark mode CSS */
 .dark-mode {
-  background-color: #121212 !important;
+  background-color: #00211e !important;
   color: #ffffff !important;
 }
 
 .dark-mode nav.sticky-nav {
-  background-color: #121212 !important;
+  background-color: #00211e !important;
   color: #ffffff !important;
 }
 
 .dark-mode .navbar-toggler{
-   color: #ffffff !important;
-    background-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: #ffffff !important;
 }
 
 .dark-mode .nav-link {
@@ -611,18 +667,27 @@ footer p {
 }
 
 .dark-mode header {
-  background: #333;
+  background: #00211e;
 }
 
 .dark-mode .card, .dark-mode section, .dark-mode .home-carousel h2 {
-  background-color: #1e1e1e !important;
+  background-color: #00211e !important;
   color: #fff !important;
   border-color: #444;
 }
 
 .dark-mode .modal-content{
-  background-color: #2a2a2a !important;
+  background-color: #00211e !important;
   color: #fff;
+}
+
+.dark-mode .dropdown-toggle::after{
+  color: #ffffff;
+}
+
+.dark-mode .strateg-blog h4.text-head-text-9, .dark-mode .strateg-blog p.sub-para, .dark-mode .strateg-blog ul.blog-author-date li.author{
+   color: #ffffff;
+   text-decoration: none;
 }
 
 .theme-toggle {
@@ -969,7 +1034,7 @@ a#btnTop > i {
     border: 1px solid #eee;
     padding: 2rem;
     display: block;
-    height: 100%;
+    height: auto;
     background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
     text-transform: capitalize;
     width: auto;
@@ -1128,6 +1193,32 @@ a#btnTop > i {
     line-height: 32px;
     display: inline-block;
 }
+
+.modal-body > p {
+  text-align: justify;
+}
+
+
+#blog-form {
+    background: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+  }
+
+  #blog-form input, #blog-form textarea, #blog-form select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  #blog-form button {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
