@@ -263,76 +263,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
   <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-  <!-- <script>
-    // Init Quill editor
-    const quill = new Quill('#editor-container', {
-      theme: 'snow',
-      placeholder: 'Write your article content here...',
-      modules: {
-        toolbar: [
-          [{ header: [1, 2, 3, false] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          [{ color: [] }, { background: [] }],
-          [{ align: [] }],
-          [{ list: 'ordered' }, { list: 'bullet' }],
-          ['link', 'clean']
-        ]
-      }
-    });
-
-    // Load initial form data from sessionStorage
-    window.onload = function () {
-      const draft = JSON.parse(sessionStorage.getItem('draftPost'));
-      if (draft) {
-        document.getElementById('topic').value = draft.topic;
-        document.getElementById('author').value = draft.author;
-        document.getElementById('title').value = draft.title;
-        document.getElementById('description').value = draft.description;
-        document.getElementById('imageUrl').value = draft.imageUrl;
-      }
-    };
-
-    // Load data if editing
-window.onload = function () {
-  const editing = new URLSearchParams(window.location.search).get('edit');
-  const draft = JSON.parse(sessionStorage.getItem(editing ? 'editDraft' : 'draftPost'));
-
-  if (draft) {
-    document.getElementById('topic').value = draft.topic;
-    document.getElementById('author').value = draft.author;
-    document.getElementById('title').value = draft.title;
-    document.getElementById('description').value = draft.description;
-    document.getElementById('imageUrl').value = draft.imageUrl;
-    if (editing && draft.content) {
-      quill.root.innerHTML = draft.content;
-    }
-  }
-};
-
-
-function saveDraft() {
-  const topic = document.getElementById('topic').value;
-  const author = document.getElementById('author').value;
-  const title = document.getElementById('title').value;
-  const description = document.getElementById('description').value;
-  const imageUrl = document.getElementById('imageUrl').value;
-  const content = quill.root.innerHTML;
-  const date = new Date().toLocaleDateString();
-  const id = Date.now(); // simple unique ID
-
-  const post = { id, topic, author, title, description, imageUrl, content, date };
-
-  let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
-  drafts.push(post);
-  localStorage.setItem('drafts', JSON.stringify(drafts));
-
-  alert('Draft saved successfully!');
-  window.location.href = 'archive.html';
-}
-
-
-  </script> -->
-
   <script>
   // Init Quill editor
   const quill = new Quill('#editor-container', {
@@ -374,35 +304,60 @@ function saveDraft() {
     }
   };
 
-  function saveDraft() {
-    const topic = document.getElementById('topic').value;
-    const author = document.getElementById('author').value;
-    const title = document.getElementById('title').value;
-    const description = document.getElementById('description').value;
-    const imageUrl = document.getElementById('imageUrl').value;
-    const content = quill.root.innerHTML;
-    const date = new Date().toLocaleDateString();
+  // function saveDraft() {
+  //   const topic = document.getElementById('topic').value;
+  //   const author = document.getElementById('author').value;
+  //   const title = document.getElementById('title').value;
+  //   const description = document.getElementById('description').value;
+  //   const imageUrl = document.getElementById('imageUrl').value;
+  //   const content = quill.root.innerHTML;
+  //   const date = new Date().toLocaleDateString();
 
-    let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
+  //   let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
 
-    if (editingId) {
-      // Update existing draft
-      drafts = drafts.map(draft =>
-        draft.id === editingId
-          ? { ...draft, topic, author, title, description, imageUrl, content, date }
-          : draft
-      );
-      alert('Draft updated successfully!');
-    } else {
-      // Create new draft
-      const id = Date.now();
-      drafts.push({ id, topic, author, title, description, imageUrl, content, date });
-      alert('Draft saved successfully!');
-    }
+  //   if (editingId) {
+  //     // Update existing draft
+  //     drafts = drafts.map(draft =>
+  //       draft.id === editingId
+  //         ? { ...draft, topic, author, title, description, imageUrl, content, date }
+  //         : draft
+  //     );
+  //     alert('Draft updated successfully!');
+  //   } else {
+  //     // Create new draft
+  //     const id = Date.now();
+  //     drafts.push({ id, topic, author, title, description, imageUrl, content, date });
+  //     alert('Draft saved successfully!');
+  //   }
 
-    localStorage.setItem('drafts', JSON.stringify(drafts));
-    window.location.href = 'archive.html';
+  //   localStorage.setItem('drafts', JSON.stringify(drafts));
+  //   window.location.href = 'archive.html';
+  // }
+
+  async function saveDraft() {
+  const { collection, addDoc } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  const post = {
+    topic: document.getElementById('topic').value,
+    author: document.getElementById('author').value,
+    title: document.getElementById('title').value,
+    description: document.getElementById('description').value,
+    imageUrl: document.getElementById('imageUrl').value,
+    content: quill.root.innerHTML,
+    date: new Date().toLocaleDateString(),
+    published: false
+  };
+
+  try {
+    await addDoc(collection(db, "posts"), post);
+    alert("Draft saved to Firebase!");
+    window.location.href = "archive.html";
+  } catch (e) {
+    alert("Error saving draft: " + e.message);
   }
+}
+
 </script>
 
 <script>
@@ -434,6 +389,49 @@ function setupWordLimit(fieldId, countId, maxWords) {
   setupWordLimit('title', 'titleWordCount', 8);
   setupWordLimit('description', 'descriptionWordCount', 10);
 </script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
+    authDomain: "blog-bd628.firebaseapp.com",
+    projectId: "blog-bd628",
+    storageBucket: "blog-bd628.firebasestorage.app",
+    messagingSenderId: "548493041269",
+    appId: "1:548493041269:web:07460e97568e656a57623c",
+    measurementId: "G-RCBHBBJWJD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // Attach Firestore & helpers to global scope
+  window.firebaseDB = db;
+  window.firebaseRefs = {
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  };
+</script>
+
 
 
 </body>

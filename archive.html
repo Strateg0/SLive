@@ -20,7 +20,7 @@
       width: 100%;
       max-width: 100%;
     }
-    body.blur #content {
+    /* body.blur #content {
       filter: blur(6px);
       pointer-events: none;
       user-select: none;
@@ -48,7 +48,7 @@
       margin-top: 10px;
       color: red;
       min-height: 1.2em;
-    }
+    } */
   </style>
   </head>
 <body class="blur">
@@ -145,7 +145,7 @@
   </div>
 </section>
 
-  <div id="overlay">
+  <!-- <div id="overlay">
     <div class="cardPass">
       <h2>Enter Admin Password</h2>
       <input type="password" id="passwordInput" placeholder="Password" />
@@ -153,7 +153,7 @@
       <p id="message"></p>
       <p id="timer">Time left: 30 seconds</p>
     </div>
-  </div>
+  </div> -->
 
 <footer id="footer" class="footer mt-auto py-3">
   <div class="container-fluid">
@@ -267,30 +267,61 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 <script>
-  function loadDrafts() {
-    const drafts = JSON.parse(localStorage.getItem('drafts')) || [];
-    const tbody = document.getElementById('drafts-table-body');
-    tbody.innerHTML = '';
+  // function loadDrafts() {
+  //   const drafts = JSON.parse(localStorage.getItem('drafts')) || [];
+  //   const tbody = document.getElementById('drafts-table-body');
+  //   tbody.innerHTML = '';
 
-    drafts.forEach((post, index) => {
+  //   drafts.forEach((post, index) => {
+  //     const row = document.createElement('tr');
+
+  //     row.innerHTML = `
+  //       <td>${index + 1}</td>
+  //       <td>${post.title}</td>
+  //       <td>${post.description}</td>
+  //       <td>${post.author}</td>
+  //       <td>${post.date}</td>
+  //       <td>
+  //         <button onclick="editDraft(${post.id})">Go Back to Editor</button>
+  //         <button onclick="publishPostLive(${post.id})" class="btn btn-success btn-sm">Publish Live</button>
+  //         <button onclick="deleteDraft(${post.id})">Delete</button>
+  //       </td>
+  //     `;
+
+  //     tbody.appendChild(row);
+  //   });
+  // }
+
+  async function loadDrafts() {
+  const { collection, getDocs } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  const querySnapshot = await getDocs(collection(db, "posts"));
+  const tbody = document.getElementById('drafts-table-body');
+  tbody.innerHTML = '';
+
+  let index = 1;
+  querySnapshot.forEach(docSnap => {
+    const post = docSnap.data();
+    if (!post.published) {
       const row = document.createElement('tr');
-
       row.innerHTML = `
-        <td>${index + 1}</td>
+        <td>${index++}</td>
         <td>${post.title}</td>
         <td>${post.description}</td>
         <td>${post.author}</td>
         <td>${post.date}</td>
         <td>
-          <button onclick="editDraft(${post.id})">Go Back to Editor</button>
-          <button onclick="publishPostLive(${post.id})" class="btn btn-success btn-sm">Publish Live</button>
-          <button onclick="deleteDraft(${post.id})">Delete</button>
+          <button onclick="editDraft('${docSnap.id}')">Go Back to Editor</button>
+          <button onclick="publishDraft('${docSnap.id}')">Publish Live</button>
+          <button onclick="deleteDraft('${docSnap.id}')">Delete</button>
         </td>
       `;
-
       tbody.appendChild(row);
-    });
-  }
+    }
+  });
+}
+
 
   function editDraft(id) {
     const drafts = JSON.parse(localStorage.getItem('drafts')) || [];
@@ -308,23 +339,36 @@ document.addEventListener('DOMContentLoaded', function () {
     loadDrafts(); // refresh
   }
 
-  function publishDraft(id) {
-    let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
-    const post = drafts.find(d => d.id === id);
-    if (!post) return;
+  // function publishDraft(id) {
+  //   let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
+  //   const post = drafts.find(d => d.id === id);
+  //   if (!post) return;
 
-    // Save to published posts
-    let published = JSON.parse(localStorage.getItem('posts')) || [];
-    published.push(post);
-    localStorage.setItem('posts', JSON.stringify(published));
+  //   // Save to published posts
+  //   let published = JSON.parse(localStorage.getItem('posts')) || [];
+  //   published.push(post);
+  //   localStorage.setItem('posts', JSON.stringify(published));
 
-    // Remove from drafts
-    drafts = drafts.filter(d => d.id !== id);
-    localStorage.setItem('drafts', JSON.stringify(drafts));
+  //   // Remove from drafts
+  //   drafts = drafts.filter(d => d.id !== id);
+  //   localStorage.setItem('drafts', JSON.stringify(drafts));
 
-    loadDrafts(); // refresh
-    alert("Post published!");
-  }
+  //   loadDrafts(); // refresh
+  //   alert("Post published!");
+  // }
+
+  async function publishDraft(id) {
+  const { doc, updateDoc } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  await updateDoc(doc(db, "posts", id), {
+    published: true
+  });
+
+  alert("Post published!");
+  loadDrafts();
+}
+
 
   function publishPostLive(postId) {
     let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
@@ -353,7 +397,7 @@ document.addEventListener('DOMContentLoaded', function () {
   window.onload = loadDrafts;
 </script>
 
-<script>
+<!-- <script>
     const overlay = document.getElementById('overlay');
     const submitBtn = document.getElementById('submitBtn');
     const passwordInput = document.getElementById('passwordInput');
@@ -415,6 +459,49 @@ document.addEventListener('DOMContentLoaded', function () {
         submitBtn.click();
       }
     });
-  </script>
+  </script> -->
+
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
+    authDomain: "blog-bd628.firebaseapp.com",
+    projectId: "blog-bd628",
+    storageBucket: "blog-bd628.firebasestorage.app",
+    messagingSenderId: "548493041269",
+    appId: "1:548493041269:web:07460e97568e656a57623c",
+    measurementId: "G-RCBHBBJWJD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // Attach Firestore & helpers to global scope
+  window.firebaseDB = db;
+  window.firebaseRefs = {
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  };
+</script>
+
 </body>
 </html>

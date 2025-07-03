@@ -79,14 +79,20 @@
 <section class="px-0 py-0 py-lg-5 text-center">
    <div class="container px-3 py-5">
         <div class="row">
-          <h1 id="post-title"></h1>
+          <div id="post-container">
+            <h1 id="post-title"></h1>
+            <p id="post-author"></p>
+            <div id="post-content"></div>
+          </div>
+
+          <!-- <h1 id="post-title"></h1>
           <div class="meta">
             <span id="post-author"></span> |
             <span id="post-date"></span>
           </div>
           <img id="post-image" src="" alt="" />
           <p id="post-description"></p>
-          <div id="content"></div>
+          <div id="content"></div> -->
         </div>
     </div>
   </div>
@@ -203,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script>
+<!-- <script>
     function loadPost() {
       const query = new URLSearchParams(window.location.search);
       const title = query.get('title');
@@ -225,7 +231,85 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.onload = loadPost;
-  </script>
+  </script> -->
+
+ <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
+    authDomain: "blog-bd628.firebaseapp.com",
+    projectId: "blog-bd628",
+    storageBucket: "blog-bd628.firebasestorage.app",
+    messagingSenderId: "548493041269",
+    appId: "1:548493041269:web:07460e97568e656a57623c",
+    measurementId: "G-RCBHBBJWJD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // Attach Firestore & helpers to global scope
+  window.firebaseDB = db;
+  window.firebaseRefs = {
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  };
+</script>
+
+<script>
+  async function loadPostById() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get("id");
+
+    if (!postId) {
+      document.getElementById("post-container").innerHTML = "<p>Invalid post ID.</p>";
+      return;
+    }
+
+    const { getDoc, doc } = window.firebaseRefs;
+    const db = window.firebaseDB;
+
+    try {
+      const postRef = doc(db, "posts", postId);
+      const postSnap = await getDoc(postRef);
+
+      if (postSnap.exists()) {
+        const post = postSnap.data();
+        document.getElementById("post-title").textContent = post.title;
+        document.getElementById("post-author").textContent = "By " + post.author + " • " + post.date;
+        document.getElementById("post-content").innerHTML = post.content;
+      } else {
+        document.getElementById("post-container").innerHTML = "<p>Post not found.</p>";
+      }
+    } catch (error) {
+      console.error("Error loading post:", error);
+      document.getElementById("post-container").innerHTML = "<p>Error loading post.</p>";
+    }
+  }
+
+  window.onload = loadPostById;
+</script>
+
+
 
 </body>
 </html>

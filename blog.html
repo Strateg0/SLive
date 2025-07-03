@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="blog-single.html?title=${encodeURIComponent(post.title)}" target="_blank">
           <div class="blog-post d-flex flex-wrap align-content-between">
             <div class="post-content">
-              <img src="${post.imageUrl || './img/b1.jpg'}" class="img-fluid" alt="blog-post-image" />
+              ${post.imageUrl ? `<img src="${post.imageUrl}" class="img-fluid" loading="lazy" alt="blog-post-image" />` : ''}
               <p class="sub-para my-3">${post.topic}</p>
               <h4 class="text-head-text-9">${post.title}</h4>
               <p class="sub-para my-1">${post.description}</p>
@@ -310,6 +310,81 @@ document.addEventListener('DOMContentLoaded', function () {
   window.onload = loadPublishedPosts;
 </script>
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
+    authDomain: "blog-bd628.firebaseapp.com",
+    projectId: "blog-bd628",
+    storageBucket: "blog-bd628.firebasestorage.app",
+    messagingSenderId: "548493041269",
+    appId: "1:548493041269:web:07460e97568e656a57623c",
+    measurementId: "G-RCBHBBJWJD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // Attach Firestore & helpers to global scope
+  window.firebaseDB = db;
+  window.firebaseRefs = {
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  };
+</script>
+
+
+<script>
+  async function displayPosts() {
+  const { collection, getDocs } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  const querySnapshot = await getDocs(collection(db, "posts"));
+  const container = document.getElementById('blog-posts');
+  container.innerHTML = '';
+
+  querySnapshot.forEach(docSnap => {
+    const post = docSnap.data();
+    if (post.published) {
+      container.innerHTML += `
+        <a href="blog-single.html?id=${docSnap.id}" class="col-lg-6 blog-article-post">
+          <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
+            <div class="post-content">
+              <img src="${post.imageUrl}" class="img-fluid" alt="blog-post-image" />
+              <p class="sub-para my-3">${post.topic}</p>
+              <h4 class="text-head-text-9">${post.title}</h4>
+            </div>
+            <ul class="blog-author-date mt-4 px-0">
+              <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
+            </ul>
+          </div>
+        </a>
+      `;
+    }
+  });
+}
+
+window.onload = displayPosts;
+
+</script>
 </body>
 </html>
