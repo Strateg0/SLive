@@ -20,9 +20,38 @@
       width: 100%;
       max-width: 100%;
     }
+    body.blur #content {
+      filter: blur(6px);
+      pointer-events: none;
+      user-select: none;
+    }
+    #overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+      font-family: sans-serif;
+    }
+    #overlay.hidden {
+      display: none;
+    }
+    #passwordInput {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    #message {
+      margin-top: 10px;
+      color: red;
+      min-height: 1.2em;
+    }
   </style>
   </head>
-<body>
+<body class="blur">
 <main>
 <div class="container-fluid px-0">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
@@ -76,39 +105,55 @@
   </div>
 </nav>
 
-<section class="px-3 py-0 py-lg-5 text-center">
+<section class="px-3 py-0 py-lg-5 text-center"  id="content">
    <div class="container px-0 py-5">
        <div class="row px-0 mx-auto">
-                <div class="col-md-4">
+          <div class="col-md-12">
             <div id="blog-form" class="mt-0">
-              <h2>Create a New Blog Post</h2>
-              <button onclick="goToEditor()">Create New Blog Post</button>
-          </div>
-        </div>
-          <div class="col-md-12 tableArt">
-            <h2>Articles</h2>
-              <table border="1" width="100%" cellpadding="10">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Author</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody id="drafts-table-body">
-                  <!-- JavaScript will populate this -->
-                </tbody>
-              </table>
+              <nav class="navbar">
+                <div class="container-fluid">
+                  <h2>Създаване на нов пост</h2>
+                    <div class="d-flex">
+                      <button class="creation" onclick="goToEditor()">Създаване <i class="bi bi-plus-circle-fill"></i></button>
+                    </div>
+                </div>
+              </nav>
+                <!-- <h2 class="pt-3">Създаване на нов пост</h2>
+              <button onclick="goToEditor()">Създаване <i class="bi bi-plus-circle-fill"></i></button> -->
+            </div>
+            <div class="col-md-12 tableArt">
+              <h2>Статии</h2>
+                <table border="1" width="100%" cellpadding="10">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Заглавие</th>
+                      <th>Описание</th>
+                      <th>Автор</th>
+                      <th>Дата</th>
+                      <th>Действие</th>
+                    </tr>
+                  </thead>
+                  <tbody id="drafts-table-body">
+                    <!-- JavaScript will populate this -->
+                  </tbody>
+                </table>
+            </div>
           </div>
       </div>
     </div>
   </div>
 </section>
 
-
+  <div id="overlay">
+    <div class="cardPass">
+      <h2>Enter Admin Password</h2>
+      <input type="password" id="passwordInput" placeholder="Password" />
+      <button id="submitBtn">Submit</button>
+      <p id="message"></p>
+      <p id="timer">Time left: 30 seconds</p>
+    </div>
+  </div>
 
 <footer id="footer" class="footer mt-auto py-3">
   <div class="container-fluid">
@@ -308,6 +353,68 @@ document.addEventListener('DOMContentLoaded', function () {
   window.onload = loadDrafts;
 </script>
 
+<script>
+    const overlay = document.getElementById('overlay');
+    const submitBtn = document.getElementById('submitBtn');
+    const passwordInput = document.getElementById('passwordInput');
+    const message = document.getElementById('message');
+    const timerDisplay = document.getElementById('timer');
+    // const body = document.body;
 
+    let timeLeft = 30;
+    let timerInterval;
+    let adminPassword = '';
+
+    // Load password from JSON
+    fetch('data.json')
+      .then(response => response.json())
+      .then(data => {
+        adminPassword = data.adminPassword;
+        startTimer();
+      })
+      .catch(() => {
+        message.textContent = "Error loading password file.";
+        submitBtn.disabled = true;
+      });
+
+      function startTimer() {
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            message.textContent = "Time expired. Redirecting to home...";
+            submitBtn.disabled = true;
+            passwordInput.disabled = true;
+
+            // Redirect after short delay so user can see the message
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 2000);
+          }
+        }, 1000);
+      }
+
+
+    submitBtn.addEventListener('click', () => {
+      const enteredPassword = passwordInput.value;
+      if (enteredPassword === adminPassword) {
+        clearInterval(timerInterval);
+        overlay.classList.add('hidden');
+        body.classList.remove('blur');
+        message.textContent = '';
+      } else {
+        message.textContent = 'Incorrect password. Try again.';
+        passwordInput.value = '';
+      }
+    });
+
+    // Optional: Allow pressing Enter to submit password
+    passwordInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        submitBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>

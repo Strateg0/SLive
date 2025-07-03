@@ -125,12 +125,14 @@
 
   <div class="input-group">
     <label for="title">Title</label>
-    <input type="text" id="title" placeholder="Enter title" />
+    <input type="text" id="title" rows="1" cols="10" placeholder="Enter Title..." />
+    <p id="titleWordCount">Words: 0 / 8</p>
   </div>
 
   <div class="input-group">
     <label for="description">Short Description</label>
-    <textarea id="description" rows="3"></textarea>
+    <textarea id="description" rows="1" cols="10" placeholder="Enter Description..."></textarea>
+    <p id="descriptionWordCount">Words: 0 / 10</p>
   </div>
 
   <div class="input-group">
@@ -139,11 +141,11 @@
   </div>
 
   <div class="input-group">
-    <label>Article Content</label>
+    <!-- <label>Article Content</label> -->
     <div id="editor-container"></div>
   </div>
 
- <button id="saveBtn" onclick="saveDraft()">Save Draft</button>
+ <button id="saveBtn" onclick="saveDraft()">Запази Като Драфт</button>
 
 </div>
 </div>
@@ -410,6 +412,29 @@ function saveDraft() {
     alert('You cannot go back from the editor. Please save or cancel.');
   });
 </script>
+
+<script>
+function setupWordLimit(fieldId, countId, maxWords) {
+    const field = document.getElementById(fieldId);
+    const wordCountDisplay = document.getElementById(countId);
+
+    field.addEventListener('input', () => {
+      let words = field.value.trim().split(/\s+/).filter(w => w.length > 0);
+
+      if (words.length > maxWords) {
+        field.value = words.slice(0, maxWords).join(' ');
+        words = words.slice(0, maxWords);
+      }
+
+      wordCountDisplay.textContent = `Words: ${words.length} / ${maxWords}`;
+    });
+  }
+
+  // Setup limits for each field:
+  setupWordLimit('title', 'titleWordCount', 8);
+  setupWordLimit('description', 'descriptionWordCount', 10);
+</script>
+
 
 </body>
 </html>

@@ -308,7 +308,7 @@ height: 100vh;
     width: auto;
 }
 
-.innerText > a button:hover, .project > button:hover {
+.innerText > a button:hover, .project > button:hover{
     border: 1px solid #ffffff;
     color: #ffffff;
     transition: all ease-in-out 0.3s;
@@ -320,7 +320,7 @@ height: 100vh;
     width: auto;
 }
 
-.btn.contact{
+.btn.contact, button.creation, button#saveBtn{
     border: 1px solid #872557;
     color: #ffffff;
     display: block;
@@ -333,7 +333,7 @@ height: 100vh;
     width: auto;
 }
 
-.btn.contact:hover{
+.btn.contact:hover, button.creation:hover, button#saveBtn:hover{
     border: 1px solid #872557;
     transition: all ease-in-out 0.3s;
     color: #872557;
@@ -344,6 +344,17 @@ height: 100vh;
     background: #ffffff;
     border-radius: 60px;
     padding: 20px;
+    width: auto;
+}
+
+.cardPass > button {
+    border: 1px solid #872557;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #872557;
+    border-radius: 20px;
+    padding: 10px;
     width: auto;
 }
 
@@ -817,7 +828,7 @@ footer p {
 
 .card {
   margin: 0 0.5em;
- border-bottom-left-radius: 40px;
+  border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   background: rgba(183, 183, 183, 0.15);
   box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%); 
@@ -1216,13 +1227,17 @@ a#btnTop > i {
     padding: 10px;
   }
 
-  #blog-form button {
-    padding: 10px 20px;
-    background: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+  .cardPass {
+    box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
+    font-size: 0.9em;
+    border-radius: 10px;
+    padding: 20px;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    text-transform: capitalize;
+    width: auto;
+    box-shadow: 0 8px 22px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+}
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
