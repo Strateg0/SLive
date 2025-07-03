@@ -6,22 +6,36 @@
   <meta name="description" content="The agency provides a range of services to the public and private sectors in Bulgaria and abroad. It is staffed with skilled professionals who have a thorough knowledge and experience in the implementation of large-scale development projects for various organizations in the following main fields: modernization of public administration and public sector management, economic planning, public communications and media, information technologies human resources and training">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="STRATEGMA AGENCY">
-	<title>STRATEGMA</title>
+	<title>STRATEGMA | Archive</title>
   <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
-  <!-- Carousel style -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
    <!--== Custom style -->
   <link href="./style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
   <style>
     html, body {
       overflow-x: hidden;
       width: 100%;
       max-width: 100%;
+    }
+    
+    #editor-container {
+      height: 500px;
+      width: 100%;
+    }
+    .input-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
     }
   </style>
   </head>
@@ -73,123 +87,68 @@
           </ul>
         </div>
         <button id="themeToggleDesk" class="theme-toggle ms-1" aria-label="Toggle theme"><span class="icon">🌙</span></button>
-        <!-- <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="iconDesk">🌙</span></button></li> -->
+       <!-- <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="icon">🌙</span></button></li> -->
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center" id="blog_heroBG">
+<body>
+<section class="px-0 py-0 py-lg-5 text-center">
    <div class="container px-3 py-5">
-        <div class="innerText justify-content-center align-self-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-          <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">Blog</h1>
-          <p class="h6 mt-2 fw-bold mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегическите решения се основават на стратегическо знание.</p>
-          <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегма има дългогодишен опит в организационното развитие и се е утвърдила като консултант, 
-            който помага на своите клиенти да постигнат устойчиви подобрения чрез прилагане на модерни решения. Ние се стремим да оценим реалните нужди и да предложим съвети, 
-            които носят добавена стойност на организациите. За целта изграждаме трайни партньорства с нашите клиенти. Разчитаме на проверени и доказани методи, основани на 
-            универсални принципи.</p>
-        </div>
-    </div>
+       <div class="row">
+        <div class="col-md-12 justify-content-center align-self-center">
+  <h2>Edit Your Blog Post</h2>
+  <div class="input-group">
+    <label for="topic">Topic</label>
+    <select id="topic">
+      <option value="Market Tips">Market Tips</option>
+            <option value="Tech">Tech</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Market Tips">Market Tips</option>
+            <option value="Crypto">Crypto</option>
+            <option value="Finance">Finance</option>
+    </select>
   </div>
+
+  <div class="input-group">
+    <label for="author">Author</label>
+    <select id="author">
+       <option value="John Michele">John Michele</option>
+            <option value="Sarah Lin">Sarah Lin</option>
+            <option value="David Ko">David Ko</option>
+            <option value="Emma Zhou">Emma Zhou</option>
+            <option value="John Michele">John Michele</option>
+            <option value="Anna Smith">Anna Smith</option>
+    </select>
+  </div>
+
+  <div class="input-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" />
+  </div>
+
+  <div class="input-group">
+    <label for="description">Short Description</label>
+    <textarea id="description" rows="3"></textarea>
+  </div>
+
+  <div class="input-group">
+    <label for="imageUrl">Image URL</label>
+    <input type="text" id="imageUrl" />
+  </div>
+
+  <div class="input-group">
+    <label>Article Content</label>
+    <div id="editor-container"></div>
+  </div>
+
+  <button onclick="saveDraft()">Save Draft</button>
+</div>
+</div>
+</div>
 </section>
 
-<section class="strateg-blog mt-5">
-  <div class="text-element-9 py-5 mt-5">
-    <div class="container py-lg-3">
-      <div class="page-title text-center mx-auto">
-        <h3 class="head mb-lg-5 mb-4">Blog Posts</h3>
-      </div>
-      <div class="row grid-text-9">
-        <div class="col-md-8 order-2 order-lg-1">
-          <div class="row">
-            <div class="col-md-6" id="blog-posts"><!--Generated articles in here --></div>
-
-            <!-- static articles -->
-            <a href="blog-single.html" class="col-lg-6 blog-article-post">
-              <div class="blog-post d-flex flex-wrap align-content-between">
-                <div class="post-content">
-                  <img src="./img/b1.jpg" class="img-fluid" alt="blog-post-image" />
-                  <p class="sub-para my-3">Market Tips</p>
-                  <h4 class="text-head-text-9">Hong Kong Buildings/Skyscraper at Hopewell Centre</h4>
-                </div>
-                <ul class="blog-author-date mt-4 px-0">
-                  <li class="author">By John Michele</li>
-                  <li>March 16, 2021</li>
-                </ul>
-              </div>
-            </a>
-            <a href="blog-single.html" class="col-lg-6 blog-article-post">
-              <div class="blog-post d-flex flex-wrap align-content-between">
-                <div class="post-content">
-                   <img src="./img/b1.jpg" class="img-fluid" alt="blog-post-image" />
-                  <p class="sub-para my-3">Market Tips</p>
-                  <h4 class="text-head-text-9">White capped pen on top of Vogue magazine beside cup of coffee</h4>
-                </div>
-                <ul class="blog-author-date mt-4 px-0">
-                  <li class="author">By John Michele</li>
-                  <li>September 21, 2021</li>
-                </ul>
-              </div>
-            </a>
-          </div>
-          <!-- <nav aria-label="Page navigation example">
-            <ul class="pagination float-left">
-              <li class="page-item">
-                <a class="page-link" href="blog.html"> <span class="fa fa-angle-double-left"></span></a>
-              </li>
-              <li class="page-item">
-                <a class="page-link active" href="blog.html">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="blog.html">2</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="blog.html">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="blog.html">4</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="blog.html"> <span class="fa fa-angle-double-right"></span></a>
-              </li>
-            </ul>
-          </nav> -->
-        </div>
-        <div class="col-md-4 left-text-9 mt-md-0 mt-0 pl-md-4 order-1 order-lg-2">
-          <div class="blog-search">
-            <form action="#" method="GET" class="d-flex search-form">
-              <input type="search" class="form-control" placeholder="Search..." name="search" required="required">
-              <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
-            </form>
-          </div>
-
-          <div class="blog-subscribe p-3 mt-5">
-            <h5>Subscribe to Blog</h5>
-            <form action="#" id="form" method="GET" class="subscribe-form">
-              <input type="email" class="form-control subscribe-field mt-3 mb-2" placeholder="Email Address" name="subscribe" required="required">
-              <button type="submit" class="btn btn-primary btn-theme">Subscribe</button>
-            </form>
-          </div>
-
-          <div class="blog-subscribe p-3 mt-5">
-            <h5>Browse by: Topic</h5>
-            <form action="#" id="form2" class="widget-content" method="post">
-                <select class="form-select mb-2" aria-label="Default select example">
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-                <button type="submit" class="btn btn-theme">Search</button>
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
 
 
 <footer id="footer" class="footer mt-auto py-3">
@@ -248,12 +207,10 @@
     </div>
   </div>
 </footer>
-<!-- Scripts -->
 
 <script src="./js/active.js"></script>
 <script src="./js/mode.js"></script>
-<script src="./js/blogger.js"></script>
-<script src="./js/fxreverse_animate.js"></script>
+<script src="./js/archive.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -286,5 +243,76 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script>
+    // Init Quill editor
+    const quill = new Quill('#editor-container', {
+      theme: 'snow',
+      placeholder: 'Write your article content here...',
+      modules: {
+        toolbar: [
+          [{ header: [1, 2, 3, false] }],
+          ['bold', 'italic', 'underline', 'strike'],
+          [{ color: [] }, { background: [] }],
+          [{ align: [] }],
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          ['link', 'clean']
+        ]
+      }
+    });
+
+    // Load initial form data from sessionStorage
+    window.onload = function () {
+      const draft = JSON.parse(sessionStorage.getItem('draftPost'));
+      if (draft) {
+        document.getElementById('topic').value = draft.topic;
+        document.getElementById('author').value = draft.author;
+        document.getElementById('title').value = draft.title;
+        document.getElementById('description').value = draft.description;
+        document.getElementById('imageUrl').value = draft.imageUrl;
+      }
+    };
+
+    // Load data if editing
+window.onload = function () {
+  const editing = new URLSearchParams(window.location.search).get('edit');
+  const draft = JSON.parse(sessionStorage.getItem(editing ? 'editDraft' : 'draftPost'));
+
+  if (draft) {
+    document.getElementById('topic').value = draft.topic;
+    document.getElementById('author').value = draft.author;
+    document.getElementById('title').value = draft.title;
+    document.getElementById('description').value = draft.description;
+    document.getElementById('imageUrl').value = draft.imageUrl;
+    if (editing && draft.content) {
+      quill.root.innerHTML = draft.content;
+    }
+  }
+};
+
+
+function saveDraft() {
+  const topic = document.getElementById('topic').value;
+  const author = document.getElementById('author').value;
+  const title = document.getElementById('title').value;
+  const description = document.getElementById('description').value;
+  const imageUrl = document.getElementById('imageUrl').value;
+  const content = quill.root.innerHTML;
+  const date = new Date().toLocaleDateString();
+  const id = Date.now(); // simple unique ID
+
+  const post = { id, topic, author, title, description, imageUrl, content, date };
+
+  let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
+  drafts.push(post);
+  localStorage.setItem('drafts', JSON.stringify(drafts));
+
+  alert('Draft saved successfully!');
+  window.location.href = 'archive.html';
+}
+
+
+  </script>
 </body>
 </html>
