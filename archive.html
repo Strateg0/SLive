@@ -85,7 +85,7 @@
               <button onclick="goToEditor()">Create New Blog Post</button>
           </div>
         </div>
-          <div class="col-md-12">
+          <div class="col-md-12 tableArt">
             <h2>Articles</h2>
               <table border="1" width="100%" cellpadding="10">
                 <thead>
@@ -161,8 +161,23 @@
     </div>
     <!-- Back to top button -->
     <a id="btnTop"><i class="bi bi-chevron-up"></i></a>
-    <div class="footer_copyright">
-      <p class="text-center text-aligne-center pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
+    <div class="container-fluid footer_copyright">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-8 px-0">
+          <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
+          </div>
+          <div class="col-md-auto">
+           <a href="#"><p class="text-right text-aligne-right pt-4">Privacy Policy</p></a>
+          </div>
+          <div class="col col-lg-2">
+          <a href="#"><p class="text-right text-aligne-right pt-4">Terms & Conditions</p></a>
+          </div>
+          <div class="col-md-auto">
+            <a href="archive.html" target="_blank"><p class="text-right text-aligne-right pt-4">Архив</p></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
@@ -218,12 +233,12 @@ document.addEventListener('DOMContentLoaded', function () {
       row.innerHTML = `
         <td>${index + 1}</td>
         <td>${post.title}</td>
-         <td>${post.description}</td>
+        <td>${post.description}</td>
         <td>${post.author}</td>
         <td>${post.date}</td>
         <td>
           <button onclick="editDraft(${post.id})">Go Back to Editor</button>
-          <button onclick="publishDraft(${post.id})">Publish Live</button>
+          <button onclick="publishPostLive(${post.id})" class="btn btn-success btn-sm">Publish Live</button>
           <button onclick="deleteDraft(${post.id})">Delete</button>
         </td>
       `;
@@ -264,6 +279,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     loadDrafts(); // refresh
     alert("Post published!");
+  }
+
+  function publishPostLive(postId) {
+    let drafts = JSON.parse(localStorage.getItem('drafts')) || [];
+    let published = JSON.parse(localStorage.getItem('published')) || [];
+
+    const postIndex = drafts.findIndex(p => p.id === postId);
+    if (postIndex === -1) {
+      alert('Post not found.');
+      return;
+    }
+
+    const post = drafts[postIndex];
+
+    // Move to published
+    published.push(post);
+    localStorage.setItem('published', JSON.stringify(published));
+
+    // Remove from drafts
+    drafts.splice(postIndex, 1);
+    localStorage.setItem('drafts', JSON.stringify(drafts));
+
+    alert('Post published successfully!');
+    renderDrafts(); // Refresh the table
   }
 
   window.onload = loadDrafts;

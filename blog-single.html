@@ -79,13 +79,14 @@
 <section class="px-0 py-0 py-lg-5 text-center">
    <div class="container px-3 py-5">
         <div class="row">
-            <h2 id="post-title"></h2>
-                <p><strong>Topic:</strong> <span id="post-topic"></span></p>
-                <p><strong>Author:</strong> <span id="post-author"></span> | <span id="post-date"></span></p>
-                <img id="post-image" src="" style="max-width:100%;height:auto;" />
-                <p id="post-content"></p>
-
-
+          <h1 id="post-title"></h1>
+          <div class="meta">
+            <span id="post-author"></span> |
+            <span id="post-date"></span>
+          </div>
+          <img id="post-image" src="" alt="" />
+          <p id="post-description"></p>
+          <div id="content"></div>
         </div>
     </div>
   </div>
@@ -144,8 +145,23 @@
     </div>
     <!-- Back to top button -->
     <a id="btnTop"><i class="bi bi-chevron-up"></i></a>
-    <div class="footer_copyright">
-      <p class="text-center text-aligne-center pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
+        <div class="container-fluid footer_copyright">
+      <div class="container">
+        <div class="row justify-content-md-center">
+          <div class="col col-lg-8 px-0">
+          <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
+          </div>
+          <div class="col-md-auto">
+           <a href="#"><p class="text-right text-aligne-right pt-4">Privacy Policy</p></a>
+          </div>
+          <div class="col col-lg-2">
+          <a href="#"><p class="text-right text-aligne-right pt-4">Terms & Conditions</p></a>
+          </div>
+          <div class="col-md-auto">
+            <a href="archive.html" target="_blank"><p class="text-right text-aligne-right pt-4">Архив</p></a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
@@ -188,22 +204,28 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get('id');
-  const posts = JSON.parse(localStorage.getItem('posts')) || [];
+    function loadPost() {
+      const query = new URLSearchParams(window.location.search);
+      const title = query.get('title');
+      const posts = JSON.parse(localStorage.getItem('published')) || [];
+      const post = posts.find(p => p.title === title);
 
-  if (id !== null && posts[id]) {
-    const post = posts[id];
-    document.getElementById('post-title').textContent = post.title;
-    document.getElementById('post-topic').textContent = post.topic;
-    document.getElementById('post-author').textContent = post.author;
-    document.getElementById('post-date').textContent = post.date;
-    document.getElementById('post-image').src = post.imageUrl;
-    document.getElementById('post-content').textContent = post.content;
-  } else {
-    document.body.innerHTML = '<h2>Post not found.</h2>';
-  }
-</script>
+      if (!post) {
+        document.body.innerHTML = '<h2>Post not found.</h2>';
+        return;
+      }
+
+      document.getElementById('post-title').innerText = post.title;
+      document.getElementById('post-author').innerText = `By ${post.author}`;
+      document.getElementById('post-date').innerText = post.date;
+      document.getElementById('post-description').innerText = post.description;
+      document.getElementById('post-image').src = post.imageUrl || './img/b1.jpg';
+      document.getElementById('post-image').alt = post.title;
+      document.getElementById('content').innerHTML = post.content;
+    }
+
+    window.onload = loadPost;
+  </script>
 
 </body>
 </html>

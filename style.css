@@ -123,6 +123,7 @@ h3, h3 a {
     }
 body, p, a, li, a{
     font-family: 'SourceSans3', sans-serif !important;
+    text-decoration: none !important;
   }
 #site-title {
 	color: #fff;
@@ -515,7 +516,7 @@ color: #fff!important;
  text-transform: uppercase;
 }
 footer p{
-    text-align: center;
+    text-align: left;
 }
 .dropdown-item {
     text-transform: capitalize;
@@ -528,6 +529,9 @@ p.lead, ul.list-group > li {
     text-decoration: none;
     color: #872557;
     font-weight: bold;
+}
+.tableArt > h2 {
+    text-align: left;
 }
 
 footer{
