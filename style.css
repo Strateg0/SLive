@@ -774,7 +774,7 @@ footer p {
   background: #00211e;
 }
 
-.dark-mode .card, .dark-mode section, .dark-mode .home-carousel h2 {
+.dark-mode .card, .dark-mode section, .dark-mode .home-carousel h2, .dark-mode #blog-form {
   background-color: #00211e !important;
   color: #fff !important;
   border-color: #444;

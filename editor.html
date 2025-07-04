@@ -384,6 +384,7 @@ document.addEventListener('DOMContentLoaded', function () {
       imageUrl: document.getElementById('imageUrl').value,
       content: quill.root.innerHTML,
       date: new Date().toLocaleDateString(),
+      createdAt: Date.now(),                  // ✅ For accurate sorting
       published: false
     };
 
