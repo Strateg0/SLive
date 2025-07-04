@@ -358,7 +358,7 @@ height: 100vh;
     width: auto;
 }
 
-div#post-content {
+div#post-content, p#post-author, h1#post-title {
     text-align: left;
 }
 h1#post-title{color: #000000!important}
@@ -367,8 +367,8 @@ tbody#drafts-table-body tr td > button {
     display: block;
     margin-bottom: 10px;
     background: black;
-    padding: 20px;
-    border-radius: 40px;
+    padding: 2px;
+    border-radius: 10px;
     color: white;
     text-transform: uppercase;
 }
@@ -378,8 +378,8 @@ tbody#drafts-table-body tr td > button:nth-child(2) {
     display: block;
     margin-bottom: 10px;
     background: #005f1d;
-    padding: 20px;
-    border-radius: 40px;
+    padding: 2px;
+    border-radius: 10px;
     border: 0;
     color: white;
     text-transform: uppercase;
@@ -390,9 +390,9 @@ tbody#drafts-table-body tr td > button:nth-child(3) {
     display: block;
     margin-bottom: 10px;
     background: #961100;
-     border: 0;
-    padding: 20px;
-    border-radius: 40px;
+    border: 0;
+    padding: 2px;
+    border-radius: 10px;
     color: white;
     text-transform: uppercase;
 }

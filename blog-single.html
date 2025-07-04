@@ -79,20 +79,18 @@
 <section class="px-0 py-0 py-lg-5 text-center">
    <div class="container px-3 py-5">
         <div class="row">
+          <div class="col col-lg-9">
           <div id="post-container">
-            <h1 id="post-title"></h1>
             <p id="post-author"></p>
+            <h1 id="post-title"></h1>
+            <div id="post-image-container"></div>
             <div id="post-content"></div>
           </div>
-
-          <!-- <h1 id="post-title"></h1>
-          <div class="meta">
-            <span id="post-author"></span> |
-            <span id="post-date"></span>
-          </div>
-          <img id="post-image" src="" alt="" />
-          <p id="post-description"></p>
-          <div id="content"></div> -->
+           </div>
+            <div class="col col-lg-3">
+               <img src="./img/logo_rina.jpg" class="pt-4" style="width:300px;height: 184px; position:fixed;">
+               <img loading="lazy" style="width:300px;height: auto; position:fixed;" decoding="async" width="1024" height="1024" src="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png" alt="" class="wp-image-45786" srcset="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png 1024w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-300x300.png 300w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-150x150.png 150w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-768x768.png 768w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_.png 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px">
+            </div>
         </div>
     </div>
   </div>
@@ -209,30 +207,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<!-- <script>
-    function loadPost() {
-      const query = new URLSearchParams(window.location.search);
-      const title = query.get('title');
-      const posts = JSON.parse(localStorage.getItem('published')) || [];
-      const post = posts.find(p => p.title === title);
-
-      if (!post) {
-        document.body.innerHTML = '<h2>Post not found.</h2>';
-        return;
-      }
-
-      document.getElementById('post-title').innerText = post.title;
-      document.getElementById('post-author').innerText = `By ${post.author}`;
-      document.getElementById('post-date').innerText = post.date;
-      document.getElementById('post-description').innerText = post.description;
-      document.getElementById('post-image').src = post.imageUrl || './img/b1.jpg';
-      document.getElementById('post-image').alt = post.title;
-      document.getElementById('content').innerHTML = post.content;
-    }
-
-    window.onload = loadPost;
-  </script> -->
-
  <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
@@ -297,6 +271,11 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("post-title").textContent = post.title;
         document.getElementById("post-author").textContent = "By " + post.author + " • " + post.date;
         document.getElementById("post-content").innerHTML = post.content;
+      if (post.imageUrl) {
+        document.getElementById('post-image-container').innerHTML = `
+          <img src="${post.imageUrl}" class="img-fluid my-4" alt="Post Image" />
+        `;
+      }
       } else {
         document.getElementById("post-container").innerHTML = "<p>Post not found.</p>";
       }

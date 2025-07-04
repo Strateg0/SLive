@@ -83,11 +83,6 @@
    <div class="container px-3 py-5">
         <div class="innerText justify-content-center align-self-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
           <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">Blog</h1>
-          <p class="h6 mt-2 fw-bold mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегическите решения се основават на стратегическо знание.</p>
-          <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Стратегма има дългогодишен опит в организационното развитие и се е утвърдила като консултант, 
-            който помага на своите клиенти да постигнат устойчиви подобрения чрез прилагане на модерни решения. Ние се стремим да оценим реалните нужди и да предложим съвети, 
-            които носят добавена стойност на организациите. За целта изграждаме трайни партньорства с нашите клиенти. Разчитаме на проверени и доказани методи, основани на 
-            универсални принципи.</p>
         </div>
     </div>
   </div>
@@ -280,35 +275,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-<script>
-  function loadPublishedPosts() {
-    const posts = JSON.parse(localStorage.getItem('published')) || [];
-    const container = document.getElementById('blog-posts');
-    container.innerHTML = '';
-
-    posts.forEach(post => {
-      container.innerHTML += `
-       <div class="col-lg-12 blog-article-post">
-        <a href="blog-single.html?title=${encodeURIComponent(post.title)}" target="_blank">
-          <div class="blog-post d-flex flex-wrap align-content-between">
-            <div class="post-content">
-              ${post.imageUrl ? `<img src="${post.imageUrl}" class="img-fluid" loading="lazy" alt="blog-post-image" />` : ''}
-              <p class="sub-para my-3">${post.topic}</p>
-              <h4 class="text-head-text-9">${post.title}</h4>
-              <p class="sub-para my-1">${post.description}</p>
-            </div>
-            <ul class="blog-author-date mt-4 px-0">
-              <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-            </ul>
-          </div>
-        </a>
-         </div>
-      `;
-    });
-  }
-
-  window.onload = loadPublishedPosts;
-</script>
 
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
@@ -369,7 +335,10 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="blog-single.html?id=${docSnap.id}" class="col-lg-6 blog-article-post">
           <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
             <div class="post-content">
-              <img src="${post.imageUrl}" class="img-fluid" alt="blog-post-image" />
+              <img src="${post.imageUrl || './img/b1.jpg'}"
+              class="img-fluid"
+              alt="blog-post-image"
+              onerror="this.onerror=null;this.src='./img/b1.jpg';" />
               <p class="sub-para my-3">${post.topic}</p>
               <h4 class="text-head-text-9">${post.title}</h4>
             </div>

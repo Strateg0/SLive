@@ -235,17 +235,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $(window).on('scroll', function () {
-      if ($(this).scrollTop() > 250) {
-        $('nav').addClass('sticky-nav').css('top', '0');
-      } else {
-        $('nav').removeClass('sticky-nav').css('top', '-100px');
-      }
-    });
-  });
-</script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const btn = document.getElementById('btnTop');
@@ -292,35 +282,38 @@ document.addEventListener('DOMContentLoaded', function () {
   //   });
   // }
 
-  async function loadDrafts() {
+async function loadDrafts() {
   const { collection, getDocs } = window.firebaseRefs;
   const db = window.firebaseDB;
 
   const querySnapshot = await getDocs(collection(db, "posts"));
-  const tbody = document.getElementById('drafts-table-body');
-  tbody.innerHTML = '';
+  const tbody = document.getElementById("drafts-table-body");
+  tbody.innerHTML = "";
 
-  let index = 1;
-  querySnapshot.forEach(docSnap => {
+  querySnapshot.forEach((docSnap, index) => {
     const post = docSnap.data();
-    if (!post.published) {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${index++}</td>
-        <td>${post.title}</td>
-        <td>${post.description}</td>
-        <td>${post.author}</td>
-        <td>${post.date}</td>
-        <td>
-          <button onclick="editDraft('${docSnap.id}')">Go Back to Editor</button>
-          <button onclick="publishDraft('${docSnap.id}')">Publish Live</button>
-          <button onclick="deleteDraft('${docSnap.id}')">Delete</button>
-        </td>
-      `;
-      tbody.appendChild(row);
-    }
+    const id = docSnap.id;
+
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${post.title}</td>
+      <td>${post.description}</td>
+      <td>${post.author}</td>
+      <td>${post.date}</td>
+      <td>
+        <button onclick="editDraft('${id}')">Go Back to Editor</button>
+        <button onclick="publishDraft('${id}')">Publish Live</button>
+        <button onclick="deleteDraft('${id}')">Delete</button>
+        ${post.published ? '<span style="color: green;">✅ Published</span>' : '<span style="color: red;">Draft</span>'}
+      </td>
+    `;
+
+    tbody.appendChild(row);
   });
 }
+
 
 
   function editDraft(id) {
