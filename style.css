@@ -1401,6 +1401,9 @@ div#related-posts-container .card {
     height: 18px;
     margin-right: 10px;
   }
+  .login-box > img {
+    width: 100%;
+}
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
