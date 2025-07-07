@@ -369,7 +369,7 @@ tbody#drafts-table-body tr td > button {
     background: #872557;
     border: 0;
     padding: 2px;
-    border-radius: 10px;
+    border-radius: 25px;
     color: white;
     text-transform: uppercase;
 }
@@ -380,7 +380,7 @@ tbody#drafts-table-body tr td > button:nth-child(2) {
     margin-bottom: 10px;
     background: #005f1d;
     padding: 2px;
-    border-radius: 10px;
+    border-radius: 25px;
     border: 0;
     color: white;
     text-transform: uppercase;
@@ -393,7 +393,7 @@ tbody#drafts-table-body tr td > button:nth-child(3) {
     background: #961100;
     border: 0;
     padding: 2px;
-    border-radius: 10px;
+    border-radius: 25px;
     color: white;
     text-transform: uppercase;
 }
@@ -1404,6 +1404,52 @@ div#related-posts-container .card {
   .login-box > img {
     width: 100%;
 }
+
+.toc-container {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-left: 4px solid #7b2c57;
+  margin: 1.5rem 0;
+  font-family: 'SourceSans3', sans-serif !important;
+}
+
+.toc-container h3 {
+  margin-bottom: 0.5rem;
+}
+
+.toc-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.toc-container li {
+  margin: 0.3rem 0;
+  text-align: left;
+}
+
+.toc-h2 {
+  margin-left: 1rem;
+}
+
+.toc-h3 {
+  margin-left: 2rem;
+}
+
+.toc-container a {
+  color: #7b2c57;
+  text-decoration: none;
+}
+
+.toc-container a:hover {
+  text-decoration: none;
+  color: #027c31;
+  font-weight:700;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
