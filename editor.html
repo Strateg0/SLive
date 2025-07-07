@@ -338,13 +338,15 @@ document.addEventListener('DOMContentLoaded', function () {
     placeholder: 'Write your article content here...',
     modules: {
       toolbar: [
-        [{ header: [1, 2, 3, false] }],
-        ['bold', 'italic', 'underline', 'strike'],
-        [{ color: [] }, { background: [] }],
-        [{ align: [] }],
-        [{ list: 'ordered' }, { list: 'bullet' }],
-        ['link', 'clean']
-      ]
+  [{ font: [] }, { size: ['small', false, 'large', 'huge'] }],  // Add this line
+  [{ header: [1, 2, 3, false] }],
+  ['bold', 'italic', 'underline', 'strike'],
+  [{ color: [] }, { background: [] }],
+  [{ align: [] }],
+  [{ list: 'ordered' }, { list: 'bullet' }],
+  ['link', 'image', 'clean']  // Add 'image' here if you want image insertion
+]
+
     }
   });
 
