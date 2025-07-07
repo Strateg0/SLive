@@ -1342,6 +1342,66 @@ div#related-posts-container .card {
     backdrop-filter: blur(20px);
 }
 
+/* Overlay styles */
+  .overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  .overlay.hidden {
+    display: none;
+  }
+  
+  /* Login box styling */
+  .login-box {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    text-align: center;
+    width: 320px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  
+  .login-box h3 {
+    margin-bottom: 24px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Google button style (like official) */
+  #googleSignInBtn {
+    background: white;
+    color: #444;
+    font-weight: 500;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+  }
+  #googleSignInBtn:hover {
+    background-color: #f7f7f7;
+  }
+  
+  /* Google icon */
+  #googleSignInBtn::before {
+    content: "";
+    display: inline-block;
+    background: url('https://developers.google.com/identity/images/g-logo.png') no-repeat center center;
+    background-size: contain;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+  }
+
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
   .home-carousel h2 {
