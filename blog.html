@@ -130,14 +130,23 @@
 
         </div>
         <div class="col-md-6 left-text-9 mt-md-0 mt-0 pl-md-4 order-1 order-lg-2">
-          <div class="blog-search">
+          <!-- <div class="blog-search">
             <form action="#" method="GET" class="d-flex search-form">
               <input type="search" class="form-control" placeholder="Search..." name="search" required="required">
               <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
             </form>
+          </div> -->
+
+          <div class="blog-search position-relative">
+            <form class="d-flex search-form" onsubmit="return false;">
+              <input id="searchInput" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+              <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
+            </form>
+            <ul id="autocompleteList" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
           </div>
 
-          <div class="blog-subscribe p-3 mt-5">
+
+          <!-- <div class="blog-subscribe p-3 mt-5">
             <h5>Browse by: Topic</h5>
             <form action="#" id="form2" class="widget-content" method="post">
                 <select class="form-select mb-2" aria-label="Default select example" id="topicSelect">
@@ -149,7 +158,7 @@
 
                 <button type="submit" class="btn btn-theme">Search</button>
             </form>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -308,43 +317,124 @@ document.addEventListener('DOMContentLoaded', function () {
     deleteDoc,
     doc
   };
+  
+const searchInput = document.getElementById('searchInput');
+const autocompleteList = document.getElementById('autocompleteList');
+
+let suggestions = [];
+
+const defaultEnglishSuggestions = [
+  "investment",
+  "finance",
+  "banks",
+  "administration",
+  "innovation",
+  "news",
+  "real estate",
+  "savings",
+  "invest",
+  "income",
+  "cryptocurrency",
+  "stock market",
+  "organizational development and consulting",
+  "strategic planning and evaluation",
+  "raining and innovation",
+  "public communications",
+  "information technology",
+  "AI",
+  "artificial intelligence"
+];
+
+// Fetch all titles/topics once
+async function loadSuggestions() {
+  const snapshot = await getDocs(collection(db, 'posts')); // ✅ Correct collection name
+  suggestions = [];
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    if (data.title) {
+      const cleanTitle = data.title.trim();
+      if (!suggestions.includes(cleanTitle)) {
+        suggestions.push(cleanTitle);
+      }
+    }
+  });
+
+  console.log("Loaded suggestions:", suggestions); // ✅ Check console for output
+}
+
+await loadSuggestions(); // Wait for data to load before interaction
+
+// Listen for typing
+searchInput.addEventListener('input', () => {
+  const input = searchInput.value.trim().toLowerCase();
+  autocompleteList.innerHTML = '';
+
+  // If input cleared, show all posts
+  if (!input) {
+    const posts = document.querySelectorAll('#blog-posts .blog-article-post');
+    posts.forEach(post => {
+      post.style.display = '';
+    });
+    return;
+  }
+
+  // Match from Firestore titles (Bulgarian)
+  const matches = suggestions.filter(item =>
+    item.toLowerCase().includes(input)
+  ).slice(0, 5); // Limit to 5 results
+
+  // If no matches from Firestore, match from default English fallback
+  const finalMatches = matches.length > 0 
+    ? matches 
+    : defaultEnglishSuggestions.filter(topic =>
+        topic.toLowerCase().includes(input)
+      ).slice(0, 5);
+
+  if (finalMatches.length === 0) {
+    const li = document.createElement('li');
+    li.className = 'list-group-item text-muted';
+    li.textContent = 'No matches';
+    autocompleteList.appendChild(li);
+  } else {
+    finalMatches.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item list-group-item-action';
+      li.textContent = item;
+      li.addEventListener('click', () => {
+        searchInput.value = item;
+        autocompleteList.innerHTML = '';
+
+        // Show only the matched post, hide others
+        const postsContainer = document.getElementById('blog-posts');
+        if (!postsContainer) return;
+
+        const posts = postsContainer.querySelectorAll('.blog-article-post');
+        posts.forEach(post => {
+          const titleElement = post.querySelector('h4.text-head-text-9');
+          if (titleElement && titleElement.textContent.trim() === item) {
+            post.style.display = ''; // Show matched post
+          } else {
+            post.style.display = 'none'; // Hide others
+          }
+        });
+      });
+      autocompleteList.appendChild(li);
+    });
+  }
+});
+
+// Hide suggestions on outside click
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.blog-search')) {
+    autocompleteList.innerHTML = '';
+  }
+});
+
 </script>
 
 
 <script>
-//   async function displayPosts() {
-//   const { collection, getDocs } = window.firebaseRefs;
-//   const db = window.firebaseDB;
-
-//   const querySnapshot = await getDocs(collection(db, "posts"));
-//   const container = document.getElementById('blog-posts');
-//   container.innerHTML = '';
-
-//   querySnapshot.forEach(docSnap => {
-//     const post = docSnap.data();
-//     if (post.published) {
-//       container.innerHTML += `
-//         <a href="blog-single.html?id=${docSnap.id}" class="col-lg-6 blog-article-post">
-//           <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
-//             <div class="post-content">
-//               <img src="${post.imageUrl || './img/b1.jpg'}"
-//               class="img-fluid"
-//               alt="blog-post-image"
-//               onerror="this.onerror=null;this.src='./img/b1.jpg';" />
-//               <p class="sub-para my-3">${post.topic}</p>
-//               <h4 class="text-head-text-9">${post.title}</h4>
-//             </div>
-//             <ul class="blog-author-date mt-4 px-0">
-//               <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-//             </ul>
-//           </div>
-//         </a>
-//       `;
-//     }
-//   });
-// }
-
-// window.onload = displayPosts;
 
 async function displayPosts() {
   const { collection, getDocs } = window.firebaseRefs;

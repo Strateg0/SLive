@@ -126,13 +126,13 @@
   <div class="input-group">
     <label for="title">Title</label>
     <input type="text" id="title" rows="1" cols="10" placeholder="Enter Title..." />
-    <p id="titleWordCount">Words: 0 / 8</p>
+    <p id="titleWordCount">Words: 0 / 15</p>
   </div>
 
   <div class="input-group">
     <label for="description">Short Description</label>
     <textarea id="description" rows="1" cols="10" placeholder="Enter Description..."></textarea>
-    <p id="descriptionWordCount">Words: 0 / 10</p>
+    <p id="descriptionWordCount">Words: 0 / 15</p>
   </div>
 
   <div class="input-group">
@@ -426,8 +426,8 @@ function setupWordLimit(fieldId, countId, maxWords) {
   }
 
   // Setup limits for each field:
-  setupWordLimit('title', 'titleWordCount', 8);
-  setupWordLimit('description', 'descriptionWordCount', 10);
+  setupWordLimit('title', 'titleWordCount', 15);
+  setupWordLimit('description', 'descriptionWordCount', 15);
 </script>
 
 <script type="module">
