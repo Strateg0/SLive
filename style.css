@@ -1154,7 +1154,7 @@ a#btnTop > i {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #b1b1b1;
+    color: #000000;
 }
 
 .strateg-blog h4.text-head-text-9 {
@@ -1289,7 +1289,7 @@ a#btnTop > i {
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    color: #b1b1b1;
+    color: #000000;
 }
 .strateg-blog h4.text-head-text-9 {
     transition: 0.3s ease-in-out;
@@ -1325,6 +1325,20 @@ a#btnTop > i {
     text-transform: capitalize;
     width: auto;
     box-shadow: 0 8px 22px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+}
+
+div#related-posts-container .card {
+    border-radius: 20px;
+    transition: 0.3s ease-in;
+    border: 1px solid #eee;
+    padding: 0;
+    display: block;
+    height: auto;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    text-transform: capitalize;
+    width: auto;
+    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(20px);
 }
 

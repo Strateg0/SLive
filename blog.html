@@ -97,46 +97,8 @@
       </div>
       <div class="row">
         <div class="col-md-6 order-2 order-lg-1" id="blog-posts">
-
-
-            <!-- static articles -->
-            <!-- <a href="blog-single.html" class="col-lg-6 blog-article-post">
-              <div class="blog-post d-flex flex-wrap align-content-between">
-                <div class="post-content">
-                  <img src="./img/b1.jpg" class="img-fluid" alt="blog-post-image" />
-                  <p class="sub-para my-3">Market Tips</p>
-                  <h4 class="text-head-text-9">Hong Kong Buildings/Skyscraper at Hopewell Centre</h4>
-                </div>
-                <ul class="blog-author-date mt-4 px-0">
-                  <li class="author">By John Michele</li>
-                  <li>March 16, 2021</li>
-                </ul>
-              </div>
-            </a>
-            <a href="blog-single.html" class="col-lg-6 blog-article-post">
-              <div class="blog-post d-flex flex-wrap align-content-between">
-                <div class="post-content">
-                   <img src="./img/b1.jpg" class="img-fluid" alt="blog-post-image" />
-                  <p class="sub-para my-3">Market Tips</p>
-                  <h4 class="text-head-text-9">White capped pen on top of Vogue magazine beside cup of coffee</h4>
-                </div>
-                <ul class="blog-author-date mt-4 px-0">
-                  <li class="author">By John Michele</li>
-                  <li>September 21, 2021</li>
-                </ul>
-              </div>
-            </a> -->
-        
-
         </div>
         <div class="col-md-6 left-text-9 mt-md-0 mt-0 pl-md-4 order-1 order-lg-2">
-          <!-- <div class="blog-search">
-            <form action="#" method="GET" class="d-flex search-form">
-              <input type="search" class="form-control" placeholder="Search..." name="search" required="required">
-              <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
-            </form>
-          </div> -->
-
           <div class="blog-search position-relative">
             <form class="d-flex search-form" onsubmit="return false;">
               <input id="searchInput" type="search" class="form-control" placeholder="Search..." autocomplete="off">
@@ -145,20 +107,12 @@
             <ul id="autocompleteList" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
           </div>
 
+<div id="related-posts-section" class="mt-5">
+  <h4 class="mb-4">Related Posts</h4>
+  <div id="related-posts-container" class="row gy-4"></div>
+</div>
 
-          <!-- <div class="blog-subscribe p-3 mt-5">
-            <h5>Browse by: Topic</h5>
-            <form action="#" id="form2" class="widget-content" method="post">
-                <select class="form-select mb-2" aria-label="Default select example" id="topicSelect">
-                  <option value="" selected>Open this select menu</option>
-                  <option value="finance">finance</option>
-                  <option value="crypto">crypto</option>
-                  <option value="something">market</option>
-                </select>
 
-                <button type="submit" class="btn btn-theme">Search</button>
-            </form>
-          </div> -->
         </div>
       </div>
     </div>
@@ -166,6 +120,9 @@
   </div>
 </section>
 
+<div id="loadingIndicator" style="text-align:center; display:none; margin: 20px;">
+  <span>Loading...</span>
+</div>
 
 <footer id="footer" class="footer mt-auto py-3">
   <div class="container-fluid">
@@ -190,7 +147,6 @@
                     <li>
                         <a href="">
                             <i class="bi bi-linkedin"></i>
-
                         </a>
                     </li>
                    <li>
@@ -242,7 +198,7 @@
 
 <script src="./js/active.js"></script>
 <script src="./js/mode.js"></script>
-<script src="./js/blogger.js"></script>
+<!-- <script src="./js/blogger.js"></script> -->
 <script src="./js/fxreverse_animate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -360,7 +316,7 @@ async function loadSuggestions() {
     }
   });
 
-  console.log("Loaded suggestions:", suggestions); // ✅ Check console for output
+  // console.log("Loaded suggestions:", suggestions); // ✅ Check console for output
 }
 
 await loadSuggestions(); // Wait for data to load before interaction
@@ -436,51 +392,196 @@ document.addEventListener('click', (e) => {
 
 <script>
 
-async function displayPosts() {
+// async function displayPosts() {
+//   const { collection, getDocs } = window.firebaseRefs;
+//   const db = window.firebaseDB;
+
+//   const querySnapshot = await getDocs(collection(db, "posts"));
+//   const container = document.getElementById('blog-posts');
+//   container.innerHTML = '';
+
+//   const posts = [];
+
+//   querySnapshot.forEach(docSnap => {
+//     const post = docSnap.data();
+//     if (post.published) {
+//       posts.push({...post, id: docSnap.id});
+//     }
+//   });
+
+//   // Sort descending by date string
+//   // posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+//   posts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+//   posts.forEach(post => {
+//     container.innerHTML += `
+//       <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post">
+//         <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
+//           <div class="post-content">
+//             <img src="${post.imageUrl || './img/b1.jpg'}"
+//             class="img-fluid"
+//             alt="blog-post-image"
+//             onerror="this.onerror=null;this.src='./img/b1.jpg';" />
+//             <p class="sub-para my-3">${post.topic}</p>
+//             <h4 class="text-head-text-9">${post.title}</h4>
+//           </div>
+//           <ul class="blog-author-date mt-4 px-0">
+//             <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
+//           </ul>
+//         </div>
+//       </a>
+//     `;
+//   });
+// }
+
+// window.onload = displayPosts;
+
+let allPosts = [];
+let visiblePosts = 0;
+const postsPerPage = 5;
+let loading = false;
+
+async function loadAllPosts() {
   const { collection, getDocs } = window.firebaseRefs;
   const db = window.firebaseDB;
 
-  const querySnapshot = await getDocs(collection(db, "posts"));
   const container = document.getElementById('blog-posts');
-  container.innerHTML = '';
+  if (!container) {
+    console.error('Element with id="blog-posts" not found');
+    return;
+  }
 
-  const posts = [];
+  const querySnapshot = await getDocs(collection(db, "posts"));
+
+  allPosts = [];
 
   querySnapshot.forEach(docSnap => {
     const post = docSnap.data();
     if (post.published) {
-      posts.push({...post, id: docSnap.id});
+      allPosts.push({ ...post, id: docSnap.id });
     }
   });
 
-  // Sort descending by date string
-  // posts.sort((a, b) => (a.date < b.date ? 1 : -1));
-  posts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+  allPosts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
 
-  posts.forEach(post => {
-    container.innerHTML += `
-      <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post">
-        <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
-          <div class="post-content">
-            <img src="${post.imageUrl || './img/b1.jpg'}"
-            class="img-fluid"
-            alt="blog-post-image"
-            onerror="this.onerror=null;this.src='./img/b1.jpg';" />
-            <p class="sub-para my-3">${post.topic}</p>
-            <h4 class="text-head-text-9">${post.title}</h4>
+  renderMorePosts(); // Initial render
+}
+
+function renderMorePosts() {
+  const container = document.getElementById('blog-posts');
+  const loader = document.getElementById('loadingIndicator');
+  if (!container) return;
+
+  loading = true;
+  loader.style.display = 'block';
+
+  setTimeout(() => {
+    const nextPosts = allPosts.slice(visiblePosts, visiblePosts + postsPerPage);
+
+    nextPosts.forEach((post, index) => {
+      const isLast = index === nextPosts.length - 1;
+      const postHTML = `
+        <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
+          <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
+            <div class="post-content">
+              <img src="${post.imageUrl || './img/b1.jpg'}"
+                class="img-fluid"
+                alt="blog-post-image"
+                onerror="this.onerror=null;this.src='./img/b1.jpg';" />
+              <p class="sub-para my-3">${post.topic}</p>
+              <h4 class="text-head-text-9">${post.title}</h4>
+            </div>
+            <ul class="blog-author-date mt-4 px-0">
+              <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
+            </ul>
           </div>
-          <ul class="blog-author-date mt-4 px-0">
-            <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-          </ul>
-        </div>
-      </a>
+        </a>
+      `;
+      container.insertAdjacentHTML('beforeend', postHTML);
+    });
+
+    visiblePosts += postsPerPage;
+    loader.style.display = 'none';
+    loading = false;
+    observeLastPost();
+  }, 400);
+}
+
+function observeLastPost() {
+  const lastPost = document.querySelector('.blog-article-post.observe-last');
+  if (!lastPost) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !loading && visiblePosts < allPosts.length) {
+        observer.unobserve(entry.target);
+        renderMorePosts();
+      }
+    });
+  }, {
+    rootMargin: '200px'
+  });
+
+  observer.observe(lastPost);
+}
+
+// Only this init block is needed
+window.addEventListener('DOMContentLoaded', async () => {
+  await loadAllPosts();
+});
+</script>
+
+
+
+<script>
+async function loadRelatedPostsOnBlogPage() {
+  const { collection, getDocs } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  const container = document.getElementById('related-posts-container');
+  if (!container) return;
+
+  const querySnapshot = await getDocs(collection(db, "posts"));
+  const relatedPosts = [];
+
+  querySnapshot.forEach(docSnap => {
+    const post = docSnap.data();
+    if (post.published) {
+      relatedPosts.push({ ...post, id: docSnap.id });
+    }
+  });
+
+  // Shuffle array randomly
+  for (let i = relatedPosts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [relatedPosts[i], relatedPosts[j]] = [relatedPosts[j], relatedPosts[i]];
+  }
+
+  // Take first 3 posts
+  const selectedPosts = relatedPosts.slice(0, 3);
+
+  selectedPosts.forEach(post => {
+    container.innerHTML += `
+      <div class="col-lg-6 col-md-6">
+        <a href="blog-single.html?id=${post.id}" class="related-post-card d-block h-100">
+          <div class="card shadow-sm h-100">
+            <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="..."
+              onerror="this.onerror=null;this.src='./img/b1.jpg';" />
+            <div class="card-body">
+              <h5 class="card-title">${post.title}</h5>
+              <p class="card-text text-muted">${post.topic || 'Blog'}</p>
+            </div>
+          </div>
+        </a>
+      </div>
     `;
   });
 }
 
-window.onload = displayPosts;
-
-
+document.addEventListener('DOMContentLoaded', loadRelatedPostsOnBlogPage);
 </script>
+
+
+
 </body>
 </html>

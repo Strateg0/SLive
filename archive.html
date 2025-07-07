@@ -145,7 +145,7 @@
   </div>
 </section>
 
-  <div id="overlay">
+  <!-- <div id="overlay">
     <div class="cardPass">
       <h2>Enter Admin Password</h2>
       <input type="password" id="passwordInput" placeholder="Password" />
@@ -153,7 +153,17 @@
       <p id="message"></p>
       <p id="timer">Time left: 30 seconds</p>
     </div>
+  </div> -->
+
+  <!-- Overlay container -->
+<div id="overlay" class="overlay">
+  <div class="login-box">
+    <h3>Please sign in to continue</h3>
+    <button id="googleSignInBtn">Continue with Google</button>
+    <p id="message"></p>
+    <p id="timer"></p>
   </div>
+</div>
 
 
 <!-- Delete Confirmation Modal -->
@@ -428,77 +438,8 @@ let deleteIdToConfirm = null;
   window.onload = loadDrafts;
 </script>
 
-<!-- <script>
-  const overlay = document.getElementById('overlay');
-  const submitBtn = document.getElementById('submitBtn');
-  const passwordInput = document.getElementById('passwordInput');
-  const message = document.getElementById('message');
-  const timerDisplay = document.getElementById('timer');
 
-  let timeLeft = 50;
-  let timerInterval;
-  let adminPassword = '';
-
-  // Check if user has already entered the correct password
-  if (localStorage.getItem('authenticated') === 'true') {
-    overlay.classList.add('hidden');
-    body.classList.remove('blur');
-  } else {
-    // Load password from JSON
-    fetch('data.json')
-      .then(response => response.json())
-      .then(data => {
-        adminPassword = data.adminPassword;
-        startTimer();
-      })
-      .catch(() => {
-        message.textContent = "Error loading password file.";
-        submitBtn.disabled = true;
-      });
-
-    function startTimer() {
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          message.textContent = "Time expired. Redirecting to home...";
-          submitBtn.disabled = true;
-          passwordInput.disabled = true;
-
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 2000);
-        }
-      }, 1000);
-    }
-
-    submitBtn.addEventListener('click', () => {
-      const enteredPassword = passwordInput.value;
-      if (enteredPassword === adminPassword) {
-        clearInterval(timerInterval);
-        overlay.classList.add('hidden');
-        body.classList.remove('blur');
-        message.textContent = '';
-
-        // Save auth status
-        localStorage.setItem('authenticated', 'true');
-      } else {
-        message.textContent = 'Incorrect password. Try again.';
-        passwordInput.value = '';
-      }
-    });
-
-    passwordInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitBtn.click();
-      }
-    });
-  }
-</script> -->
-
-
- <script type="module">
+ <<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
   import {
@@ -512,11 +453,14 @@ let deleteIdToConfirm = null;
     doc
   } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
+  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+  // Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
     authDomain: "blog-bd628.firebaseapp.com",
     projectId: "blog-bd628",
-    storageBucket: "blog-bd628.firebasestorage.app",
+    storageBucket: "blog-bd628.appspot.com",  // fixed here if typo
     messagingSenderId: "548493041269",
     appId: "1:548493041269:web:07460e97568e656a57623c",
     measurementId: "G-RCBHBBJWJD"
@@ -526,8 +470,10 @@ let deleteIdToConfirm = null;
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
-  // Attach Firestore & helpers to global scope
+  // Attach Firestore helpers globally if needed
   window.firebaseDB = db;
   window.firebaseRefs = {
     collection,
@@ -539,75 +485,59 @@ let deleteIdToConfirm = null;
     doc
   };
 
+  // DOM elements - define after DOM loaded or script at bottom
   const overlay = document.getElementById('overlay');
-  const submitBtn = document.getElementById('submitBtn');
-  const passwordInput = document.getElementById('passwordInput');
+  const googleBtn = document.getElementById('googleSignInBtn');
   const message = document.getElementById('message');
   const timerDisplay = document.getElementById('timer');
   const body = document.body;
 
   let timeLeft = 50;
   let timerInterval;
-  let adminPassword = '';
 
-  // Check if user already authenticated
+  // Authentication check & UI handling
   if (localStorage.getItem('authenticated') === 'true') {
     overlay.classList.add('hidden');
     body.classList.remove('blur');
   } else {
-    // Fetch admin password from Firestore
-    const docRef = doc(db, 'config', 'admin');
-    getDoc(docRef).then(docSnap => {
-      if (docSnap.exists()) {
-        adminPassword = docSnap.data().password;
-        startTimer();
-      } else {
-        message.textContent = 'Password config not found.';
-        submitBtn.disabled = true;
-      }
-    }).catch(error => {
-      console.error("Error fetching password:", error);
-      message.textContent = 'Error fetching password.';
-      submitBtn.disabled = true;
-    });
+    body.classList.add('blur');
+    startTimer();
 
-    function startTimer() {
-      timerInterval = setInterval(() => {
-        timeLeft--;
-        timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-        if (timeLeft <= 0) {
+    googleBtn.addEventListener('click', () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          console.log("✅ Logged in as:", user.displayName);
           clearInterval(timerInterval);
-          message.textContent = "Time expired. Redirecting to home...";
-          submitBtn.disabled = true;
-          passwordInput.disabled = true;
-          setTimeout(() => {
-            window.location.href = 'index.html';
-          }, 2000);
-        }
-      }, 1000);
-    }
-
-    submitBtn.addEventListener('click', () => {
-      const enteredPassword = passwordInput.value;
-      if (enteredPassword === adminPassword) {
-        clearInterval(timerInterval);
-        overlay.classList.add('hidden');
-        body.classList.remove('blur');
-        message.textContent = '';
-        localStorage.setItem('authenticated', 'true');
-      } else {
-        message.textContent = 'Incorrect password. Try again.';
-        passwordInput.value = '';
-      }
-    });
-
-    passwordInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitBtn.click();
-      }
+          overlay.classList.add('hidden');
+          body.classList.remove('blur');
+          localStorage.setItem('authenticated', 'true');
+          message.textContent = '';
+        })
+        .catch((error) => {
+          console.error("❌ Sign-in failed:", error);
+          message.textContent = "Sign-in failed. Please try again.";
+        });
     });
   }
+
+  function startTimer() {
+    timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        message.textContent = "Time expired. Redirecting...";
+        googleBtn.disabled = true;
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 2000);
+      }
+    }, 1000);
+  }
 </script>
+
 
 
 
