@@ -512,85 +512,173 @@ let deleteIdToConfirm = null;
     deleteDoc,
     doc
   };
-  document.addEventListener('DOMContentLoaded', () => {
-    // RESET authentication flag on page load
+
+
+
+//   document.addEventListener('DOMContentLoaded', () => {
+//   // Reset authentication only if navigating from login.html
+//   if (document.referrer && document.referrer.includes('login.html')) {
+//     localStorage.setItem('authenticated', 'false');
+//   }
+//   console.log("Authenticated on load:", localStorage.getItem('authenticated'));
+
+//   const overlay = document.getElementById('overlay');
+//   const submitBtn = document.getElementById('submitBtn');
+//   const passwordInput = document.getElementById('passwordInput');
+//   const message = document.getElementById('message');
+//   const timerDisplay = document.getElementById('timer');
+//   const body = document.body;
+
+//   let timeLeft = 50;
+//   let timerInterval;
+//   let adminPassword = '';
+
+//   if (localStorage.getItem('authenticated') === 'true') {
+//     overlay.classList.add('hidden');
+//     body.classList.remove('blur');
+//     return; // authenticated: skip password prompt on page load
+//   }
+
+//   overlay.classList.remove('hidden');
+//   body.classList.add('blur');
+
+//   const docRef = doc(db, 'config', 'admin');
+//   getDoc(docRef).then(docSnap => {
+//     if (docSnap.exists()) {
+//       adminPassword = docSnap.data().password;
+//       startTimer();
+//     } else {
+//       message.textContent = 'Password config not found.';
+//       submitBtn.disabled = true;
+//       passwordInput.disabled = true;
+//     }
+//   }).catch(error => {
+//     console.error("Error fetching password:", error);
+//     message.textContent = 'Error fetching password.';
+//     submitBtn.disabled = true;
+//     passwordInput.disabled = true;
+//   });
+
+//   function startTimer() {
+//     timerInterval = setInterval(() => {
+//       timeLeft--;
+//       timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+//       if (timeLeft <= 0) {
+//         clearInterval(timerInterval);
+//         message.textContent = "Time expired. Redirecting to home...";
+//         submitBtn.disabled = true;
+//         passwordInput.disabled = true;
+//         setTimeout(() => {
+//           window.location.href = 'index.html';
+//         }, 2000);
+//       }
+//     }, 1000);
+//   }
+
+//   submitBtn.addEventListener('click', () => {
+//     const enteredPassword = passwordInput.value.trim();
+//     if (enteredPassword === adminPassword) {
+//       clearInterval(timerInterval);
+//       overlay.classList.add('hidden');
+//       body.classList.remove('blur');
+//       message.textContent = '';
+//       localStorage.setItem('authenticated', 'true');
+//     } else {
+//       message.textContent = 'Incorrect password. Try again.';
+//       passwordInput.value = '';
+//     }
+//   });
+
+//   passwordInput.addEventListener('keypress', (e) => {
+//     if (e.key === 'Enter') {
+//       submitBtn.click();
+//     }
+//   });
+// });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Reset authentication only if navigating from login.html
+  if (document.referrer.includes('login.html')) {
     localStorage.setItem('authenticated', 'false');
+  }
+  console.log("Authenticated on load:", localStorage.getItem('authenticated'));
 
-    const overlay = document.getElementById('overlay');
-    const submitBtn = document.getElementById('submitBtn');
-    const passwordInput = document.getElementById('passwordInput');
-    const message = document.getElementById('message');
-    const timerDisplay = document.getElementById('timer');
-    const body = document.body;
+  const overlay = document.getElementById('overlay');
+  const submitBtn = document.getElementById('submitBtn');
+  const passwordInput = document.getElementById('passwordInput');
+  const message = document.getElementById('message');
+  const timerDisplay = document.getElementById('timer');
+  const body = document.body;
 
-    let timeLeft = 50;
-    let timerInterval;
-    let adminPassword = '';
+  let timeLeft = 50;
+  let timerInterval;
+  let adminPassword = '';
 
-    // Check if user already authenticated (now always false at start)
-    if (localStorage.getItem('authenticated') === 'true') {
-      overlay.classList.add('hidden');
-      body.classList.remove('blur');
+  if (localStorage.getItem('authenticated') === 'true') {
+    overlay.classList.add('hidden');
+    body.classList.remove('blur');
+    return; // authenticated: skip password prompt on page load
+  }
+
+  overlay.classList.remove('hidden');
+  body.classList.add('blur');
+
+  const docRef = doc(db, 'config', 'admin');
+  getDoc(docRef).then(docSnap => {
+    if (docSnap.exists()) {
+      adminPassword = docSnap.data().password;
+      startTimer();
     } else {
-      // Show overlay & blur (in case you want to be explicit)
-      overlay.classList.remove('hidden');
-      body.classList.add('blur');
+      message.textContent = 'Password config not found.';
+      submitBtn.disabled = true;
+      passwordInput.disabled = true;
+    }
+  }).catch(error => {
+    console.error("Error fetching password:", error);
+    message.textContent = 'Error fetching password.';
+    submitBtn.disabled = true;
+    passwordInput.disabled = true;
+  });
 
-      // Fetch admin password from Firestore
-      const docRef = doc(db, 'config', 'admin');
-      getDoc(docRef).then(docSnap => {
-        if (docSnap.exists()) {
-          adminPassword = docSnap.data().password;
-          startTimer();
-        } else {
-          message.textContent = 'Password config not found.';
-          submitBtn.disabled = true;
-          passwordInput.disabled = true;
-        }
-      }).catch(error => {
-        console.error("Error fetching password:", error);
-        message.textContent = 'Error fetching password.';
+  function startTimer() {
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        message.textContent = "Time expired. Redirecting to home...";
         submitBtn.disabled = true;
         passwordInput.disabled = true;
-      });
-
-      function startTimer() {
-        timerInterval = setInterval(() => {
-          timeLeft--;
-          timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-          if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            message.textContent = "Time expired. Redirecting to home...";
-            submitBtn.disabled = true;
-            passwordInput.disabled = true;
-            setTimeout(() => {
-              window.location.href = 'index.html';
-            }, 2000);
-          }
-        }, 1000);
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 2000);
       }
+    }, 1000);
+  }
 
-      submitBtn.addEventListener('click', () => {
-        const enteredPassword = passwordInput.value.trim();
-        if (enteredPassword === adminPassword) {
-          clearInterval(timerInterval);
-          overlay.classList.add('hidden');
-          body.classList.remove('blur');
-          message.textContent = '';
-          localStorage.setItem('authenticated', 'true');
-        } else {
-          message.textContent = 'Incorrect password. Try again.';
-          passwordInput.value = '';
-        }
-      });
-
-      passwordInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          submitBtn.click();
-        }
-      });
+  submitBtn.addEventListener('click', () => {
+    const enteredPassword = passwordInput.value.trim();
+    if (enteredPassword === adminPassword) {
+      clearInterval(timerInterval);
+      overlay.classList.add('hidden');
+      body.classList.remove('blur');
+      message.textContent = '';
+      localStorage.setItem('authenticated', 'true');
+    } else {
+      message.textContent = 'Incorrect password. Try again.';
+      passwordInput.value = '';
     }
   });
+
+  passwordInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      submitBtn.click();
+    }
+  });
+});
+
+
 
   // DOM elements - define after DOM loaded or script at bottom
   // const overlay = document.getElementById('overlay');

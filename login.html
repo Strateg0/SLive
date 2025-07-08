@@ -123,7 +123,7 @@
 <section class="px-0 py-0 py-lg-5 text-center" id="login_heroBG">
    <div class="container px-3 py-5">
         <div class="innerText justify-content-center align-self-center align-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-        <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">вътрешна страница</h1>
+        <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">вътрешна страница към блог</h1>
     </div>
     </div>
   </div>
@@ -315,6 +315,28 @@ document.addEventListener('DOMContentLoaded', function () {
     doc
   };
   
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, redirect or show logged-in UI
+    window.location.href = 'archive.html';  // or wherever you want
+  } else {
+    // User not signed in, show login button or start login flow
+    const loginBtn = document.getElementById('loginBtn');
+    loginBtn.addEventListener('click', () => {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          // Login successful, redirect
+          window.location.href = 'archive.html';
+        })
+        .catch((error) => {
+          console.error("Login error:", error);
+        });
+    });
+  }
+});
 
   // DOM elements - define after DOM loaded or script at bottom
 const googleBtn = document.getElementById('googleSignInBtn');
