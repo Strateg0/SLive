@@ -203,6 +203,12 @@
   </div>
 </div>
 
+<!-- ✅ Session Popup -->
+<div id="session-popup" class="modal-overlay" style="display: none;">
+   <div class="modal-box">
+    <div id="popup-message">Session expired. Redirecting in 10 seconds...</div>
+  </div>
+</div>
 
 
 <footer id="footer" class="footer mt-auto py-3">
@@ -733,6 +739,70 @@ document.addEventListener('DOMContentLoaded', () => {
   // }
 </script>
 
+
+<!-- SEssion expire -->
+<script>
+let sessionDuration = 1800; // 1 minute
+let redirectDelay = 10;   // 10 seconds
+let sessionInterval;
+let countdownInterval;
+
+function startSessionTimer() {
+  console.log(`[Session Timer] Starting ${sessionDuration}-second timer.`);
+  let timeLeft = sessionDuration;
+
+  sessionInterval = setInterval(() => {
+    timeLeft--;
+    console.log(`[Session Timer] Time left: ${timeLeft}s`);
+
+    if (timeLeft <= 0) {
+      clearInterval(sessionInterval);
+      console.log("[Session Timer] Session expired.");
+      showSessionExpiredPopup();
+    }
+  }, 1000);
+}
+
+function showSessionExpiredPopup() {
+  const popup = document.getElementById('session-popup');
+  const message = document.getElementById('popup-message');
+  let countdown = redirectDelay;
+
+  if (!popup || !message) {
+    console.warn("[Popup] Popup element or message not found.");
+    return;
+  }
+
+  popup.style.display = 'flex'; // Show popup
+  message.textContent = `Session expired. Redirecting in ${countdown} seconds...`;
+  console.log("[Popup] Showing session expiration popup.");
+
+  countdownInterval = setInterval(() => {
+    countdown--;
+    console.log(`[Popup] Redirecting in ${countdown}...`);
+    message.textContent = `Session expired. Redirecting in ${countdown} seconds...`;
+
+    if (countdown <= 0) {
+      clearInterval(countdownInterval);
+      console.log("[Popup] Redirecting to login.html");
+      window.location.href = 'login.html';
+    }
+  }, 1000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const isAuthenticated = localStorage.getItem('authenticated') === 'true';
+  console.log(`[DOMContentLoaded] Authenticated: ${isAuthenticated}`);
+
+  if (isAuthenticated) {
+    startSessionTimer();
+  } else {
+    console.log("[DOMContentLoaded] Not authenticated. Session timer not started.");
+    const popup = document.getElementById('session-popup');
+    if (popup) popup.style.display = 'none'; // Ensure it's hidden
+  }
+});
+</script>
 
 
 
