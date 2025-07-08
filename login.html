@@ -223,7 +223,7 @@
           <a href="#"><p class="text-right text-aligne-right pt-4">Terms & Conditions</p></a>
           </div>
           <div class="col-md-auto">
-            <a href="login.html" target="_blank"><p class="text-right text-aligne-right pt-4">Архив</p></a>
+            <a href="login.html"><p class="text-right text-aligne-right pt-4">Архив</p></a>
           </div>
         </div>
       </div>
@@ -315,28 +315,13 @@ document.addEventListener('DOMContentLoaded', function () {
     doc
   };
   
-// import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // User is signed in, redirect or show logged-in UI
-//     window.location.href = 'archive.html';  // or wherever you want
-//   } else {
-//     // User not signed in, show login button or start login flow
-//     const loginBtn = document.getElementById('loginBtn');
-//     loginBtn.addEventListener('click', () => {
-//       const provider = new GoogleAuthProvider();
-//       signInWithPopup(auth, provider)
-//         .then((result) => {
-//           // Login successful, redirect
-//           window.location.href = 'archive.html';
-//         })
-//         .catch((error) => {
-//           console.error("Login error:", error);
-//         });
-//     });
-//   }
-// });
+  document.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('authenticated') === 'true') {
+    // User already authenticated, redirect to archive
+    window.location.href = 'archive.html';
+    return; // stop further JS execution
+  }
+});
 
   // DOM elements - define after DOM loaded or script at bottom
 const googleBtn = document.getElementById('googleSignInBtn');
