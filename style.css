@@ -232,6 +232,22 @@ background-attachment: fixed;
 height: 100vh;
 }
 
+#login_heroBG{
+z-index: 0;
+position: relative;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: linear-gradient(to right, rgb(1 0 6 / 55%), rgb(1 0 10 / 55%)), url('./img/login.jpg');
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: center;
+background-attachment: fixed;
+height: auto;
+display: flex;
+justify-content: center; 
+align-items: center;
+}
+
 .innerText{
   text-align: left;
   width: 80%;

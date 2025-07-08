@@ -6,7 +6,7 @@
   <meta name="description" content="The agency provides a range of services to the public and private sectors in Bulgaria and abroad. It is staffed with skilled professionals who have a thorough knowledge and experience in the implementation of large-scale development projects for various organizations in the following main fields: modernization of public administration and public sector management, economic planning, public communications and media, information technologies human resources and training">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="STRATEGMA AGENCY">
-	<title>STRATEGMA | Archive</title>
+	<title>STRATEGMA | About Us</title>
   <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
@@ -14,15 +14,59 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css" />
    <!--== Custom style -->
   <link href="./style.css" rel="stylesheet" type="text/css" />
-  <style>
-    html, body {
-      overflow-x: hidden;
-      width: 100%;
-      max-width: 100%;
+    <style>
+     /* body.blur {
+      filter: blur(3px);
+      pointer-events: none;
     }
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    } */
+    .login-box {
+      text-align: center;
+      background: #fff;
+      width: 100%;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    #googleSignInBtn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #4285F4;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #googleSignInBtn:hover {
+      background: #357ae8;
+    }
+
+    #passwordInput {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+    #message {
+      margin-top: 10px;
+      color: red;
+      min-height: 1.2em;
+    }
+    
   </style>
+  
   </head>
-<body>
+<body >
 <main>
 <div class="container-fluid px-0">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
@@ -76,28 +120,40 @@
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center">
+<section class="px-0 py-0 py-lg-5 text-center" id="login_heroBG">
    <div class="container px-3 py-5">
-        <div class="row">
-          <div class="col col-lg-9">
-          <div id="post-container">
-            <p id="post-author"></p>
-            <h1 id="post-title"></h1>
-            <div id="post-image-container"></div>
-            <!-- TOC goes here -->
-  <div id="table-of-contents" class="toc-container"></div>
-
-            <div id="post-content"></div>
-          </div>
-           </div>
-            <div class="col col-lg-3">
-               <img src="./img/logo_rina.jpg" class="pt-4" style="width:300px;height: 184px; position:fixed;">
-               <img loading="lazy" style="width:300px;height: auto; position:fixed;" decoding="async" width="1024" height="1024" src="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png" alt="" class="wp-image-45786" srcset="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png 1024w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-300x300.png 300w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-150x150.png 150w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-768x768.png 768w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_.png 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px">
-            </div>
-        </div>
+        <div class="innerText justify-content-center align-self-center align-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
+        <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">вътрешна страница</h1>
+    </div>
     </div>
   </div>
 </section>
+
+<section class="px-0 py-0 py-lg-5 text-center h-100">
+   <div class="container px-3 py-5">
+    <div class="row justify-content-md-center">
+    <!-- Google modal -->
+     <div class="col-lg-6">
+        <form>
+            <div class="card">
+                <div id="overlay">
+                    <div class="login-box">
+                    <h3>Sign in with Google to access the archive</h3>
+                    <button id="googleSignInBtn">Continue with Google</button>
+                    <p id="message"></p>
+                    <p id="timer"></p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+</section>
+
+
+
+
 
 <footer id="footer" class="footer mt-auto py-3">
   <div class="container-fluid">
@@ -150,7 +206,7 @@
     </div>
     <!-- Back to top button -->
     <a id="btnTop"><i class="bi bi-chevron-up"></i></a>
-        <div class="container-fluid footer_copyright">
+    <div class="container-fluid footer_copyright">
       <div class="container">
         <div class="row justify-content-md-center">
           <div class="col col-lg-8 px-0">
@@ -174,7 +230,6 @@
 
 <script src="./js/active.js"></script>
 <script src="./js/mode.js"></script>
-<script src="./js/archive.js"></script>
 <script src="./js/fxreverse_animate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -208,25 +263,18 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
- <script type="module">
+
+
+<script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    getDoc,
-    updateDoc,
-    deleteDoc,
-    doc
-  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
     authDomain: "blog-bd628.firebaseapp.com",
     projectId: "blog-bd628",
-    storageBucket: "blog-bd628.firebasestorage.app",
+    storageBucket: "blog-bd628.appspot.com",
     messagingSenderId: "548493041269",
     appId: "1:548493041269:web:07460e97568e656a57623c",
     measurementId: "G-RCBHBBJWJD"
@@ -235,100 +283,63 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-  const db = getFirestore(app);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
-  // Attach Firestore & helpers to global scope
-  window.firebaseDB = db;
-  window.firebaseRefs = {
-    collection,
-    addDoc,
-    getDocs,
-    getDoc,
-    updateDoc,
-    deleteDoc,
-    doc
-  };
-</script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.getElementById('overlay');
+    const googleBtn = document.getElementById('googleSignInBtn');
+    const message = document.getElementById('message');
+    const timerDisplay = document.getElementById('timer');
+    const body = document.body;
 
-<script>
-  async function loadPostById() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get("id");
+    let timeLeft = 50;
+    let timerInterval;
 
-    if (!postId) {
-      document.getElementById("post-container").innerHTML = "<p>Invalid post ID.</p>";
+    // If already logged in, redirect
+    if (localStorage.getItem('authenticated') === 'true') {
+      window.location.href = 'archive.html';
       return;
     }
 
-    const { getDoc, doc } = window.firebaseRefs;
-    const db = window.firebaseDB;
+    startTimer();
 
-    try {
-      const postRef = doc(db, "posts", postId);
-      const postSnap = await getDoc(postRef);
-
-      if (postSnap.exists()) {
-        const post = postSnap.data();
-        document.getElementById("post-title").textContent = post.title;
-        document.getElementById("post-author").textContent = "By " + post.author + " • " + post.date;
-        document.getElementById("post-content").innerHTML = post.content;
-
-        if (post.imageUrl) {
-          document.getElementById('post-image-container').innerHTML = `
-            <img src="${post.imageUrl}" class="img-fluid my-4" alt="Post Image" />
-          `;
-        }
-
-        // Generate TOC after content is loaded
-        generateTOC();
-
-      } else {
-        document.getElementById("post-container").innerHTML = "<p>Post not found.</p>";
-      }
-    } catch (error) {
-      console.error("Error loading post:", error);
-      document.getElementById("post-container").innerHTML = "<p>Error loading post.</p>";
-    }
-  }
-
-  // Your TOC generator function
-  function generateTOC() {
-    const postContent = document.getElementById("post-content");
-    const tocContainer = document.getElementById("table-of-contents");
-
-    if (!postContent || !tocContainer) return;
-
-    const headings = postContent.querySelectorAll("h1, h2, h3");
-    if (headings.length === 0) {
-      tocContainer.innerHTML = ''; // Hide TOC if no headings
-      return;
+    if (googleBtn) {
+      googleBtn.addEventListener('click', () => {
+        signInWithPopup(auth, provider)
+          .then((result) => {
+            const user = result.user;
+            console.log("✅ Logged in as:", user.displayName);
+            clearInterval(timerInterval);
+            localStorage.setItem('authenticated', 'true');
+            window.location.href = 'archive.html';
+          })
+          .catch((error) => {
+            console.error("❌ Sign-in failed:", error);
+            if (message) message.textContent = "Sign-in failed. Please try again.";
+          });
+      });
     }
 
-    const tocList = document.createElement("ul");
-
-    headings.forEach((heading, index) => {
-      // Add ID if missing
-      if (!heading.id) {
-        heading.id = `heading-${index}`;
+    function startTimer() {
+      if (timerDisplay) {
+        timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            if (message) message.textContent = "Time expired. Redirecting...";
+            if (googleBtn) googleBtn.disabled = true;
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 2000);
+          }
+        }, 1000);
       }
-
-      const link = document.createElement("a");
-      link.href = `#${heading.id}`;
-      link.textContent = heading.textContent;
-
-      const listItem = document.createElement("li");
-      listItem.classList.add(`toc-${heading.tagName.toLowerCase()}`);
-      listItem.appendChild(link);
-      tocList.appendChild(listItem);
-    });
-
-    tocContainer.innerHTML = "<h3>Съдържание</h3>";
-    tocContainer.appendChild(tocList);
-  }
-
-  window.onload = loadPostById;
+    }
+  });
 </script>
-
 
 
 
