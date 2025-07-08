@@ -20,11 +20,11 @@
       width: 100%;
       max-width: 100%;
     }
-    body.blur #content {
+    /* body.blur #content {
       filter: blur(20px);
       pointer-events: none;
       user-select: none;
-    }
+    } */
     #overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -159,7 +159,7 @@
   <!-- Overlay container -->
 
 <!-- Google modal -->
-<form>
+<!-- <form>
   <div id="overlay" class="overlay">
     <div class="login-box">
       <h3>Please sign in to continue</h3>
@@ -169,7 +169,7 @@
       <p id="timer"></p>
     </div>
   </div>
-</form>
+</form> -->
 
 
 <!-- Delete Confirmation Modal -->
@@ -461,14 +461,11 @@ let deleteIdToConfirm = null;
     doc
   } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
-  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-
-  // Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
     authDomain: "blog-bd628.firebaseapp.com",
     projectId: "blog-bd628",
-    storageBucket: "blog-bd628.appspot.com",  // fixed here if typo
+    storageBucket: "blog-bd628.firebasestorage.app",
     messagingSenderId: "548493041269",
     appId: "1:548493041269:web:07460e97568e656a57623c",
     measurementId: "G-RCBHBBJWJD"
@@ -478,10 +475,8 @@ let deleteIdToConfirm = null;
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const db = getFirestore(app);
-  const auth = getAuth(app);
-  const provider = new GoogleAuthProvider();
 
-  // Attach Firestore helpers globally if needed
+  // Attach Firestore & helpers to global scope
   window.firebaseDB = db;
   window.firebaseRefs = {
     collection,
@@ -492,58 +487,6 @@ let deleteIdToConfirm = null;
     deleteDoc,
     doc
   };
-
-  // DOM elements - define after DOM loaded or script at bottom
-  const overlay = document.getElementById('overlay');
-  const googleBtn = document.getElementById('googleSignInBtn');
-  const message = document.getElementById('message');
-  const timerDisplay = document.getElementById('timer');
-  const body = document.body;
-
-  let timeLeft = 50;
-  let timerInterval;
-
-  // Authentication check & UI handling
-  if (localStorage.getItem('authenticated') === 'true') {
-    overlay.classList.add('hidden');
-    body.classList.remove('blur');
-  } else {
-    body.classList.add('blur');
-    startTimer();
-
-    googleBtn.addEventListener('click', () => {
-      signInWithPopup(auth, provider)
-        .then((result) => {
-          const user = result.user;
-          console.log("✅ Logged in as:", user.displayName);
-          clearInterval(timerInterval);
-          overlay.classList.add('hidden');
-          body.classList.remove('blur');
-          localStorage.setItem('authenticated', 'true');
-          message.textContent = '';
-        })
-        .catch((error) => {
-          console.error("❌ Sign-in failed:", error);
-          message.textContent = "Sign-in failed. Please try again.";
-        });
-    });
-  }
-
-  function startTimer() {
-    timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-    timerInterval = setInterval(() => {
-      timeLeft--;
-      timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-      if (timeLeft <= 0) {
-        clearInterval(timerInterval);
-        message.textContent = "Time expired. Redirecting...";
-        googleBtn.disabled = true;
-        setTimeout(() => {
-          window.location.href = 'index.html';
-        }, 2000);
-      }
-    }, 1000);
-  }
 </script>
 </body>
 </html>

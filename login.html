@@ -18,8 +18,8 @@
      /* body.blur {
       filter: blur(3px);
       pointer-events: none;
-    }
-    #overlay {
+    } */
+    /* #overlay {
       position: fixed;
       top: 0;
       left: 0;
@@ -136,14 +136,24 @@
      <div class="col-lg-6">
         <form>
             <div class="card">
-                <div id="overlay">
+                <!-- <div id="overlay">
                     <div class="login-box">
                     <h3>Sign in with Google to access the archive</h3>
                     <button id="googleSignInBtn">Continue with Google</button>
                     <p id="message"></p>
                     <p id="timer"></p>
                     </div>
-                </div>
+                </div> -->
+                <form>
+                    <div class="login-box">
+                    <h3>Please sign in to continue</h3>
+                    <img src="./img/google.png" />
+                    <button type="button" id="googleSignInBtn">Continue with Google</button>
+                    <p id="message"></p>
+                    <p id="timer"></p>
+                    </div>
+
+                </form>
             </div>
         </form>
     </div>
@@ -323,11 +333,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Authentication check & UI handling
   if (localStorage.getItem('authenticated') === 'true') {
-    overlay.classList.add('hidden');
-    body.classList.remove('blur');
   } else {
-    body.classList.add('blur');
-    // startTimer();
+    startTimer();
 
     googleBtn.addEventListener('click', () => {
       signInWithPopup(auth, provider)
@@ -335,8 +342,6 @@ document.addEventListener('DOMContentLoaded', function () {
           const user = result.user;
           console.log("✅ Logged in as:", user.displayName);
           clearInterval(timerInterval);
-          overlay.classList.add('hidden');
-          body.classList.remove('blur');
           localStorage.setItem('authenticated', 'true');
           message.textContent = '';
         })
@@ -347,21 +352,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-//   function startTimer() {
-//     timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-//     timerInterval = setInterval(() => {
-//       timeLeft--;
-//       timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-//       if (timeLeft <= 0) {
-//         clearInterval(timerInterval);
-//         message.textContent = "Time expired. Redirecting...";
-//         googleBtn.disabled = true;
-//         setTimeout(() => {
-//           window.location.href = 'index.html';
-//         }, 2000);
-//       }
-//     }, 1000);
-//   }
+  function startTimer() {
+    timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+    timerInterval = setInterval(() => {
+      timeLeft--;
+      timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+      if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        message.textContent = "Time expired. Redirecting...";
+        googleBtn.disabled = true;
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 2000);
+      }
+    }, 1000);
+  }
 </script>
 
 
