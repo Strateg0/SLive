@@ -268,13 +268,25 @@ document.addEventListener('DOMContentLoaded', function () {
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
   import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
+  // Firebase config
   const firebaseConfig = {
     apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
     authDomain: "blog-bd628.firebaseapp.com",
     projectId: "blog-bd628",
-    storageBucket: "blog-bd628.appspot.com",
+    storageBucket: "blog-bd628.appspot.com",  // fixed here if typo
     messagingSenderId: "548493041269",
     appId: "1:548493041269:web:07460e97568e656a57623c",
     measurementId: "G-RCBHBBJWJD"
@@ -283,62 +295,73 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
+  const db = getFirestore(app);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const overlay = document.getElementById('overlay');
-    const googleBtn = document.getElementById('googleSignInBtn');
-    const message = document.getElementById('message');
-    const timerDisplay = document.getElementById('timer');
-    const body = document.body;
+  // Attach Firestore helpers globally if needed
+  window.firebaseDB = db;
+  window.firebaseRefs = {
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  };
 
-    let timeLeft = 50;
-    let timerInterval;
+  // DOM elements - define after DOM loaded or script at bottom
+  const overlay = document.getElementById('overlay');
+  const googleBtn = document.getElementById('googleSignInBtn');
+  const message = document.getElementById('message');
+  const timerDisplay = document.getElementById('timer');
+  const body = document.body;
 
-    // If already logged in, redirect
-    if (localStorage.getItem('authenticated') === 'true') {
-      window.location.href = 'archive.html';
-      return;
-    }
+  let timeLeft = 50;
+  let timerInterval;
 
-    startTimer();
+  // Authentication check & UI handling
+  if (localStorage.getItem('authenticated') === 'true') {
+    overlay.classList.add('hidden');
+    body.classList.remove('blur');
+  } else {
+    body.classList.add('blur');
+    // startTimer();
 
-    if (googleBtn) {
-      googleBtn.addEventListener('click', () => {
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            const user = result.user;
-            console.log("✅ Logged in as:", user.displayName);
-            clearInterval(timerInterval);
-            localStorage.setItem('authenticated', 'true');
-            window.location.href = 'archive.html';
-          })
-          .catch((error) => {
-            console.error("❌ Sign-in failed:", error);
-            if (message) message.textContent = "Sign-in failed. Please try again.";
-          });
-      });
-    }
+    googleBtn.addEventListener('click', () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+          const user = result.user;
+          console.log("✅ Logged in as:", user.displayName);
+          clearInterval(timerInterval);
+          overlay.classList.add('hidden');
+          body.classList.remove('blur');
+          localStorage.setItem('authenticated', 'true');
+          message.textContent = '';
+        })
+        .catch((error) => {
+          console.error("❌ Sign-in failed:", error);
+          message.textContent = "Sign-in failed. Please try again.";
+        });
+    });
+  }
 
-    function startTimer() {
-      if (timerDisplay) {
-        timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-        timerInterval = setInterval(() => {
-          timeLeft--;
-          timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
-          if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            if (message) message.textContent = "Time expired. Redirecting...";
-            if (googleBtn) googleBtn.disabled = true;
-            setTimeout(() => {
-              window.location.href = 'index.html';
-            }, 2000);
-          }
-        }, 1000);
-      }
-    }
-  });
+//   function startTimer() {
+//     timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+//     timerInterval = setInterval(() => {
+//       timeLeft--;
+//       timerDisplay.textContent = `Time left: ${timeLeft} seconds`;
+//       if (timeLeft <= 0) {
+//         clearInterval(timerInterval);
+//         message.textContent = "Time expired. Redirecting...";
+//         googleBtn.disabled = true;
+//         setTimeout(() => {
+//           window.location.href = 'index.html';
+//         }, 2000);
+//       }
+//     }, 1000);
+//   }
 </script>
 
 
