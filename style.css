@@ -792,7 +792,7 @@ footer p {
   background-color: #ffffff !important;
 }
 
-.dark-mode .nav-link {
+.dark-mode .nav-link, .dark-mode .cs-text {
   color: #ffffff !important;
 }
 
