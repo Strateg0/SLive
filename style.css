@@ -168,6 +168,12 @@ li.nav-item {
   border: 1px solid #008177;
 }
 
+.cs-text{
+  color: var(--bs-dark)!important;
+}
+
+
+
 #heroBG{
 z-index: 0;
 position: relative;
@@ -202,7 +208,7 @@ justify-content: center;
 align-items: center;
 }
 
-#blog_heroBG{
+#blog_heroBG, #offer_heroBG{
 z-index: 0;
 position: relative;
 align-items: center;
@@ -268,10 +274,10 @@ align-items: center;
    width: 100%;
 }
 
-.price-table.style-2 .price-list {
+.price-table.style-2 .bulletCSlist {
     margin: 30px 0px 15px;
 }
-.price-list > ul {
+.bulletCSlist > ul {
     padding-left: 15px;
 }
 .custom-li {
@@ -281,11 +287,15 @@ align-items: center;
     padding-left: 0;
     list-style: none;
 }
-.price-table.style-2 .price-list ul li {
+.price-table.style-2 .bulletCSlist ul li {
     margin-right: 0px;
 }
 
-.price-list ul li {
+.bulletCSlist > .custom-li {
+    display: block;
+}
+
+.bulletCSlist ul li {
     padding-left: 30px;
     /* margin-right: 10px; */
     position: relative;
@@ -301,7 +311,7 @@ align-items: center;
     width: calc(100%);
 }
 
-.price-list li i {
+.bulletCSlist li i {
     color: #ffffff;
     left: 0px;
     line-height: 20px;
@@ -1617,7 +1627,7 @@ html {
     font-size: 20px;
     text-align: center;
   }
-  .price-list > ul {
+  .bulletCSlist > ul {
     padding-left: 0;
   }
   .owl-carousel .owl-item.center .card {
@@ -1779,7 +1789,7 @@ html {
     font-size: 20px;
     text-align: center;
   }
-  .price-list > ul {
+  .bulletCSlist > ul {
     padding-left: 0;
   }
   .dropdown {
