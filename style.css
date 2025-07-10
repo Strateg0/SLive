@@ -1475,6 +1475,11 @@ div#related-posts-container .card {
 html {
   scroll-behavior: smooth;
 }
+.graphList > ul.list > li i {
+    font-size: 40px;
+    position: relative;
+    top: 8px;
+}
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
