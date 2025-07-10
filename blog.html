@@ -388,50 +388,6 @@ document.addEventListener('click', (e) => {
 
 <script>
 
-// async function displayPosts() {
-//   const { collection, getDocs } = window.firebaseRefs;
-//   const db = window.firebaseDB;
-
-//   const querySnapshot = await getDocs(collection(db, "posts"));
-//   const container = document.getElementById('blog-posts');
-//   container.innerHTML = '';
-
-//   const posts = [];
-
-//   querySnapshot.forEach(docSnap => {
-//     const post = docSnap.data();
-//     if (post.published) {
-//       posts.push({...post, id: docSnap.id});
-//     }
-//   });
-
-//   // Sort descending by date string
-//   // posts.sort((a, b) => (a.date < b.date ? 1 : -1));
-//   posts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-
-//   posts.forEach(post => {
-//     container.innerHTML += `
-//       <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post">
-//         <div class="blog-post mb-5 d-flex flex-wrap align-content-between">
-//           <div class="post-content">
-//             <img src="${post.imageUrl || './img/b1.jpg'}"
-//             class="img-fluid"
-//             alt="blog-post-image"
-//             onerror="this.onerror=null;this.src='./img/b1.jpg';" />
-//             <p class="sub-para my-3">${post.topic}</p>
-//             <h4 class="text-head-text-9">${post.title}</h4>
-//           </div>
-//           <ul class="blog-author-date mt-4 px-0">
-//             <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-//           </ul>
-//         </div>
-//       </a>
-//     `;
-//   });
-// }
-
-// window.onload = displayPosts;
-
 let allPosts = [];
 let visiblePosts = 0;
 const postsPerPage = 5;
@@ -576,8 +532,6 @@ async function loadRelatedPostsOnBlogPage() {
 
 document.addEventListener('DOMContentLoaded', loadRelatedPostsOnBlogPage);
 </script>
-
-
 
 </body>
 </html>
