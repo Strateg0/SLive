@@ -1478,6 +1478,7 @@ html {
 .graphList > ul.list > li i {
     font-size: 40px;
     position: relative;
+    color: #872557;
     top: 8px;
 }
 
