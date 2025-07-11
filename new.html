@@ -22,7 +22,7 @@
     }
   </style>
   </head>
-<body>
+<body id="newsBlog">
 <main>
 <div class="container-fluid px-0">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
@@ -76,15 +76,15 @@
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center" id="aboutus_heroBG">
+<section class="px-0 py-0 py-lg-5 text-center" id="news_heroBG">
    <div class="container px-3 py-5">
         <div class="innerText justify-content-center align-self-center align-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-          <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">За нас</h1>
-          <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn"><strong class="fw-bold">Агенция СТРАТЕГМА</strong> е частна професионална компания, основана през 1995, която предоставя консултиране, основано на знание и приложни изследвания. Нашият холистичен подход започва със задълбочена организационна оценка, която отвежда към изработване на стратегически и оперативни пътни карти. Тези резултати се подлагат на стрес тест посредством картографиране на риска с помощта на проектирани сценарии. </p>
+          <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">новости</h1>
+          <!-- <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn"><strong class="fw-bold">Агенция СТРАТЕГМА</strong> е частна професионална компания, основана през 1995, която предоставя консултиране, основано на знание и приложни изследвания. Нашият холистичен подход започва със задълбочена организационна оценка, която отвежда към изработване на стратегически и оперативни пътни карти. Тези резултати се подлагат на стрес тест посредством картографиране на риска с помощта на проектирани сценарии. </p>
 
           <p class="h6 mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">В допълнение правим целево планиране на работните екипи, за да бъдат осигурени правилните умения и стратегията да бъде интегрирана във вътрешно-организационните правила. СТРАТЕГМА прилага процес на работа с проверени данни – от събирането до визуализацията – за формулиране на решения, основани на доказателства и на табла за управление на изпълнението. Констатациите се вграждат в обичайния начин на работа чрез редизайн на процеси, който се ръководи от принципа за приоритет на цифровите решения. Подпомагаме плавната трансформация на бизнес модела с прилагане на методи за управление на промяната. </p>
 
-          <p class="h6 fw-bold mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Създаваме индивидуални решения, които са двигател за организационно съвършенство и устойчивост.</p>    
+          <p class="h6 fw-bold mt-2 mx-auto px-0 headerP text-left animate__animated animate__zoomIn">Създаваме индивидуални решения, които са двигател за организационно съвършенство и устойчивост.</p>     -->
     </div>
     </div>
   </div>
@@ -93,20 +93,38 @@
 <section class="px-0 py-0 py-lg-5 text-center">
    <div class="container px-3 py-5">
     <div class="row align-items-center g-5 py-1 py-lg-5 animate__animated animate__zoomIn">
-      <div class="col-12 col-sm-4 col-lg-6">
-        <div class=" align-self-center px-0 px-lg-3 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-           <img class="w-100" src="./img/img-8.jpg" alt="image">
+        <section class="strateg-blog mt-0 fx-reveal">
+        <div class="text-element-9 py-5 mt-0">
+            <div class="container py-lg-3">
+            <!-- <div class="page-title text-center mx-auto">
+                <h3 class="head mb-lg-5 mb-4">latest news</h3>
+            </div> -->
+            <div class="row">
+                <div class="col-md-12 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
+                <div class="blog-search position-relative">
+                    <form class="d-flex search-form" onsubmit="return false;">
+                    <input id="searchInput" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+                    <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
+                    </form>
+                    <ul id="autocompleteList" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
+                </div>
+                </div>
+                <div class="col-md-8 animate__animated animate__zoomIn" id="blog-posts"></div>
+                <div class="col-md-3 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
+                    <div id="related-posts-section" class="mt-5 animate__animated animate__zoomIn">
+                    <h4 class="mb-4">Последни новини</h4>
+                    <div id="related-posts-container" class="row gy-4"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-4 col-lg-6">
-        <div class="innerText align-text-justify px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-          <p class="h6 mt-2 mx-auto px-0 text-justify animate__animated animate__zoomIn"><strong class="fw-bold">Е кишът на СТРАТЕГМА</strong> следи новостите в управленската теория и ги операционализира за практическо приложение в полза на своите клиенти. Основният екип се състои от <strong class="fw-bold">висококвалифицирани изследователи и експерти</strong> и <strong class="fw-bold">асоциирани професионалисти в различни области</strong>, с които компанията е в дългогодишно сътрудничество. Екипът покрива области като икономика, социални и правни науки, политически науки, статистически анализ, анализ на данни, програмиране и ИТ решения. </p>
-
-          <p class="h6 mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">От 2016 г. <strong class="fw-bold">СТРАТЕГМА</strong> поддържа <strong class="fw-bold">Интегрирана система за управление на качеството, информационната сигурност и околната среда,</strong> сертифицирана по ISO 9001:2015, ISO 14001:2015 и ISO 27000:2013 за целия спектър от консултантски и изследователски услуги за организации от публичния и частния сектор. <strong class="fw-bold">СТРАТЕГМА</strong> предоставя услугите си под регистрирана търговска марка No. 00095435 за класове 9, 16, 35, 36, 38, 41, 42 и 45.</p>
-
-          <p class="h6 mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn"><strong class="fw-bold">СТРАТЕГМА</strong> е в напреднала фаза на разработване на нова услуга за SMART профилиране на малък бизнес, която има амбицията да се превърне в доверен съветник за устойчиво развитие. Услугата функционира като хъб за трансфер на знания и умения, който предоставя инструмент за овластяване на предприемачите с помощта на персонализирана информация за откриване и оползотворяване на потенциала им за устойчивост, иновации и приобщаващ растеж.</p>    
-      </div>
-      </div>
+        </section>
+        <!-- Indicator load -->
+        <div id="loadingIndicator" style="text-align:center; display:none; margin: 20px;">
+        <span>Loading...</span>
+        </div>
     </div>
   </div>
 </section>
@@ -222,6 +240,313 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
+    authDomain: "blog-bd628.firebaseapp.com",
+    projectId: "blog-bd628",
+    storageBucket: "blog-bd628.firebasestorage.app",
+    messagingSenderId: "548493041269",
+    appId: "1:548493041269:web:07460e97568e656a57623c",
+    measurementId: "G-RCBHBBJWJD"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app);
+
+  // Attach Firestore & helpers to global scope
+  window.firebaseDB = db;
+  window.firebaseRefs = {
+    collection,
+    addDoc,
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc,
+    doc
+  };
+  
+const searchInput = document.getElementById('searchInput');
+const autocompleteList = document.getElementById('autocompleteList');
+
+let suggestions = [];
+
+const defaultEnglishSuggestions = [
+  "investment",
+  "finance",
+  "banks",
+  "administration",
+  "innovation",
+  "news",
+  "real estate",
+  "savings",
+  "invest",
+  "income",
+  "cryptocurrency",
+  "stock market",
+  "organizational development and consulting",
+  "strategic planning and evaluation",
+  "raining and innovation",
+  "public communications",
+  "information technology",
+  "AI",
+  "artificial intelligence"
+];
+
+// Fetch all titles/topics once
+async function loadSuggestions() {
+  const snapshot = await getDocs(collection(db, 'posts'));
+  suggestions = [];
+
+  snapshot.forEach(doc => {
+    const data = doc.data();
+    const category = (data.category || '').toLowerCase(); // Normalize
+
+    if (category === 'news' && data.title) {
+      const cleanTitle = data.title.trim();
+      if (!suggestions.includes(cleanTitle)) {
+        suggestions.push(cleanTitle);
+      }
+    }
+  });
+}
+
+
+await loadSuggestions(); // Wait for data to load before interaction
+
+// Listen for typing
+searchInput.addEventListener('input', () => {
+  const input = searchInput.value.trim().toLowerCase();
+  autocompleteList.innerHTML = '';
+
+  // If input cleared, show all posts
+  if (!input) {
+    const posts = document.querySelectorAll('#blog-posts .blog-article-post');
+    posts.forEach(post => {
+      post.style.display = '';
+    });
+    return;
+  }
+
+  // Match from Firestore titles (Bulgarian)
+  const matches = suggestions.filter(item =>
+    item.toLowerCase().includes(input)
+  ).slice(0, 5); // Limit to 5 results
+
+  // If no matches from Firestore, match from default English fallback
+  const finalMatches = matches.length > 0 
+    ? matches 
+    : defaultEnglishSuggestions.filter(topic =>
+        topic.toLowerCase().includes(input)
+      ).slice(0, 5);
+
+  if (finalMatches.length === 0) {
+    const li = document.createElement('li');
+    li.className = 'list-group-item text-muted';
+    li.textContent = 'No matches';
+    autocompleteList.appendChild(li);
+  } else {
+    finalMatches.forEach(item => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item list-group-item-action';
+      li.textContent = item;
+      li.addEventListener('click', () => {
+        searchInput.value = item;
+        autocompleteList.innerHTML = '';
+
+        // Show only the matched post, hide others
+        const postsContainer = document.getElementById('blog-posts');
+        if (!postsContainer) return;
+
+        const posts = postsContainer.querySelectorAll('.blog-article-post');
+        posts.forEach(post => {
+          const titleElement = post.querySelector('h4.text-head-text-9');
+          if (titleElement && titleElement.textContent.trim() === item) {
+            post.style.display = ''; // Show matched post
+          } else {
+            post.style.display = 'none'; // Hide others
+          }
+        });
+      });
+      autocompleteList.appendChild(li);
+    });
+  }
+});
+
+// Hide suggestions on outside click
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.blog-search')) {
+    autocompleteList.innerHTML = '';
+  }
+});
+</script>
+
+
+<script>
+let allPosts = [];
+let visiblePosts = 0;
+const postsPerPage = 5;
+let loading = false;
+
+async function loadAllPosts() {
+  const { collection, getDocs } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  const container = document.getElementById('blog-posts');
+  if (!container) {
+    console.error('Element with id="blog-posts" not found');
+    return;
+  }
+
+  try {
+    const querySnapshot = await getDocs(collection(db, "posts"));
+    allPosts = [];
+
+    querySnapshot.forEach(docSnap => {
+      const post = docSnap.data();
+      // ✅ Only show published blog posts
+      if (post.published && post.category === 'news') {
+        allPosts.push({ ...post, id: docSnap.id });
+      }
+    });
+
+    // ✅ Sort by most recent
+    allPosts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+    renderMorePosts();
+  } catch (error) {
+    console.error("Error loading posts:", error);
+  }
+}
+
+function renderMorePosts() {
+  const container = document.getElementById('blog-posts');
+  const loader = document.getElementById('loadingIndicator');
+  if (!container) return;
+
+  loading = true;
+  if (loader) loader.style.display = 'block';
+
+  setTimeout(() => {
+    const nextPosts = allPosts.slice(visiblePosts, visiblePosts + postsPerPage);
+
+    nextPosts.forEach((post, index) => {
+      const isLast = index === nextPosts.length - 1;
+      const postHTML = `
+        <div class="col-lg-12 col-md-12">
+        <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
+          <div class="cardPass shadow-sm h-100">
+            <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="..."
+              onerror="this.onerror=null;this.src='./img/b1.jpg';" />
+            <div class="card-body">
+               <p class="sub-para my-3">${post.topic}</p>
+               <h4 class="text-head-text-9">${post.title}</h4>
+            </div>
+             <ul class="blog-author-date mt-4 px-0">
+              <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
+            </ul>
+          </div>
+        </a>
+      </div>
+      `;
+
+      container.insertAdjacentHTML('beforeend', postHTML);
+    });
+
+    visiblePosts += postsPerPage;
+    if (loader) loader.style.display = 'none';
+    loading = false;
+    observeLastPost();
+  }, 400);
+}
+
+function observeLastPost() {
+  const lastPost = document.querySelector('.blog-article-post.observe-last');
+  if (!lastPost) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !loading && visiblePosts < allPosts.length) {
+        observer.unobserve(entry.target);
+        renderMorePosts();
+      }
+    });
+  }, {
+    rootMargin: '200px'
+  });
+
+  observer.observe(lastPost);
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+  await loadAllPosts();
+});
+</script>
+
+<script>
+async function loadRelatedPostsOnBlogPage() {
+  const { collection, getDocs } = window.firebaseRefs;
+  const db = window.firebaseDB;
+
+  const container = document.getElementById('related-posts-container');
+  if (!container) return;
+
+  const querySnapshot = await getDocs(collection(db, "posts"));
+  const relatedPosts = [];
+
+  querySnapshot.forEach(docSnap => {
+    const post = docSnap.data();
+    if (post.published) {
+      relatedPosts.push({ ...post, id: docSnap.id });
+    }
+  });
+
+  // Shuffle array randomly
+  for (let i = relatedPosts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [relatedPosts[i], relatedPosts[j]] = [relatedPosts[j], relatedPosts[i]];
+  }
+
+  // Take first 3 posts
+  const selectedPosts = relatedPosts.slice(0, 4);
+
+  selectedPosts.forEach(post => {
+    container.innerHTML += `
+      <div class="col-lg-12 col-md-12">
+        <a href="blog-single.html?id=${post.id}" class="related-post-card d-block h-100">
+          <div class="card shadow-sm h-100">
+            <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="..."
+              onerror="this.onerror=null;this.src='./img/b1.jpg';" />
+            <div class="card-body" style="text-align:left;">
+              <h5 class="card-title">${post.title}</h5>
+              <p class="card-text text-muted">${post.topic || 'Blog'}</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    `;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadRelatedPostsOnBlogPage);
+</script>
+
 
 </body>
 </html>

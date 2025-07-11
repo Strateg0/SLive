@@ -305,9 +305,9 @@ async function loadDrafts() {
       <td>${post.author}</td>
       <td>${post.date}</td>
       <td>
-        <button onclick="editDraft('${post.id}')">Update</button>
-        <button onclick="publishDraft('${post.id}')">Publish Live</button>
-        <button onclick="deleteDraft('${post.id}')">Delete</button>
+        <button onclick="editDraft('${post.id}')">Обновяване</button>
+        <button onclick="publishDraft('${post.id}')">Публикуване</button>
+        <button onclick="deleteDraft('${post.id}')">Изтриване</button>
         ${post.published ? '<span style="color: green;">✅ Published</span>' : '<span style="color: red;">Clcik to Publish Updates</span>'}
       </td>
     `;
@@ -491,6 +491,9 @@ let deleteIdToConfirm = null;
       }
     });
 
+
+
+
     function showPasswordPrompt() {
       let adminPassword = '';
 
@@ -575,8 +578,8 @@ function showSessionExpiredPopup() {
 
     if (countdown <= 0) {
       clearInterval(countdownInterval);
-      console.log("[Popup] Redirecting to login.html");
-      window.location.href = 'login.html';
+      console.log("[Popup] Redirecting to Archive Page");
+      window.location.href = 'archive.html';
     }
   }, 1000);
 }

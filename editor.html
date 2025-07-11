@@ -124,6 +124,14 @@
   </div>
 
   <div class="input-group">
+    <label for="category">Category:</label>
+    <select id="category">
+      <option value="blog">Blog</option>
+      <option value="news">News</option>
+    </select>
+  </div>
+
+  <div class="input-group">
     <label for="title">Title</label>
     <input type="text" id="title" rows="1" cols="10" placeholder="Enter Title..." />
     <p id="titleWordCount">Words: 0 / 15</p>
@@ -281,13 +289,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  let editingId = null; // If editing, this holds the Firestore doc ID
+  let editingId = null; // Holds Firestore doc ID if editing
 
   window.onload = function () {
     const urlParams = new URLSearchParams(window.location.search);
     const isEditing = urlParams.get('edit') === 'true';
 
-    const draft = JSON.parse(sessionStorage.getItem(isEditing ? 'editDraft' : 'draftPost'));
+    const draftKey = isEditing ? 'editDraft' : 'draftPost';
+    const draft = JSON.parse(sessionStorage.getItem(draftKey));
+
     if (draft) {
       document.getElementById('topic').value = draft.topic || '';
       document.getElementById('author').value = draft.author || '';
@@ -296,6 +306,11 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('imageUrl').value = draft.imageUrl || '';
       if (draft.content) {
         quill.root.innerHTML = draft.content;
+      }
+
+      // ✅ Load category into dropdown
+      if (draft.category) {
+        document.getElementById('category').value = draft.category;
       }
 
       if (isEditing && draft.id) {
@@ -317,8 +332,9 @@ document.addEventListener('DOMContentLoaded', function () {
       imageUrl: document.getElementById('imageUrl').value,
       content: quill.root.innerHTML,
       date: new Date().toLocaleDateString(),
-      createdAt: Date.now(),                  // ✅ For accurate sorting
-      published: false
+      createdAt: Date.now(),
+      published: false,
+      category: document.getElementById('category').value || 'blog' // fallback
     };
 
     try {
@@ -366,6 +382,7 @@ function setupWordLimit(fieldId, countId, maxWords) {
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
+  // import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
   import {
     getFirestore,
     collection,
