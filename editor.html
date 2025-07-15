@@ -37,6 +37,16 @@
       padding: 8px;
       margin-top: 5px;
     }
+    .input-error {
+    border: 2px solid red !important;
+    outline: none;
+    background-color: #ffe6e6;
+  }
+
+  select.input-error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6;
+  }
   </style>
   </head>
 <body>
@@ -154,9 +164,10 @@
     <!-- <label>Article Content</label> -->
     <div id="editor-container"></div>
   </div>
-
- <button id="saveBtn" onclick="saveDraft()">Запази Като Драфт</button>
-
+  <div class="edtr d-inline-flex">
+    <button id="saveBtn" onclick="saveDraft()">Запази Като Драфт</button>
+    <button class="creation" onclick="goToArchive()">Отказ <i class="bi bi-x-circle-fill"></i></button>
+  </div>
 </div>
 </div>
 </div>
@@ -339,6 +350,84 @@ document.addEventListener('DOMContentLoaded', function () {
       category: document.getElementById('category').value || 'blog' // fallback
     };
 
+function showWarning(message) {
+  let warning = document.getElementById('warning-message');
+  if (!warning) {
+    warning = document.createElement('div');
+    warning.id = 'warning-message';
+    warning.style.color = 'red';
+    warning.style.marginTop = '10px';
+    warning.style.fontWeight = 'bold';
+    warning.style.background = '#ffe6e6';
+    warning.style.padding = '10px';
+    warning.style.borderRadius = '5px';
+    document.getElementById('editor-container').parentNode.insertBefore(warning, document.getElementById('editor-container'));
+  }
+  warning.textContent = message;
+}
+
+function showSuccess(message) {
+  alert(message);
+  const warning = document.getElementById('warning-message');
+  if (warning) warning.remove();
+}
+
+// ✅ Required Fields Validation (works for <input> and <select>)
+const requiredFields = [
+  { id: 'title', label: 'Title' },
+  { id: 'description', label: 'Description' },
+  { id: 'topic', label: 'Topic' },
+  { id: 'author', label: 'Author' },
+  { id: 'category', label: 'Category' }
+];
+
+// Clear previous errors
+requiredFields.forEach(field => {
+  document.getElementById(field.id).classList.remove('input-error');
+});
+document.getElementById('editor-container').classList.remove('input-error');
+
+// Find missing fields
+const missingFields = requiredFields.filter(({ id }) => {
+  const el = document.getElementById(id);
+  if (!el) return true; // Defensive fallback
+
+  const value = el.value.trim();
+
+  // For SELECT, check if first option (placeholder) is selected
+  if (el.tagName === 'SELECT') {
+    return value === '' || el.selectedIndex === 0;
+  }
+
+  return value === '';
+});
+
+
+// Validate Quill content
+const tempDiv = document.createElement('div');
+tempDiv.innerHTML = post.content;
+const plainText = tempDiv.textContent.trim();
+
+if (missingFields.length || !plainText) {
+  // Highlight missing inputs/selects
+  missingFields.forEach(field => {
+    const el = document.getElementById(field.id);
+    if (el) el.classList.add('input-error');
+  });
+
+  if (!plainText) {
+    document.getElementById('editor-container').classList.add('input-error');
+  }
+
+  // Show warning message
+  const fieldNames = missingFields.map(f => f.label);
+  if (!plainText) fieldNames.push('Content');
+
+  const message = `Please fill in the following required fields: ${fieldNames.join(', ')}.`;
+  showWarning(message);
+  return;
+}
+
     try {
       if (editingId) {
         const docRef = doc(db, "posts", editingId);
@@ -423,5 +512,6 @@ function setupWordLimit(fieldId, countId, maxWords) {
     doc
   };
 </script>
+
 </body>
 </html>
