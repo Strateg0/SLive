@@ -34,14 +34,14 @@
       <span class="fs-4"><img src="./img/logo.png" id="logo" class="dark-logo" style="width: 180px;"></span>
       <!-- <span class="fs-4"><img src="./img/logo-light.png" class="light-logo" style="width: 180px;"></span> -->
     </a>
-    <!-- Hamburger button for mobile not active-->
-    <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- button for Mobile dark/light mode-->
+   <button id="themeToggle" class="theme-toggle ms-5 d-block d-sm-none d-md-block d-lg-none d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
+       <!-- Hamburger button for mobile not active-->
+    <button class="navbar-toggler d-block ms-0 d-sm-block d-md-block d-lg-none d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- button for Mobile dark/light mode-->
-   <button id="themeToggle" class="theme-toggle ms-4 d-block d-sm-block d-md-block d-lg-none d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
     <!-- dropdown selection menu Mobile -->
-     <div class="dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
+     <div class="dropdown d-none d-sm-none d-md-none d-lg-none d-xl-none">
         <a class="btn dropdown-toggle mb-0 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
           <span class="fi fi-us"></span>
         </a>
@@ -53,7 +53,7 @@
         </ul>
       </div>
     <!-- Collapsible menu items -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
+    <div class="collapse navbar-collapse pt-4 pt-lg-0" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0 mb-lg-0">
         <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
         <li class="nav-item"><a href="sectors.html" class="nav-link">сектори</a></li>
@@ -61,7 +61,7 @@
         <li class="nav-item"><a href="new.html" class="nav-link">новости</a></li>
         <li class="nav-item"><a href="aboutUs.html" class="nav-link">за нас</a></li>
         <li class="nav-item"><a href="blog.html" class="nav-link">блог</a></li>
-        <div class="dropdown">
+        <div class="dropdown px-3">
           <a class="btn dropdown-toggle mb-2 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
            <span class="fi fi-us"></span>
           </a>
@@ -72,7 +72,7 @@
             <li><a class="dropdown-item" href="#"><span class="fi fi-hr"></span> Croatia</a></li>
           </ul>
         </div>
-        <button id="themeToggleDesk" class="theme-toggle ms-1" aria-label="Toggle theme"><span class="icon">🌙</span></button>
+        <button id="themeToggleDesk" class="theme-toggle ms-1 d-none d-sm-none d-md-none d-lg-block d-xl-block" aria-label="Toggle theme"><span class="icon">🌙</span></button>
         <!-- <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="iconDesk">🌙</span></button></li> -->
       </ul>
     </div>
@@ -95,9 +95,8 @@
         <h3 class="head mb-lg-5 mb-4">Blog Posts</h3>
       </div> -->
       <div class="row">
-        <div class="col-md-6 order-2 order-lg-1 animate__animated animate__zoomIn" id="blog-posts">
-        </div>
-        <div class="col-md-6 left-text-9 mt-md-0 mt-0 pl-md-4 order-1 order-lg-2">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 order-1 order-lg-1 animate__animated animate__zoomIn" id="blog-posts"></div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 left-text-9 mt-md-0 mt-0 pl-md-4 order-1 order-lg-2">
           <div class="blog-search position-relative">
             <form class="d-flex search-form" onsubmit="return false;">
               <input id="searchInput" type="search" class="form-control" placeholder="Search..." autocomplete="off">
@@ -111,6 +110,13 @@
           </div>
         </div>
       </div>
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div id="last-seen-posts-container" class="row mt-5">
+          <h3 class="col-12 mb-3">Последно Прегледани</h3>
+        </div>
+      </div>
+    </div>
     </div>
     </div>
   </div>
@@ -131,7 +137,7 @@
             <li><a href="blog.html"><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
             <li><a href="#pricing"><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
           </ul>
-          <ul>
+          <ul class="social_media">
             <h1 class="footer-title">Последвай ни</h1>
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
@@ -174,7 +180,7 @@
         <div class="container-fluid footer_copyright">
       <div class="container">
         <div class="row justify-content-md-center">
-          <div class="col col-lg-8 px-0">
+          <div class="col col-md-6 col-lg-6 col-xxl-8 px-0">
           <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
           </div>
           <div class="col-md-auto">
@@ -270,6 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
     deleteDoc,
     doc
   };
+  
   
 const searchInput = document.getElementById('searchInput');
 const autocompleteList = document.getElementById('autocompleteList');
@@ -485,9 +492,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 </script>
 
-
-
-
 <script>
 async function loadRelatedPostsOnBlogPage() {
   const { collection, getDocs } = window.firebaseRefs;
@@ -526,6 +530,9 @@ async function loadRelatedPostsOnBlogPage() {
             <div class="card-body">
               <h5 class="card-title">${post.title}</h5>
               <p class="card-text text-muted">${post.topic || 'Blog'}</p>
+              <ul class="blog-author-date mt-4 px-0">
+                <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
+              </ul>
             </div>
           </div>
         </a>
@@ -536,6 +543,52 @@ async function loadRelatedPostsOnBlogPage() {
 
 document.addEventListener('DOMContentLoaded', loadRelatedPostsOnBlogPage);
 </script>
+
+<script type="module">
+  
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('last-seen-posts-container');
+
+  if (!container) return;
+
+  const historyData = JSON.parse(localStorage.getItem('lastSeenPostsData') || '{}');
+
+  const now = Date.now();
+  const tenMinutes = 10 * 60 * 1000;
+
+  if (!historyData.timestamp || (now - historyData.timestamp) > tenMinutes) {
+    localStorage.removeItem('lastSeenPostsData');
+    container.innerHTML = '<p class="text-muted">No recently viewed posts.</p>';
+    return;
+  }
+
+  const posts = historyData.posts || [];
+
+  if (posts.length === 0) {
+    container.innerHTML = '<p class="text-muted">No recently viewed posts.</p>';
+  } else {
+    container.innerHTML = '<h4 class="mb-4">Последно прегледани</h4><div class="row">';
+
+    posts.forEach(post => {
+      container.innerHTML += `
+        <div class="col-md-4 mb-3">
+          <a href="blog-single.html?id=${post.id}" class="card h-100 shadow-sm text-decoration-none text-dark">
+            <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="${post.title}" onerror="this.onerror=null;this.src='./img/b1.jpg';" />
+            <div class="card-body">
+              <h5 class="card-title">${post.title}</h5>
+              <p class="card-text text-muted">${post.topic || 'Blog'}</p>
+            </div>
+          </a>
+        </div>
+      `;
+    });
+
+    container.innerHTML += '</div>';
+  }
+});
+</script>
+
+
 
 </body>
 </html>

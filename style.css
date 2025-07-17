@@ -1356,7 +1356,7 @@ a#btnTop > i {
     backdrop-filter: blur(20px);
 }
 
-div#related-posts-container .card {
+div#related-posts-container .card, div#last-seen-posts-container .card {
     border-radius: 20px;
     transition: 0.3s ease-in;
     border: 1px solid #eee;
@@ -1540,6 +1540,21 @@ html {
    box-shadow: 0px 0px 8px rgba(53, 54, 102, 0.2);
   transition: 0.3s ease-in;
 }
+button.singePage {
+    text-align: center;
+    margin: 0;
+    width: 200px;
+    border: 0;
+    background: none;
+    color: #ffffff;
+    display: block;
+    margin: 0 auto 20px 0px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #872557;
+    border-radius: 60px;
+    width: auto;
+}
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
@@ -1605,6 +1620,39 @@ html {
   .home-demo h2{
     text-align: center;
   }
+  ul.navbar-nav li a {
+    font-size: 14px;
+  }
+   ul.footer-list, .social_media{
+    padding-left: 0rem;
+  }
+  .graphic {
+    height: auto;
+    margin: 0 auto;
+    -ms-background-size: auto;
+    background-size: auto;
+    z-index: 0;
+    position: relative;
+    display: block;
+    border-radius: 10px;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    text-transform: capitalize;
+    width: auto;
+    box-shadow: 0 8px 22px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    align-items: center;
+  }
+  .graphList >.list li {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .graphList ul.list {
+    padding: 0;
+  }
+  .graphList .list li span {
+    padding-left: 20px;
+  }
+  footer{background-position: 10% 70%;}
 }
 
 @media only screen and (max-width: 1024px) and (min-width:1024px) and (orientation: portrait){
@@ -1739,6 +1787,7 @@ html {
   .theme-toggle {
     position: absolute;
     right: 11vw;
+    top: 12px;
   }
   section.S5{height: auto;}
   .owl-dots{display: none;}
@@ -1753,6 +1802,27 @@ html {
   justify-content: center;
   position: relative;
   }
+  .dropdown > a {
+    backdrop-filter:inherit;
+    width: 100%;
+    background: #ffffff;
+  }
+  .innerText {
+    text-align: left;
+    width: 100%;
+  }
+  .innerText > img {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    position: inherit;
+    top: inherit;
+  }
+  .graphic{
+    height: auto;
+  }
+  ul.footer-list{padding-left: 0rem;}
+  footer{background-position: 2% 70%;}
 }
 
 @media screen and (max-width: 768px) and (min-width:320px){
@@ -1840,6 +1910,7 @@ html {
     border-radius: 40px;
     text-transform: capitalize;
     width: auto;
+    height: auto;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
@@ -1858,10 +1929,10 @@ html {
     padding-left: 0;
   }
   .dropdown {
-    background: #ffffff;
+    /* background: #ffffff; */
     border-radius: 20px;
   }
-  .dropdown > a {backdrop-filter:inherit;}
+  .dropdown > a {backdrop-filter:inherit;width: 100%;background: #ffffff;}
   .theme-toggle {
     font-size: 1.6em;
   }
@@ -1872,6 +1943,9 @@ html {
     position: relative;
     top: 0px
   }
+  .dark-mode .dropdown-toggle::after{
+  color: #000000;
+  }
 }
 
 @media screen and (max-width: 480px) and (min-width:320px){
@@ -1879,4 +1953,12 @@ html {
   .details .value{font-size: 15px;}
   ul.footer-list li a {font-size: 16px;}
   #heroBG{background-size: inherit;}
+  .graphList > .list li, .graphList > .list li i {font-size: 20px;}
+  footer{background-position: 7% 70%;}
+   .project > button {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  #heroBG{background-position: 67% 50%;}
 }
