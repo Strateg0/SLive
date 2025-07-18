@@ -182,14 +182,13 @@ li.nav-item {
   color: var(--bs-white)!important;
 }
 
-
 #heroBG{
 z-index: 0;
 position: relative;
 align-items: center;
 background-size: cover;
 -ms-background-size: cover;
-background-image: linear-gradient(to right, rgb(1 0 6 / 25%), rgb(1 0 10 / 35%)), url('./img/hero.png');
+background-image: linear-gradient(to right, rgb(1 0 6 / 25%), rgb(1 0 10 / 45%)), url('./img/hero.png');
 background-repeat: no-repeat, no-repeat, no-repeat;
 background-position: center;
 background-attachment: fixed;
@@ -805,7 +804,7 @@ footer p {
 }
 
 .dark-mode .nav-link, .dark-mode .cs-text {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .dark-mode header {
@@ -826,6 +825,7 @@ footer p {
 .dark-mode .dropdown-toggle::after{
   color: #ffffff;
 }
+
 
 .dark-mode .strateg-blog h4.text-head-text-9, .dark-mode .strateg-blog p.sub-para, .dark-mode .strateg-blog ul.blog-author-date li.author{
    color: #ffffff;
@@ -1564,7 +1564,7 @@ button.singePage {
     width: auto;
 }
 
-Begin Infographics
+/* Begin Infographics */
 #infographic .circle {
    width: 420px;
    height: 420px;
@@ -1778,9 +1778,292 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 .list-group-item.active {
    color: #ffffff;
 }
-
-
 /* End infographic */
+
+
+    /* Your original CSS, with a minor change for expanded state */
+    .gallery-wrapper {
+      width: 100%;
+      max-width: 1265px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .gallery-header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin: 0 0 30px 0;
+    }
+
+    .gallery-header h1 {
+      font: normal normal 400 240% / 1.5cap "Della Respira", serif;
+      padding: 0 0 10px 0;
+      margin: 0 0 20px 0;
+      border-bottom: 1px solid #333;
+      text-wrap: balance;
+    }
+
+    .gallery-header p {
+      color: #bbb;
+      padding-left: 30px;
+      margin: 0;
+      border-left: 10px solid;
+      border-image: repeating-linear-gradient(
+          43deg,
+          white,
+          white 4px,
+          transparent 5px,
+          transparent 9px,
+          white 10px
+        )
+        10;
+      text-wrap: pretty;
+    }
+
+    .gallery-header p .mobile {
+      display: none;
+    }
+
+    /* Toggle Button styles */
+    .gallery-toggle button {
+      width: 200px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      color: white;
+      transition: all 0.3s ease;
+      border: 1px solid #008177;
+      color: #008177;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: white;
+      border-radius: 60px;
+      padding: 20px;
+      width: auto;
+    }
+
+    .gallery-toggle button:hover {
+      border: 1px solid #ffffff;
+      color: #ffffff;
+      transition: all ease-in-out 0.3s;
+      font-weight: bold;
+      text-transform: uppercase;
+      background: #008177;
+      border-radius: 60px;
+      padding: 20px;
+      width: auto;
+      transition: all 0.3s ease;
+    }
+
+    /* Gallery */
+    .gallery {
+      width: 100%;
+      height: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      justify-content: stretch;
+      border-right: 1px solid #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      border-left: 1px solid #e2e2e2;
+      position: relative;
+      transition: all 0.5s ease;
+    }
+
+    .gallery::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      background-image: linear-gradient(
+        90deg,
+        #ff00bb,
+        #ff00b6,
+        #ff00a8,
+        #ff0b93,
+        #ff347a,
+        #ff585f,
+        #ff7a44,
+        #ff9829,
+        #ffb20c,
+        #ffc500,
+        #ffd100,
+        #ffd500
+      );
+      content: "";
+      z-index: 2;
+      transition: all 1.2s ease;
+    }
+
+    /* Expanded State (controlled by JS toggle class) */
+    .gallery.expanded::before {
+      width: 0;
+    }
+
+    .gallery.expanded {
+      height: 250px;
+    }
+
+    /* Gallery Items */
+    .gallery-item {
+      flex-grow: 1;
+      opacity: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      transition: all 0.3s ease;
+    }
+/* 
+    .gallery-item:nth-child(4):hover {
+    transform: scale(1.2);
+    width: 50%;
+    height: 100%;
+    } */
+
+    /* Animate items with staggered delays */
+    .gallery.expanded .gallery-item:nth-of-type(1) {
+      opacity: 1;
+      flex-grow: 2;
+      transition-delay: 0.3s;
+    }
+
+    .gallery.expanded .gallery-item:nth-of-type(2) {
+      opacity: 1;
+      flex-grow: 2;
+      transition-delay: 0.5s;
+    }
+
+    .gallery.expanded .gallery-item:nth-of-type(3) {
+      opacity: 1;
+      flex-grow: 2;
+      transition-delay: 0.25s;
+    }
+
+    .gallery.expanded .gallery-item:nth-of-type(4) {
+      opacity: 1;
+      flex-grow: 2;
+     transition-delay: 0.30s;
+    }
+
+    .gallery.expanded .gallery-item:nth-of-type(5) {
+      opacity: 1;
+      flex-grow: 2;
+     transition-delay: 0.35s;
+    }
+
+    .gallery.expanded .gallery-item:nth-of-type(6) {
+      opacity: 1;
+      flex-grow: 5;
+      transition-delay: 0.5s;
+    }
+
+    .gallery.expanded .gallery-item:nth-of-type(n+7) {
+      opacity: 1;
+      flex-grow: 2;
+     transition-delay: 0.20s;
+    }
+
+    /* Hover Effects */
+    .gallery .gallery-item:hover {
+      flex-grow: 3 !important;
+    }
+
+    .gallery:has(.gallery-item:hover) .gallery-item:not(:hover) {
+      flex-grow: 1 !important;
+      transition-delay: 0.2s !important;
+    }
+
+    /* Pointer event animation */
+    .gallery.expanded .gallery-item {
+      animation: pointerFix 1.5s linear 0s 1 normal;
+    }
+
+    @keyframes pointerFix {
+      0% {
+        pointer-events: none;
+      }
+      99% {
+        pointer-events: none;
+      }
+      100% {
+        pointer-events: initial;
+      }
+    }
+
+    /* Background images */
+    .gallery1 .gallery-item:nth-of-type(1) { background-image: url("https://picsum.photos/id/337/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(2) { background-image: url("https://picsum.photos/id/515/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(3) { background-image: url("https://picsum.photos/id/424/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(4) { background-image: url("https://picsum.photos/id/849/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(5) { background-image: url("https://picsum.photos/id/476/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(6) { background-image: url("https://picsum.photos/id/57/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(7) { background-image: url("https://picsum.photos/id/82/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(8) { background-image: url("https://picsum.photos/id/680/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(9) { background-image: url("https://picsum.photos/id/553/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(10) { background-image: url("https://picsum.photos/id/193/500/500"); }
+    .gallery1 .gallery-item:nth-of-type(11) { background-image: url("https://picsum.photos/id/565/500/500"); }
+
+    .gallery2 .gallery-item:nth-of-type(1) { background-image: url("https://picsum.photos/id/201/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(2) { background-image: url("https://picsum.photos/id/202/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(3) { background-image: url("https://picsum.photos/id/203/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(4) { background-image: url("https://picsum.photos/id/204/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(5) { background-image: url("https://picsum.photos/id/205/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(6) { background-image: url("https://picsum.photos/id/680/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(7) { background-image: url("https://picsum.photos/id/553/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(8) { background-image: url("https://picsum.photos/id/193/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(9) { background-image: url("https://picsum.photos/id/565/500/500"); }
+    .gallery2 .gallery-item:nth-of-type(10) { background-image: url("https://picsum.photos/id/600/500/500"); }
+
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .gallery-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gallery-header p .desktop {
+        display: none;
+      }
+      .gallery-header p .mobile {
+        display: initial;
+      }
+      .gallery-toggle button {
+        width: 100%;
+        max-width: 600px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .gallery-header p {
+        max-width: unset;
+      }
+      .gallery-toggle button {
+        max-width: unset;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .gallery {
+        flex-direction: column;
+      }
+      .gallery.expanded {
+        height: 1000px;
+      }
+    }
+
+
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
   .home-carousel h2 {

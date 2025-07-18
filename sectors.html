@@ -111,6 +111,26 @@
                 </p>    
 
                 <p class="h6 cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">За повече от 20 години работа в полза на публичния сектор екипът на СТРАТЕГМА е дал своя иновативен и провокиращ мисълта принос за модернизация и подобряване на резултатите.</p>
+                <div class="gallery-wrapper">
+                    <div class="gallery-header">
+                    <div class="gallery-toggle">
+                        <button id="toggle-btn">галерия проекти</button>
+                    </div>
+                    </div>
+                    <div class="gallery gallery1" id="gallery1">
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    </div>
+                </div>
                </div>
              </div>
            </a>
@@ -139,6 +159,26 @@
                         </div>
                     </div>
                </div>
+                <div class="gallery-wrapper">
+                    <div class="gallery-header">
+                    <div class="gallery-toggle">
+                        <button id="toggle-btn2">галерия проекти</button>
+                    </div>
+                    </div>
+                    <div class="gallery gallery2" id="gallery2">
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    <div class="gallery-item"></div>
+                    </div>
+                </div>
              </div>
            </a>
          </div>
@@ -257,6 +297,23 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+<script>
+  const toggleBtn = document.getElementById('toggle-btn');
+  const gallery = document.getElementById('gallery1');
+  const toggleBtn2 = document.getElementById('toggle-btn2');
+  const gallery2 = document.getElementById('gallery2');
+
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = gallery.classList.toggle('expanded');
+    toggleBtn.textContent = isExpanded ? 'затвори' : 'галерия проекти';
+  });
+
+  toggleBtn2.addEventListener('click', () => {
+    const isExpanded2 = gallery2.classList.toggle('expanded');
+    toggleBtn2.textContent = isExpanded2 ? 'затвори' : 'галерия проекти';
+  });
+</script>
+
 
 </body>
 </html>
