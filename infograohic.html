@@ -1,0 +1,174 @@
+<div class="h-100 w-100 py-4">
+   <main id="infographic" class="d-flex flex-column align-items-center py-5">
+      <!-- Step 1: Beginner Stage -->
+      <div class="step one">
+         <div class="circle">
+           <i class="bi bi-info-circle-fill display-4"></i>
+              <h4 class="step-label">Какво предлагаме</h4> <!-- Add class for targeting -->
+         </div>
+         <article data-step="1">
+            <header class="d-flex align-items-center bg-secondary bg-opacity-10">
+              <i class="bi bi-info-circle-fill"></i>
+               <h6 class="text-uppercase light-text my-3 ps-4">Learning the Basics</h6>
+            </header>
+
+            <div class="body">
+               <small>1. Learn Python programming, focusing on libraries like NumPy, Pandas, and Matplotlib.<br>
+                  2. Understand linear algebra, probability, and statistics.<br>
+                  3. Learn about data preprocessing (cleaning, normalization, transformation).</small>
+
+               <div class="d-flex justify-content-between mt-3 controls">
+                  <a class="btn btn-outline-danger invisible" href="#">Prev</a>
+                  <a class="btn btn-outline-danger" href="#">Next</a>
+               </div>
+            </div>
+         </article>
+         <article data-step="2">
+            <header class="d-flex align-items-center bg-secondary bg-opacity-10">
+              <i class="bi bi-info-circle-fill"></i>
+               <h6 class="text-uppercase light-text my-3 ps-4">Introduction to Machine Learning</h6>
+            </header>
+
+            <div class="body">
+               <small>1. Understand supervised learning (classification, regression).<br>
+                  2. Learn unsupervised learning (clustering, dimensionality reduction).<br>
+                  3. Familiarize yourself with popular algorithms (linear regression, k-nearest neighbors, decision trees).</small>
+
+               <div class="d-flex justify-content-between mt-3 controls">
+                  <a class="btn btn-outline-danger" href="#">Prev</a>
+                  <a class="btn btn-outline-danger" href="#">Next</a>
+               </div>
+            </div>
+         </article>
+         <article data-step="3">
+            <header class="d-flex align-items-center bg-secondary bg-opacity-10">
+              <i class="bi bi-info-circle-fill"></i>
+               <h6 class="text-uppercase light-text my-3 ps-4">Basic Model Evaluation</h6>
+            </header>
+
+            <div class="body">
+               <small>1. Learn about model evaluation metrics (accuracy, precision, recall, F1-score).<br>
+                  2. Understand cross-validation and overfitting/underfitting concepts.<br>
+                  3. Learn to use scikit-learn for model training and evaluation.</small>
+
+               <div class="d-flex justify-content-between mt-3 controls">
+                  <a class="btn btn-outline-danger" href="#">Prev</a>
+                  <a class="btn btn-outline-danger" href="#">Next</a>
+               </div>
+            </div>
+         </article>
+         <article data-step="4">
+            <header class="d-flex align-items-center bg-secondary bg-opacity-10">
+             <i class="bi bi-info-circle-fill"></i>
+               <h6 class="text-uppercase light-text my-3 ps-4">Data Visualization & Interpretation</h6>
+            </header>
+
+            <div class="body">
+               <small>1. Learn to visualize data using libraries like Matplotlib, Seaborn.<br>
+                  2. Create plots for distributions, relationships, and trends.<br>
+                  3. Interpret the output of models and data insights.</small>
+
+               <div class="d-flex justify-content-between mt-3 controls">
+                  <a class="btn btn-outline-danger" href="#">Prev</a>
+                  <a class="btn btn-outline-danger" href="#">Next</a>
+               </div>
+            </div>
+         </article>
+        </div>
+
+      
+   </main>
+</div>
+
+
+<script>
+
+const circleLabel = document.querySelector(".circle .step-label");
+function updateStepLabel(article) {
+   if (article) {
+      const title = article.querySelector("header h6").textContent;
+      circleLabel.textContent = title;
+   }
+}
+
+// Function to revert the label to "STEP X"
+function revertStepLabel(stepNumber) {
+   circleLabel.textContent = `STEP ${stepNumber}`;
+}
+
+// Expand/Collapse Article with label update
+document.querySelectorAll("#infographic article").forEach((article) => {
+   article.addEventListener("click", (e) => {
+
+      // If clicked element is a button, ignore this handler
+      if (e.target.closest(".btn")) return;
+
+      const isActive = article.classList.contains("active");
+      const stepNumber = article.getAttribute("data-step");
+
+      // Collapse all articles
+      document.querySelectorAll("#infographic article").forEach((a) => {
+         a.classList.remove("active");
+      });
+
+      if (!isActive) {
+         // Expand this one
+         article.classList.add("active");
+
+         // Update the label to the current article's title
+         updateStepLabel(article);
+      } else {
+         // Collapse action: revert to "STEP X"
+         revertStepLabel(stepNumber);
+      }
+   });
+});
+
+// Collapse articles when clicking outside
+document.addEventListener("mouseup", (e) => {
+   document.querySelectorAll("article.active").forEach((article) => {
+      if (article.contains(e.target)) return;
+
+      article.classList.remove("active");
+
+      // Revert label to "STEP X"
+      const stepNumber = article.getAttribute("data-step");
+      revertStepLabel(stepNumber);
+   });
+});
+
+// Activate articles through prev/next buttons and update label
+document.querySelectorAll("#infographic article .btn").forEach((btn) => {
+   btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // <--- FIX: Prevent bubbling to article click handler
+
+      const isPrev =
+         e.target === e.target.parentElement.firstElementChild ? true : false;
+
+      const currentArticle = btn.closest("article");
+      const currentStep = parseInt(currentArticle.getAttribute("data-step"));
+
+      // Determine next step
+      const nextStep = isPrev ? currentStep - 1 : currentStep + 1;
+
+      const nextArticle = document.querySelector(`[data-step="${nextStep}"]`);
+
+      if (!nextArticle) return; // Guard against out-of-bounds
+
+      // Collapse current, expand next
+      currentArticle.classList.remove("active");
+      nextArticle.classList.add("active");
+
+      // Scroll to the next article
+      nextArticle.scrollIntoView({
+         behavior: "smooth",
+         block: "nearest"
+      });
+
+      // Update the label to the new article's title
+      updateStepLabel(nextArticle);
+   });
+});
+
+</script>
