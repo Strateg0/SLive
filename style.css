@@ -2073,29 +2073,15 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     flex-direction: column;
     z-index: 9999;
     }
-    div#lightbox > div button {
-    border: 0;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 18px;
-    border: 1px solid #008177;
-    color: #008177;
-    font-weight: bold;
-    text-transform: uppercase;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: auto;
-}
     .accordion-button:not(.collapsed) {
     background-color: var(--bs-secondary);
     border: 1px solid var(--bs-secondary);
     color: var(--bs-light);
   }
 
-  .accordion-button:focus {
-    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.37);
-  }
+.accordion-button:focus {
+   box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.37);
+}
 
 
 /*MEDIA QUERY Responsivnes*/
