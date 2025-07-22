@@ -247,6 +247,20 @@ background-attachment: fixed;
 height: auto;
 }
 
+#whyBG{
+z-index: 0;
+position: relative;
+display: block;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: linear-gradient(to right, rgb(1 0 6 / 25%), rgb(1 0 10 / 35%)), url('./img/why.png');
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: top 50%;
+background-attachment: fixed;
+height: auto;
+}
+
 #login_heroBG{
 z-index: 0;
 position: relative;
@@ -330,6 +344,10 @@ align-items: center;
 }
 .flaticon-tick::before {
     content: "\2713";
+}
+
+.bulletCSlist ul.liBullet li, .bulletCSlist ul.liBullet li i {
+    color: #ffffff;
 }
 
 .innerText > a button, .project > button {
