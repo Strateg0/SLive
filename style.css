@@ -1087,8 +1087,77 @@ nav.sticky-nav {
     text-transform: capitalize;
     width: auto;
     margin: 5px;
+    position : relative;
+      z-index: 1;
     backdrop-filter: blur(20px);
 }
+
+/* .bestseller:before {
+  content: "";
+  z-index: -1;
+  overflow: hidden;
+  transform: rotate(-135deg);
+  width: 120px;
+  display: block; 
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 34px;
+  right: -16px;
+  clip-path: polygon(120px 20px, 90px -10px, 30px -10px, 0px 20px, 10px 30px,  110px 30px);
+  height: 20px;
+  width: 120px;
+} */
+.bestseller:after {
+  content: "LATEST NEWS";
+  z-index: 1;
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: bold;
+  color: #FFF;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 20px;
+  transform: rotate(45deg);
+  width: 122px;
+  display: block;
+  background: #79A70A;
+  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
+  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+  position: absolute;
+  top: 23px;
+  right: -30px;
+  clip-path: polygon(120px 20px, 90px -10px, 30px -10px, 0px 20px, 10px 30px, 110px 30px);
+}
+
+/* .cardb::before{
+  position: absolute;
+  top:2rem;
+  right:-17px;
+  content: '';
+  background: var(--bs-secondary);
+  height: 28px;
+  width: 28px;
+  transform : rotate(45deg);
+    z-index: -1;
+}
+
+.cardb::after{
+  position: absolute;
+  content: attr(data-label);
+  top: 9px;
+  right: -22px;
+  padding: 0.5rem;
+  width: 10rem;
+  background: var(--bs-secondary);
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+   z-index: 2;
+} */
+
 
 .card {
   margin: 0 0.5em;
@@ -2349,6 +2418,10 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   }
   footer{background-position: 10% 70%;}
   #projectBG{height: auto!important;}
+   .cardb.bestseller > #blog-posts .blog-post .post-image {
+    flex: inherit !important;
+    margin: 0 !important;
+  }
 }
 
 @media only screen and (max-width: 1024px) and (min-width:1024px) and (orientation: portrait){
@@ -2520,6 +2593,10 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
   }
   ul.footer-list, .social_media{padding-left: 0rem;}
   footer{background-position: 2% 70%;}
+   .cardb.bestseller > #blog-posts .blog-post .post-image {
+    flex: inherit !important;
+    margin: 0 !important;
+  }
 }
 
 @media screen and (max-width: 768px) and (min-width:320px){
@@ -2659,4 +2736,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     display: block;
   }
   #heroBG{background-position: 67% 50%;}
+  .cardb.bestseller > #blog-posts .blog-post .post-image {
+    flex: inherit !important;
+    margin: 0 !important;
+  }
 }
