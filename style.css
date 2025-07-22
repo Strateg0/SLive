@@ -2184,6 +2184,15 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     padding: 20px;
     width: auto;
 }
+.interactive {
+    box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
+    font-size: 0.9em;
+    border-radius: 10px;
+    padding: 20px;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    margin: 5px;
+    backdrop-filter: blur(20px);
+}
 
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
@@ -2282,6 +2291,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     padding-left: 20px;
   }
   footer{background-position: 10% 70%;}
+  #projectBG{height: auto!important;}
 }
 
 @media only screen and (max-width: 1024px) and (min-width:1024px) and (orientation: portrait){
@@ -2315,6 +2325,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(20px);
   }
+  #projectBG{height: auto;}
 }
 
 
