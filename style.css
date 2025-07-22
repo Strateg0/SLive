@@ -1110,7 +1110,7 @@ nav.sticky-nav {
   width: 120px;
 } */
 .bestseller:after {
-  content: "LATEST NEWS";
+  content: attr(data-label);
   z-index: 1;
   overflow: hidden;
   font-size: 10px;
