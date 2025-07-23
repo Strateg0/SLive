@@ -11,5 +11,9 @@ function goToEditor() {
     // Directly go to the editor page
     window.location.href = 'blog.html';
   }
+      function toAbout() {
+    // Directly go to the editor page
+    window.location.href = 'offer.html';
+  }
 
 

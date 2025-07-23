@@ -2320,6 +2320,142 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     list-style-type: none;
 }
 
+.pr_timeline .timeline {
+  position: relative;
+  width: 860px;
+  margin: 0 auto;
+  padding: 4.5rem 0;
+  list-style-type: none; }
+
+.pr_timeline .timeline:before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  content: ' ';
+  display: block;
+  width: 4px;
+  height: 100%;
+  margin-left: -2px;
+  background: var(--bs-secondary);
+}
+
+.pr_timeline .timeline li {
+  padding: 1em 0; }
+
+.pr_timeline .timeline li:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+.pr_timeline .direction-l {
+  position: relative;
+  width: 400px;
+  float: left;
+  text-align: right; }
+
+.pr_timeline .direction-r {
+  position: relative;
+  width: 400px;
+  float: right; }
+
+.pr_timeline .flag-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center; }
+
+.pr_timeline .flag {
+  position: relative;
+  display: inline;
+  padding: 0px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: left;
+  font-size: 22px;
+  color: var(--bs-secondary); 
+}
+
+.pr_timeline .direction-l .flag:before,
+.pr_timeline .direction-r .flag:before {
+  position: absolute;
+  top: 5px;
+  right: -47px;
+  content: ' ';
+  display: block;
+  width: 34px;
+  height: 34px;
+  margin-top: -10px;
+  background: var(--bs-secondary);
+  border-radius: 10px;
+  border: 10px solid #fff;
+  border-radius: 50%;
+  z-index: 8;
+  box-shadow: 1px 2px 6px 1px rgba(53, 54, 102, 0.08);
+}
+
+.pr_timeline .direction-r .flag:before {
+  left: -47px;
+  }
+
+.pr_timeline .desc {
+  margin: 1em 0.75em 0 0;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px; }
+
+.pr_timeline .direction-r .desc {
+  margin: 1em 0 0 0.75em; }
+
+@media screen and (max-width: 991px) {
+  .pr_timeline .timeline {
+    width: 660px; }
+  .pr_timeline .direction-l {
+    width: 300px; }
+  .pr_timeline .direction-r {
+    width: 300px; } }
+
+@media screen and (max-width: 736px) {
+  .pr_timeline .timeline {
+    width: 100%; }
+  .pr_timeline .timeline li {
+    padding: 2em 0; }
+  .pr_timeline .direction-l,
+  .pr_timeline .direction-r {
+    float: none;
+    width: 100%;
+    text-align: center; }
+  .pr_timeline .flag-wrapper {
+    text-align: center; }
+  .pr_timeline .direction-l .flag:before,
+  .pr_timeline .direction-r .flag:before {
+    top: -30px;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    border: 8px solid #fff; 
+  }
+  .pr_timeline .desc {
+    position: relative;
+    margin: 1em 0 0 0;
+    padding: 1em;
+    z-index: 99999; 
+    box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
+    border-radius: 10px;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    text-transform: capitalize;
+    backdrop-filter: blur(20px);
+  }
+  .pr_timeline .direction-l .desc,
+  .pr_timeline .direction-r .desc {
+    position: relative;
+    margin: 1em 1em 0 1em;
+    padding: 1em;
+    z-index: 8; } 
+  }
+
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
   .home-carousel h2 {
