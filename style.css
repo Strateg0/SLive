@@ -2456,6 +2456,12 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
     z-index: 8; } 
   }
 
+  @media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .dropdown-menu {
+        width: 300px;
+    }
+}
+
 /*MEDIA QUERY Responsivnes*/
 @media screen and (max-width: 1450px) and (min-width:1430px){
   .home-carousel h2 {

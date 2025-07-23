@@ -138,6 +138,7 @@
   <div class="input-group">
     <label for="category">Category:</label>
     <select id="category">
+      <option value="0">Choose Category</option>
       <option value="blog">Blog</option>
       <option value="news">News</option>
     </select>
@@ -314,6 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (draft) {
       document.getElementById('topic').value = draft.topic || '';
       document.getElementById('author').value = draft.author || '';
+      document.getElementById('category').value = draft.category || '';
       document.getElementById('title').value = draft.title || '';
       document.getElementById('description').value = draft.description || '';
       document.getElementById('imageUrl').value = draft.imageUrl || '';
@@ -323,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // ✅ Load category into dropdown
       if (draft.category) {
-        document.getElementById('category').value = draft.category;
+        document.getElementById('category').value = "draft.category";
       }
 
       if (isEditing && draft.id) {
