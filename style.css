@@ -2470,12 +2470,13 @@ div#notification-posts > a:hover{
   .gallery.visible {
     max-height: 3000px; /* large enough to contain images */
     opacity: 1;
+     transition: opacity 0.2s ease;
   }
 
   .gallery-item {
     position: relative;
     width: 100%;
-    aspect-ratio: 3 / 2; /* maintains image ratio */
+    aspect-ratio: 3 / 2;
     overflow: hidden;
     cursor: pointer;
   }
