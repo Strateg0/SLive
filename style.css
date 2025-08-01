@@ -138,7 +138,7 @@ body{transition: background-color 0.3s ease, color 0.3s ease;}
     font-size: var(--bs-font);
     /* font-weight: var(--bs-font-weight)!important; */
     color: var(--bs-navbar-active-active-color);
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 li.nav-item {
     margin: 0px 15px;
@@ -442,6 +442,9 @@ align-items: center;
 
 div#post-content, p#post-author, h1#post-title {
     text-align: left;
+}
+.blog-post > .post-content h4, h1#post-title, h1#heading-0{
+    text-transform: initial;
 }
 h1#post-title{color: #000000!important}
 tbody#drafts-table-body tr td > button {
@@ -2517,7 +2520,7 @@ div#notification-posts > a:hover{
     opacity: 1;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 35px;
+    font-size: inherit;
     transition: opacity 0.2s ease;
     display: flex;
     align-items: center; 
@@ -2527,7 +2530,9 @@ div#notification-posts > a:hover{
 
   /* On hover (desktop) */
 .gallery-item:hover .gallery-description_header {
-  opacity: 0;
+  opacity: 1;
+  transform: scale(1.10);
+  transition: all 0.2s ease-in-out;
 }
 /* On tap (mobile): JS adds .active class */
 .gallery-item .gallery-description.active {
@@ -2562,7 +2567,7 @@ div#notification-posts > a:hover{
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(135, 37, 87, 0.9);
   color: #fff;
   padding: 6px 10px;
   font-size: 13px;

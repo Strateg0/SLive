@@ -6,7 +6,7 @@
   <meta name="description" content="The agency provides a range of services to the public and private sectors in Bulgaria and abroad. It is staffed with skilled professionals who have a thorough knowledge and experience in the implementation of large-scale development projects for various organizations in the following main fields: modernization of public administration and public sector management, economic planning, public communications and media, information technologies human resources and training">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="STRATEGMA AGENCY">
-	<title>STRATEGMA | Archive</title>
+	<title>STRATEGMA | SECTORS</title>
   <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
@@ -31,16 +31,16 @@
       <span class="fs-4"><img src="./img/logo.png" id="logo" class="dark-logo" style="width: 100px;"></span>
       <!-- <span class="fs-4"><img src="./img/logo-light.png" class="light-logo" style="width: 180px;"></span> -->
     </a>
-    <!-- Hamburger button for mobile not active-->
-    <button class="navbar-toggler d-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- button for Mobile dark/light mode-->
+   <button id="themeToggle" class="theme-toggle ms-5 d-block d-sm-none d-md-block d-lg-none d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
+       <!-- Hamburger button for mobile not active-->
+    <button class="navbar-toggler d-block ms-0 d-sm-block d-md-block d-lg-none d-xl-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <!-- button for Mobile dark/light mode-->
-   <button id="themeToggle" class="theme-toggle ms-4 d-block d-sm-block d-md-block d-lg-none d-xl-none" aria-label="Toggle theme"><span class="icon">🌙</span></button>
     <!-- dropdown selection menu Mobile -->
-     <div class="dropdown d-block d-sm-block d-md-block d-lg-none d-xl-none">
+     <div class="dropdown d-none d-sm-none d-md-none d-lg-none d-xl-none">
         <a class="btn dropdown-toggle mb-0 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="fi fi-us"></span>
+          <span class="fi fi-bg"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
@@ -50,7 +50,7 @@
         </ul>
       </div>
     <!-- Collapsible menu items -->
-    <div class="collapse navbar-collapse" id="mainNavbar">
+    <div class="collapse navbar-collapse pt-4 pt-lg-0" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0 mb-lg-0">
         <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
         <li class="nav-item"><a href="sectors.html" class="nav-link">сектори</a></li>
@@ -58,9 +58,22 @@
         <li class="nav-item"><a href="new.html" class="nav-link">новости</a></li>
         <li class="nav-item"><a href="aboutUs.html" class="nav-link">за нас</a></li>
         <li class="nav-item"><a href="blog.html" class="nav-link">блог</a></li>
-        <div class="dropdown">
+        <div class="dropdown px-3">
+          <a class="btn dropdown-toggle mb-2 mb-lg-0 position-relative" href="#" role="button" id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="bi bi-bell"></span>
+            <span id="notificationBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> 0</span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
+            <li>
+              <div id="notification-posts" class="px-3 py-2">
+                <small class="text-muted">No new articles</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown px-3">
           <a class="btn dropdown-toggle mb-2 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-           <span class="fi fi-us"></span>
+           <span class="fi fi-bg"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="#"> <span class="fi fi-us"></span> English</a></li>
@@ -69,48 +82,71 @@
             <li><a class="dropdown-item" href="#"><span class="fi fi-hr"></span> Croatia</a></li>
           </ul>
         </div>
-        <button id="themeToggleDesk" class="theme-toggle ms-1" aria-label="Toggle theme"><span class="icon">🌙</span></button>
-       <!-- <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="icon">🌙</span></button></li> -->
+        <button id="themeToggleDesk" class="theme-toggle ms-1 d-none d-sm-none d-md-none d-lg-block d-xl-block" aria-label="Toggle theme"><span class="icon">🌙</span></button>
+        <!-- <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="iconDesk">🌙</span></button></li> -->
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center">
+<section class="px-0 py-0 py-lg-5 text-center" id="sectors_heroBG">
    <div class="container px-3 py-5">
-        <div class="row">
-          <div class="col col-sm-12 col-lg-9">
-            <button class="singePage" onclick="goToBlog()"><i class="bi bi-chevron-left"></i> НАЗАД</button>
-          <div id="post-container">
-            <p id="post-author"></p>
-            <h1 id="post-title"></h1>
-            <div id="post-image-container"></div>
-            <!-- TOC goes here -->
-            <div id="table-of-contents" class="toc-container"></div>
-            <div id="post-content"></div>
-          </div>
-           </div>
-            <div class="col col-lg-3">
-               <img src="./img/logo_rina.jpg" class="pt-4" style="width:300px;height: 184px; position:fixed;">
-               <img loading="lazy" style="width:300px;height: auto; position:fixed;" decoding="async" width="1024" height="1024" src="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png" alt="" class="wp-image-45786" srcset="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png 1024w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-300x300.png 300w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-150x150.png 150w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-768x768.png 768w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_.png 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px">
-            </div>
-        </div>
+      <div class="innerText justify-content-center align-self-center align-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
+        <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">Консултантски услуги, Организационна оценка</h1>
+      </div>
     </div>
   </div>
 </section>
+
+<section class="px-0 py-0 py-lg-5 text-center">
+   <div class="container px-3 py-5">
+    <div class="row align-items-center g-5 py-1 py-lg-5 animate__animated animate__zoomIn">
+      <div class="col-12 col-sm-12 col-lg-12">
+        <div class="col-md-12 features15-col-text">
+           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
+             <div class="col-sm-3">
+               <div class="features15-info">
+                 <i class="bi bi-info-circle-fill cs-dark"></i>
+               </div>
+             </div>
+             <div class="col-sm-9 mt-sm-0 mt-4">
+               <div class="features15-para">
+                <h4 class="cs-text mb-4">Консултантски услуги, Организационна оценка</h4>
+                <p class="h6 cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">Възложител: Министерство на външните работи на Република България</p>
+                <p class="h6 cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">Подобряване на ефективността и оптимизиране на структурата на администрацията на Министерството на външните работи</p>   
+                <p class="h6 cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">Консултантска услуга за оптимизиране на структурата и осигуряване на организационно развитие и по-ефективно функциониране на администрацията на МВнР с конкретни задачи:</p>
+                 <div class="project px-3 px-lg-1 mt-4 animate__animated animate__zoomIn">
+                    <div class="bulletCSlist">
+                        <ul class="list-unstyled custom-li">
+                            <li class="cs-text"><i class="flaticon-tick cs-text"></i>оптимизиране на структурата на администрацията на МВнР</li>
+                            <li class="cs-text"><i class="flaticon-tick cs-text"></i>подобряване на работните процеси за повишена ефективност и ефикасност </li>
+                            <li class="cs-text"><i class="flaticon-tick cs-text"></i>отстраняване на дублиращи се функции.</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="h6 cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">Основният фокус е върху практическата приложимост на предложенията за усъвършенстване на организацията и функционирането на Министерство на външните работи. За целта е направен анализ на организацията и функционирането на МВнР, разработен е модел за организационно оптимизиране, предложения за усъвършенстване на нормативната уредба и вътрешни нормативни актове и е проведено обучение за въвеждане и управление на предложените действия за организационно оптимизиране.</p>
+               </div>
+             </div>
+           </a>
+         </div>
+    </div>
+
+  </div>
+</section>
+
 
 <footer id="footer" class="footer mt-auto py-3">
   <div class="container-fluid">
     <div class="container py-lg-4">
       <div class="row">
-        <div class="col-lg-7 col-md-7 col-sm-7 mt-sm-0 mt-3 mt-lg-5">
+        <div class="col-lg-7 col-md-7 col-sm-7 mt-sm-0 mt-3 mt-lg-0">
           <ul class="footer-list">
-            <h1 class="footer-title">Контакти</h1>
-            <li><a href="about.html"><i class="bi bi-geo-alt-fill"></i> гр. София 1202, ул. „Г. Раковски” № 18, ет. 4</a></li>
-            <li><a href="blog.html"><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
-            <li><a href="#pricing"><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
+            <h1 class="footer-title mb-4">Контакти</h1>
+            <li><a href=""><i class="bi bi-geo-alt-fill"></i> гр. София 1202, ул. „Г. Раковски” № 18, ет. 4</a></li>
+            <li><a href=""><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
+            <li><a href=""><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
           </ul>
-          <ul>
+          <ul class="social_media">
             <h1 class="footer-title">Последвай ни</h1>
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
@@ -132,6 +168,7 @@
                     </li>
                 </ul>
             </div>
+            <iframe class="mt-4" allowfullscreen="true" frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.9007615559276!2d23.326308515721934!3d42.70582202118777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8563d0e99765%3A0x4614e4467a5d250!2sulitsa+%E2%80%9EGeorgi+S.+Rakovski%E2%80%9C+18%2C+1202+Sofia%2C+Bulgaria!5e0!3m2!1sen!2sus!4v1455725650239" style="border:0; width: 100%"></iframe>
           </ul>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-3 pt-lg-2">
@@ -150,10 +187,10 @@
     </div>
     <!-- Back to top button -->
     <a id="btnTop"><i class="bi bi-chevron-up"></i></a>
-        <div class="container-fluid footer_copyright">
+    <div class="container-fluid footer_copyright">
       <div class="container">
         <div class="row justify-content-md-center">
-          <div class="col col-lg-8 px-0">
+        <div class="col col-md-6 col-lg-6 col-xxl-8 px-0">
           <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
           </div>
           <div class="col-md-auto">
@@ -174,7 +211,7 @@
 
 <script src="./js/active.js"></script>
 <script src="./js/mode.js"></script>
-<script src="./js/archive.js"></script>
+<script type="module" src="./js/notify.js"></script>
 <script src="./js/fxreverse_animate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -207,169 +244,6 @@ document.addEventListener('DOMContentLoaded', function () {
    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
-</script>
- <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    getDoc,
-    updateDoc,
-    deleteDoc,
-    doc
-  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
-    authDomain: "blog-bd628.firebaseapp.com",
-    projectId: "blog-bd628",
-    storageBucket: "blog-bd628.firebasestorage.app",
-    messagingSenderId: "548493041269",
-    appId: "1:548493041269:web:07460e97568e656a57623c",
-    measurementId: "G-RCBHBBJWJD"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getFirestore(app);
-
-  // Attach Firestore & helpers to global scope
-  window.firebaseDB = db;
-  window.firebaseRefs = {
-    collection,
-    addDoc,
-    getDocs,
-    getDoc,
-    updateDoc,
-    deleteDoc,
-    doc
-  };
-
-document.addEventListener('DOMContentLoaded', async () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const postId = urlParams.get('id');
-  if (!postId) return;
-
-  const postRef = doc(db, 'posts', postId);
-  const postSnap = await getDoc(postRef);
-
-  if (postSnap.exists()) {
-    const postData = postSnap.data();
-
-    const viewedPost = {
-      id: postId,
-      title: postData.title,
-      topic: postData.topic || 'Blog',
-      imageUrl: postData.imageUrl || './img/b1.jpg'
-    };
-
-    let historyData = JSON.parse(localStorage.getItem('lastSeenPostsData') || '{}');
-
-    // Reset if expired
-    const now = Date.now();
-    const tenMinutes = 10 * 60 * 1000;
-
-    if (!historyData.timestamp || (now - historyData.timestamp) > tenMinutes) {
-      historyData = { timestamp: now, posts: [] };
-    }
-
-    // Add post to history
-    historyData.posts = historyData.posts.filter(item => item.id !== postId);
-    historyData.posts.unshift(viewedPost);
-
-    if (historyData.posts.length > 3) {
-      historyData.posts = historyData.posts.slice(0, 3);
-    }
-
-    historyData.timestamp = now; // Update timestamp
-
-    localStorage.setItem('lastSeenPostsData', JSON.stringify(historyData));
-  }
-});
-
-</script>
-
-<script>
-  async function loadPostById() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get("id");
-
-    if (!postId) {
-      document.getElementById("post-container").innerHTML = "<p>Invalid post ID.</p>";
-      return;
-    }
-
-    const { getDoc, doc } = window.firebaseRefs;
-    const db = window.firebaseDB;
-
-    try {
-      const postRef = doc(db, "posts", postId);
-      const postSnap = await getDoc(postRef);
-
-      if (postSnap.exists()) {
-        const post = postSnap.data();
-        document.getElementById("post-title").textContent = post.title;
-        document.getElementById("post-author").textContent = "By " + post.author + " • " + post.date;
-        document.getElementById("post-content").innerHTML = post.content;
-
-        if (post.imageUrl) {
-          document.getElementById('post-image-container').innerHTML = `
-            <img src="${post.imageUrl}" class="img-fluid my-4" alt="Post Image" />
-          `;
-        }
-
-        // Generate TOC after content is loaded
-        generateTOC();
-
-      } else {
-        document.getElementById("post-container").innerHTML = "<p>Post not found.</p>";
-      }
-    } catch (error) {
-      console.error("Error loading post:", error);
-      document.getElementById("post-container").innerHTML = "<p>Error loading post.</p>";
-    }
-  }
-
-  // Your TOC generator function
-  function generateTOC() {
-    const postContent = document.getElementById("post-content");
-    const tocContainer = document.getElementById("table-of-contents");
-
-    if (!postContent || !tocContainer) return;
-
-    const headings = postContent.querySelectorAll("h1, h2, h3");
-    if (headings.length === 0) {
-      tocContainer.innerHTML = ''; // Hide TOC if no headings
-      return;
-    }
-
-    const tocList = document.createElement("ul");
-
-    headings.forEach((heading, index) => {
-      // Add ID if missing
-      if (!heading.id) {
-        heading.id = `heading-${index}`;
-      }
-
-      const link = document.createElement("a");
-      link.href = `#${heading.id}`;
-      link.textContent = heading.textContent;
-
-      const listItem = document.createElement("li");
-      listItem.classList.add(`toc-${heading.tagName.toLowerCase()}`);
-      listItem.appendChild(link);
-      tocList.appendChild(listItem);
-    });
-
-    tocContainer.innerHTML = "<h3>Съдържание</h3>";
-    tocContainer.appendChild(tocList);
-  }
-
-  window.onload = loadPostById;
 </script>
 
 
