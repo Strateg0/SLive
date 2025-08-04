@@ -857,7 +857,7 @@ footer p {
   background-color: #ffffff !important;
 }
 
-.dark-mode .nav-link, .dark-mode .cs-text, .dark-moode h4, h6, .dark-mode .bulletCSlist ul li, .dark-mode .bulletCSlist li i {
+.dark-mode .nav-link, .dark-mode .cs-text, .dark-moode h4, h6, .dark-mode .bulletCSlist ul li, .dark-mode .bulletCSlist li i, .dark-mode span.bi.bi-bell {
   color: #ffffff!important;
 }
 

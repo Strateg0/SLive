@@ -248,18 +248,18 @@
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
                   <li>
-                        <a href="">
+                        <a href="https://www.facebook.com/strategma/?locale=bg_BG">
                            <i class="bi bi-facebook"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="https://bg.linkedin.com/company/strategma">
                             <i class="bi bi-linkedin"></i>
 
                         </a>
                     </li>
                    <li>
-                        <a href="">
+                        <a href="https://www.youtube.com/channel/UCFTpUSTsv2J-pzmymJDR9ww">
                             <i class="bi bi-youtube"></i>
                         </a>
                     </li>
@@ -352,16 +352,12 @@ document.addEventListener('DOMContentLoaded', function () {
         link.addEventListener("click", (e) => {
             e.preventDefault();
 
-            // Remove 'active' from siblings
             menuLinks.forEach(l => l.classList.remove("active"));
 
-            // Add 'active' to the clicked link
             link.classList.add("active");
 
-            // Hide all tab contents
             tabContents.forEach(content => content.classList.remove("active"));
 
-            // Show the corresponding content
             tabContents[index].classList.add("active");
         });
     });
