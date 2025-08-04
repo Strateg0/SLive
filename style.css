@@ -2520,7 +2520,7 @@ div#notification-posts > a:hover{
     opacity: 1;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: inherit;
+    font-size: 12px;
     transition: opacity 0.2s ease;
     display: flex;
     align-items: center; 
