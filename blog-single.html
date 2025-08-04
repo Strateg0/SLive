@@ -20,9 +20,12 @@
       width: 100%;
       max-width: 100%;
     }
+    body#single > h1, h2, h3 {
+    text-transform: initial;
+    }
   </style>
   </head>
-<body>
+<body id="single">
 <main>
 <div class="container-fluid px-0">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
@@ -79,21 +82,17 @@
 <section class="px-0 py-0 py-lg-5 text-center">
    <div class="container px-3 py-5">
         <div class="row">
-          <div class="col col-sm-12 col-lg-9">
+          <div class="col col-sm-12 col-lg-12">
             <button class="singePage" onclick="goToBlog()"><i class="bi bi-chevron-left"></i> НАЗАД</button>
-          <div id="post-container">
-            <p id="post-author"></p>
-            <h1 id="post-title"></h1>
-            <div id="post-image-container"></div>
-            <!-- TOC goes here -->
-            <div id="table-of-contents" class="toc-container"></div>
-            <div id="post-content"></div>
+              <div id="post-container">
+                <p id="post-author"></p>
+                <h1 id="post-title"></h1>
+                <div id="post-image-container"></div>
+                <!-- TOC goes here -->
+                <div id="table-of-contents" class="toc-container"></div>
+                <div id="post-content"></div>
+              </div>
           </div>
-           </div>
-            <div class="col col-lg-3">
-               <img src="./img/logo_rina.jpg" class="pt-4" style="width:300px;height: 184px; position:fixed;">
-               <img loading="lazy" style="width:300px;height: auto; position:fixed;" decoding="async" width="1024" height="1024" src="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png" alt="" class="wp-image-45786" srcset="https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-1024x1024.png 1024w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-300x300.png 300w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-150x150.png 150w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_-768x768.png 768w, https://blog.financeacademy.bg/wp-content/uploads/2024/01/16.03-lecturer_.png 1200w" sizes="auto, (max-width: 1024px) 100vw, 1024px">
-            </div>
         </div>
     </div>
   </div>
@@ -136,7 +135,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-3 pt-lg-2">
           <div class="img_storege">
-            <img src="./img/logos.png">
+            <img src="./img/logos.png" alt="union">
             <img src="./img/logo_rina.jpg" class="pt-4" style="width:250px;height: 184px;">
             <p class="pt-4">Агенция СТРАТЕГМА поддържа Интегрирана система за управление на качеството,
             сигурността на информацията и околната среда съгласно <a href="docs/STR-9001-BG-EN.pdf" target="_blank"><strong>ISO 9001:2015/ISO</strong></a> 

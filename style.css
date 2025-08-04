@@ -1095,23 +1095,19 @@ nav.sticky-nav {
     backdrop-filter: blur(20px);
 }
 
-/* .bestseller:before {
-  content: "";
-  z-index: -1;
-  overflow: hidden;
-  transform: rotate(-135deg);
-  width: 120px;
-  display: block; 
-  background: #79A70A;
-  background: linear-gradient(#9BC90D 0%, #79A70A 100%);
-  box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
-  position: absolute;
-  top: 34px;
-  right: -16px;
-  clip-path: polygon(120px 20px, 90px -10px, 30px -10px, 0px 20px, 10px 30px,  110px 30px);
-  height: 20px;
-  width: 120px;
-} */
+.cardUnion {
+    box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
+    font-size: 0.9em;
+    border-radius: 10px;
+    padding: 20px;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    text-transform: capitalize;
+    width: auto;
+    margin: 5px;
+    position : relative;
+    backdrop-filter: blur(20px);
+}
+
 .bestseller:after {
   content: attr(data-label);
   z-index: 1;
@@ -2611,6 +2607,20 @@ div#notification-posts > a:hover{
     }
 }
 
+.union > img {
+    width: 60%;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+.galleryInside {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    max-height: 0;
+    transition: max-height 0.2s ease, opacity 0.2s ease;
+}
+
 /*************************MEDIA QUERY Responsivnes************************************/
 @media screen and (max-width: 1450px) and (min-width:1430px){
   .home-carousel h2 {
@@ -2848,7 +2858,7 @@ div#notification-posts > a:hover{
   .theme-toggle {
     position: absolute;
     right: 11vw;
-    top: 12px;
+    top: 25px;
   }
   section.S5{height: auto;}
   .owl-dots{display: none;}
@@ -3001,6 +3011,8 @@ div#notification-posts > a:hover{
   .dropdown > a {backdrop-filter:inherit;width: 100%;background: #ffffff;}
   .theme-toggle {
     font-size: 1.6em;
+    position: absolute;
+    right: 5rem;
   }
   .owl-dots {
     display: none;
@@ -3031,4 +3043,5 @@ div#notification-posts > a:hover{
     flex: inherit !important;
     margin: 0 !important;
   }
+  .pr_timeline .timeline:before{background: none!important;}
 }
