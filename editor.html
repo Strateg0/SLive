@@ -108,32 +108,32 @@
    <div class="container px-3 py-5">
        <div class="row">
         <div class="col-md-12 justify-content-center align-self-center">
-  <h2>Edit Your Blog Post</h2>
+  <h2>Съзадаване на съдържание</h2>
   <div class="input-group">
     <label for="topic">Topic</label>
     <select id="topic">
-            <option value="0">Choose Topic</option>
-            <option value="Market Tips">Market Tips</option>
-            <option value="Tech">Tech</option>
-            <option value="Lifestyle">Lifestyle</option>
-            <option value="Market Tips">Market Tips</option>
-            <option value="Crypto">Crypto</option>
-            <option value="Finance">Finance</option>
+          <option value="0">Choose Topic</option>
+          <option value="Innovations">Innovations</option>
+          <option value="Tech">Tech</option>
+          <option value="Lifestyle">Lifestyle</option>
+          <option value="Market Tips">Market Tips</option>
+          <option value="Business">Business</option>
+          <option value="Finance">Finance</option>
     </select>
   </div>
 
   <div class="input-group">
     <label for="author">Author</label>
     <select id="author">
-            <option value="John Michele">John Michele</option>
-            <option value="Sarah Lin">Sarah Lin</option>
-            <option value="David Ko">David Ko</option>
-            <option value="Emma Zhou">Emma Zhou</option>
-            <option value="John Michele">John Michele</option>
-            <option value="Anna Smith">Anna Smith</option>
-            <option value="Dimitar Ivanov">Dimitar Ivanov</option>
-            <option value="Rosen Pavlov">Rosen Pavlov</option>
-            <option value="Tihomira Trifonova">Tihomira Trifonova</option>
+          <option value="John Michele">John Michele</option>
+          <option value="Sarah Lin">Sarah Lin</option>
+          <option value="David Ko">David Ko</option>
+          <option value="Emma Zhou">Emma Zhou</option>
+          <option value="John Michele">John Michele</option>
+          <option value="Anna Smith">Anna Smith</option>
+          <option value="Dimitar Ivanov">Dimitar Ivanov</option>
+          <option value="Rosen Pavlov">Rosen Pavlov</option>
+          <option value="Tihomira Trifonova">Tihomira Trifonova</option>
     </select>
   </div>
 
@@ -160,11 +160,11 @@
 
   <div class="input-group">
     <label for="imageUrl">Image URL</label>
-    <input type="text" id="imageUrl" />
+    <input type="text" id="imageUrl" placeholder="Add image URL if you have one / if you're Embeding an iFrame this field will be hidden"/>
   </div>
 
   <div class="input-group">
-  <label for="iframeInput">Embed iFrame (YouTube, Map, etc.)</label>
+  <label for="iframeInput">Embed iFrame (YouTube, Map, URLs, etc.)</label>
   <input id="iframeInput" type="text" placeholder="Paste iframe URL here (e.g. https://www.youtube.com/embed/VIDEO_ID)"/>
   <button type="button" onclick="insertIframe()">Insert Iframe</button>
 </div>
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Init Quill editor
       const quill = new Quill('#editor-container', {
         theme: 'snow',
-        placeholder: 'Write your article content here...',
+        placeholder: 'Write your article content here... ONLY for an ARTICLE | THIS FIELD WILL BE HIDDEN IF YOU DECIDE TO POST AN IFRAME',
         modules: {
           toolbar: [
       [{ font: [] }, { size: ['small', false, 'large', 'huge'] }],
@@ -391,23 +391,21 @@ const requiredFields = [
   { id: 'topic', label: 'Topic' },
   { id: 'author', label: 'Author' },
   { id: 'category', label: 'Category' }
-  // { id: 'iframeInput', label: 'iframeInput' }
 ];
 
-// Clear previous errors
+// ✅ Clear previous input errors
 requiredFields.forEach(field => {
-  document.getElementById(field.id).classList.remove('input-error');
+  const el = document.getElementById(field.id);
+  if (el) el.classList.remove('input-error');
 });
 document.getElementById('editor-container').classList.remove('input-error');
 
-// Find missing fields
+// ✅ Check for missing fields
 const missingFields = requiredFields.filter(({ id }) => {
   const el = document.getElementById(id);
-  if (!el) return true; // Defensive fallback
+  if (!el) return true;
 
   const value = el.value.trim();
-
-  // For SELECT, check if first option (placeholder) is selected
   if (el.tagName === 'SELECT') {
     return value === '' || el.selectedIndex === 0;
   }
@@ -415,34 +413,45 @@ const missingFields = requiredFields.filter(({ id }) => {
   return value === '';
 });
 
-
-// Validate Quill content
+// ✅ Validate Quill content
 const tempDiv = document.createElement('div');
 tempDiv.innerHTML = post.content;
+
+// ✅ Extract plain text
 const plainText = tempDiv.textContent.trim();
 
-const hasIframeOnly = tempDiv.innerHTML.trim().startsWith('<iframe') && tempDiv.textContent.trim() === '';
+// ✅ Detect iframe-only content
+const iframeElements = tempDiv.querySelectorAll('iframe');
+const hasIframeOnly = iframeElements.length > 0 && plainText === '';
 
+// ✅ If not iframe-only, content and description are required
+const needsContent = !hasIframeOnly;
 
-if (missingFields.length || !plainText  && !hasIframeOnly) {
-  // Highlight missing inputs/selects
-  missingFields.forEach(field => {
+// ✅ Remove "description" if not needed
+const filteredMissingFields = missingFields.filter(field => {
+  if (!needsContent && field.id === 'description') return false;
+  return true;
+});
+
+// ✅ Final validation check
+if (filteredMissingFields.length || (needsContent && !plainText)) {
+  filteredMissingFields.forEach(field => {
     const el = document.getElementById(field.id);
     if (el) el.classList.add('input-error');
   });
 
-  if (!plainText) {
+  if (needsContent && !plainText) {
     document.getElementById('editor-container').classList.add('input-error');
   }
 
-  // Show warning message
-  const fieldNames = missingFields.map(f => f.label);
-  if (!plainText) fieldNames.push('Content');
+  const fieldNames = filteredMissingFields.map(f => f.label);
+  if (needsContent && !plainText) fieldNames.push('Content');
 
   const message = `Please fill in the following required fields: ${fieldNames.join(', ')}.`;
   showWarning(message);
   return;
 }
+
 
     try {
       if (editingId) {
@@ -517,6 +526,21 @@ Quill.register(IframeBlot);
     alert('Place your cursor in the editor where you want to insert the iframe.');
   }
 }
+</script>
+<script>
+  const iframeInput = document.getElementById('iframeInput');
+
+  iframeInput.addEventListener('input', () => {
+    const url = iframeInput.value.trim();
+
+    // Check if it's a valid iframe URL
+    const isIframeMode = url.startsWith('http');
+
+    // Hide or show fields dynamically
+    document.getElementById('imageUrl').closest('.input-group').style.display = isIframeMode ? 'none' : '';
+    document.getElementById('editor-container').style.display = isIframeMode ? 'none' : '';
+    document.getElementById('description').closest('.input-group').style.display = isIframeMode ? 'none' : '';
+  });
 </script>
 
 

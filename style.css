@@ -2659,6 +2659,16 @@ div#breadcrumb {
   max-width: 100%;
   border: none;
 }
+.quill-content iframe {
+  width: 100% !important;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  display: block;
+  border: none;
+  max-width: 100%;
+}
+
+
 
 /*************************MEDIA QUERY Responsivnes************************************/
 @media screen and (max-width: 1450px) and (min-width:1430px){
