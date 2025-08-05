@@ -2621,6 +2621,45 @@ div#notification-posts > a:hover{
     transition: max-height 0.2s ease, opacity 0.2s ease;
 }
 
+/* Breadcrumbs Path */
+
+div#breadcrumb {
+    margin-top: 20px;
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .breadcrumb-list li::after {
+    content: "›";
+    padding: 0 0.5rem;
+  }
+
+  .breadcrumb-list li:last-child::after {
+    content: "";
+  }
+
+  .breadcrumb-list li a {
+    text-decoration: none;
+    color: var(--bs-dark);
+  }
+
+  .breadcrumb-list li[aria-current="page"] {
+    font-weight: bold;
+    color: var(--bs-custom1-red);
+  }
+.quill-content iframe {
+  width: 100%;
+  max-width: 100%;
+  border: none;
+}
+
 /*************************MEDIA QUERY Responsivnes************************************/
 @media screen and (max-width: 1450px) and (min-width:1430px){
   .home-carousel h2 {

@@ -164,6 +164,12 @@
   </div>
 
   <div class="input-group">
+  <label for="iframeInput">Embed iFrame (YouTube, Map, etc.)</label>
+  <input id="iframeInput" type="text" placeholder="Paste iframe URL here (e.g. https://www.youtube.com/embed/VIDEO_ID)"/>
+  <button type="button" onclick="insertIframe()">Insert Iframe</button>
+</div>
+
+  <div class="input-group">
     <!-- <label>Article Content</label> -->
     <div id="editor-container"></div>
   </div>
@@ -321,6 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.getElementById('title').value = draft.title || '';
       document.getElementById('description').value = draft.description || '';
       document.getElementById('imageUrl').value = draft.imageUrl || '';
+       document.getElementById('iframeInput').value = draft.iframeInput || '';
       if (draft.content) {
         quill.root.innerHTML = draft.content;
       }
@@ -347,6 +354,7 @@ document.addEventListener('DOMContentLoaded', function () {
       title: document.getElementById('title').value,
       description: document.getElementById('description').value,
       imageUrl: document.getElementById('imageUrl').value,
+      iframeInput: document.getElementById('iframeInput').value,
       content: quill.root.innerHTML,
       date: new Date().toLocaleDateString(),
       createdAt: Date.now(),
@@ -383,6 +391,7 @@ const requiredFields = [
   { id: 'topic', label: 'Topic' },
   { id: 'author', label: 'Author' },
   { id: 'category', label: 'Category' }
+  // { id: 'iframeInput', label: 'iframeInput' }
 ];
 
 // Clear previous errors
@@ -412,7 +421,10 @@ const tempDiv = document.createElement('div');
 tempDiv.innerHTML = post.content;
 const plainText = tempDiv.textContent.trim();
 
-if (missingFields.length || !plainText) {
+const hasIframeOnly = tempDiv.innerHTML.trim().startsWith('<iframe') && tempDiv.textContent.trim() === '';
+
+
+if (missingFields.length || !plainText  && !hasIframeOnly) {
   // Highlight missing inputs/selects
   missingFields.forEach(field => {
     const el = document.getElementById(field.id);
@@ -449,6 +461,62 @@ if (missingFields.length || !plainText) {
       alert("Error saving draft: " + e.message);
     }
   }
+  
+</script>
+<script>
+ const BlockEmbed = Quill.import('blots/block/embed');
+
+class IframeBlot extends BlockEmbed {
+  static create(value) {
+    const node = super.create();
+    node.setAttribute('src', value.src);
+    node.setAttribute('width', value.width || '100%');
+    node.setAttribute('height', value.height || '400');
+    node.setAttribute('frameborder', '0');
+    node.setAttribute('allowfullscreen', true);
+    return node;
+  }
+  static value(node) {
+    return {
+      src: node.getAttribute('src'),
+      width: node.getAttribute('width'),
+      height: node.getAttribute('height')
+    };
+  }
+}
+
+IframeBlot.blotName = 'iframe';
+IframeBlot.tagName = 'iframe';
+IframeBlot.className = 'custom-iframe';
+
+Quill.register(IframeBlot);
+</script>
+<script>
+ function insertIframe() {
+  const urlInput = document.getElementById('iframeInput');
+  if (!urlInput) {
+    alert('Iframe URL input field not found!');
+    return;
+  }
+
+  const url = urlInput.value.trim();
+  if (!url.startsWith('http')) {
+    alert('Please enter a valid iframe URL starting with http or https.');
+    return;
+  }
+
+  const width = prompt('Enter iframe width (e.g. 100% or 1200)', '100%') || '100%';
+  const height = prompt('Enter iframe height in px (e.g. 400)', '400') || '400';
+
+  const range = quill.getSelection(true);
+  if (range) {
+    quill.insertEmbed(range.index, 'iframe', { src: url, width, height }, Quill.sources.USER);
+    quill.setSelection(range.index + 1, Quill.sources.SILENT);
+    urlInput.value = '';
+  } else {
+    alert('Place your cursor in the editor where you want to insert the iframe.');
+  }
+}
 </script>
 
 
