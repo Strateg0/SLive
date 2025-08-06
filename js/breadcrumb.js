@@ -25,6 +25,7 @@ const translations = {
       'structural_reform': 'Оценка на организационния модел на централната администрация на изпълнителната власт',
       'NAMRB': 'Примерни модели за административни структури на седем групи общини и проекти на документи за организационното им развитие',
       'consulting_services': 'Подобряване на ефективността и оптимизиране на структурата на администрацията на Министерството на външните работи',
+      'organizational': 'Организационна оценка и планиране на подобрения'
     }
   };
 
@@ -40,7 +41,9 @@ const translations = {
     'sectors.html': ['home', 'sectors'],
     'structural_reform.html': ['home', 'sectors', 'structural_reform'],
     'NAMRB.html': ['home', 'sectors', 'NAMRB'],
-    'consulting_services.html': ['home', 'sectors', 'consulting_services']
+    'consulting_services.html': ['home', 'sectors', 'consulting_services'],
+    'organizational.html': ['home', 'sectors', 'organizational'],
+
   };
 
   const currentPath = window.location.pathname.split('/').pop();
@@ -59,7 +62,8 @@ const translations = {
         sectors: 'sectors.html',
         structural_reform: 'structural_reform.html',
         NAMRB: 'NAMRB.html',
-        consulting_services: 'consulting_services.html'
+        consulting_services: 'consulting_services.html',
+        organizational: 'organizational.html'
       };
 
       if (isLast) {
