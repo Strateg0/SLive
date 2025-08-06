@@ -108,32 +108,33 @@
    <div class="container px-3 py-5">
        <div class="row">
         <div class="col-md-12 justify-content-center align-self-center">
-  <h2>Съзадаване на съдържание</h2>
+  <h2>Edit Your Blog Post</h2>
   <div class="input-group">
     <label for="topic">Topic</label>
     <select id="topic">
-          <option value="0">Choose Topic</option>
-          <option value="Innovations">Innovations</option>
-          <option value="Tech">Tech</option>
-          <option value="Lifestyle">Lifestyle</option>
-          <option value="Market Tips">Market Tips</option>
-          <option value="Business">Business</option>
-          <option value="Finance">Finance</option>
+       <option value="0">Choose Topic</option>
+      <option value="Market Tips">Market Tips</option>
+            <option value="Tech">Tech</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Market Tips">Market Tips</option>
+            <option value="Crypto">Crypto</option>
+            <option value="Innovations">Innovations</option>
+            <option value="Interactive Map">Interactive Map</option>
     </select>
   </div>
 
   <div class="input-group">
     <label for="author">Author</label>
     <select id="author">
-          <option value="John Michele">John Michele</option>
-          <option value="Sarah Lin">Sarah Lin</option>
-          <option value="David Ko">David Ko</option>
-          <option value="Emma Zhou">Emma Zhou</option>
-          <option value="John Michele">John Michele</option>
-          <option value="Anna Smith">Anna Smith</option>
-          <option value="Dimitar Ivanov">Dimitar Ivanov</option>
-          <option value="Rosen Pavlov">Rosen Pavlov</option>
-          <option value="Tihomira Trifonova">Tihomira Trifonova</option>
+       <option value="John Michele">John Michele</option>
+            <option value="Sarah Lin">Sarah Lin</option>
+            <option value="David Ko">David Ko</option>
+            <option value="Emma Zhou">Emma Zhou</option>
+            <option value="John Michele">John Michele</option>
+            <option value="Anna Smith">Anna Smith</option>
+            <option value="Dimitar Ivanov">Dimitar Ivanov</option>
+            <option value="Rosen Pavlov">Rosen Pavlov</option>
+             <option value="Tihomira Trifonova">Tihomira Trifonova</option>
     </select>
   </div>
 
@@ -160,13 +161,16 @@
 
   <div class="input-group">
     <label for="imageUrl">Image URL</label>
-    <input type="text" id="imageUrl" placeholder="Add image URL if you have one / if you're Embeding an iFrame this field will be hidden"/>
+    <input type="text" id="imageUrl" placeholder="This Field will not be visible if applying URLs!"/>
   </div>
 
-  <div class="input-group">
+<div class="input-group">
   <label for="iframeInput">Embed iFrame (YouTube, Map, URLs, etc.)</label>
   <input id="iframeInput" type="text" placeholder="Paste iframe URL here (e.g. https://www.youtube.com/embed/VIDEO_ID)"/>
+    <div class="edtr d-inline-flex">
   <button type="button" onclick="insertIframe()">Insert Iframe</button>
+  <button type="button" onclick="removeIframes()">Remove All Iframes</button>
+  </div>
 </div>
 
   <div class="input-group">
@@ -200,18 +204,18 @@
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
                   <li>
-                        <a href="https://www.facebook.com/strategma/?locale=bg_BG">
+                        <a href="">
                            <i class="bi bi-facebook"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="https://bg.linkedin.com/company/strategma">
+                        <a href="">
                             <i class="bi bi-linkedin"></i>
 
                         </a>
                     </li>
                    <li>
-                        <a href="https://www.youtube.com/channel/UCFTpUSTsv2J-pzmymJDR9ww">
+                        <a href="">
                             <i class="bi bi-youtube"></i>
                         </a>
                     </li>
@@ -221,7 +225,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-3 pt-lg-2">
           <div class="img_storege">
-            <img src="./img/logos.png" alt="union">
+            <img src="./img/logos.png">
             <img src="./img/logo_rina.jpg" class="pt-4" style="width:250px;height: 184px;">
             <p class="pt-4">Агенция СТРАТЕГМА поддържа Интегрирана система за управление на качеството,
             сигурността на информацията и околната среда съгласно <a href="docs/STR-9001-BG-EN.pdf" target="_blank"><strong>ISO 9001:2015/ISO</strong></a> 
@@ -297,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Init Quill editor
       const quill = new Quill('#editor-container', {
         theme: 'snow',
-        placeholder: 'Write your article content here... ONLY for an ARTICLE | THIS FIELD WILL BE HIDDEN IF YOU DECIDE TO POST AN IFRAME',
+        placeholder: 'Write your article content here even after adding a URls under it and don`t forget to give it a style HEADING...',
         modules: {
           toolbar: [
       [{ font: [] }, { size: ['small', false, 'large', 'huge'] }],
@@ -323,18 +327,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (draft) {
       document.getElementById('topic').value = draft.topic || '';
       document.getElementById('author').value = draft.author || '';
-      document.getElementById('category').value = draft.category || '';
       document.getElementById('title').value = draft.title || '';
       document.getElementById('description').value = draft.description || '';
       document.getElementById('imageUrl').value = draft.imageUrl || '';
-       document.getElementById('iframeInput').value = draft.iframeInput || '';
+      document.getElementById('iframeInput').value = draft.iframeInput || '';
+      
       if (draft.content) {
         quill.root.innerHTML = draft.content;
       }
 
       // ✅ Load category into dropdown
       if (draft.category) {
-        document.getElementById('category').value = "draft.category";
+        document.getElementById('category').value = draft.category;
       }
 
       if (isEditing && draft.id) {
@@ -359,7 +363,7 @@ document.addEventListener('DOMContentLoaded', function () {
       date: new Date().toLocaleDateString(),
       createdAt: Date.now(),
       published: false,
-      category: document.getElementById('category').value || 'blog'
+      category: document.getElementById('category').value || 'blog' // fallback
     };
 
 function showWarning(message) {
@@ -393,19 +397,20 @@ const requiredFields = [
   { id: 'category', label: 'Category' }
 ];
 
-// ✅ Clear previous input errors
+// Clear previous errors
 requiredFields.forEach(field => {
-  const el = document.getElementById(field.id);
-  if (el) el.classList.remove('input-error');
+  document.getElementById(field.id).classList.remove('input-error');
 });
 document.getElementById('editor-container').classList.remove('input-error');
 
-// ✅ Check for missing fields
+// Find missing fields
 const missingFields = requiredFields.filter(({ id }) => {
   const el = document.getElementById(id);
-  if (!el) return true;
+  if (!el) return true; // Defensive fallback
 
   const value = el.value.trim();
+
+  // For SELECT, check if first option (placeholder) is selected
   if (el.tagName === 'SELECT') {
     return value === '' || el.selectedIndex === 0;
   }
@@ -413,45 +418,31 @@ const missingFields = requiredFields.filter(({ id }) => {
   return value === '';
 });
 
-// ✅ Validate Quill content
+
+// Validate Quill content
 const tempDiv = document.createElement('div');
 tempDiv.innerHTML = post.content;
-
-// ✅ Extract plain text
 const plainText = tempDiv.textContent.trim();
 
-// ✅ Detect iframe-only content
-const iframeElements = tempDiv.querySelectorAll('iframe');
-const hasIframeOnly = iframeElements.length > 0 && plainText === '';
-
-// ✅ If not iframe-only, content and description are required
-const needsContent = !hasIframeOnly;
-
-// ✅ Remove "description" if not needed
-const filteredMissingFields = missingFields.filter(field => {
-  if (!needsContent && field.id === 'description') return false;
-  return true;
-});
-
-// ✅ Final validation check
-if (filteredMissingFields.length || (needsContent && !plainText)) {
-  filteredMissingFields.forEach(field => {
+if (missingFields.length || !plainText) {
+  // Highlight missing inputs/selects
+  missingFields.forEach(field => {
     const el = document.getElementById(field.id);
     if (el) el.classList.add('input-error');
   });
 
-  if (needsContent && !plainText) {
+  if (!plainText) {
     document.getElementById('editor-container').classList.add('input-error');
   }
 
-  const fieldNames = filteredMissingFields.map(f => f.label);
-  if (needsContent && !plainText) fieldNames.push('Content');
+  // Show warning message
+  const fieldNames = missingFields.map(f => f.label);
+  if (!plainText) fieldNames.push('Content');
 
   const message = `Please fill in the following required fields: ${fieldNames.join(', ')}.`;
   showWarning(message);
   return;
 }
-
 
     try {
       if (editingId) {
@@ -470,79 +461,7 @@ if (filteredMissingFields.length || (needsContent && !plainText)) {
       alert("Error saving draft: " + e.message);
     }
   }
-  
 </script>
-<script>
- const BlockEmbed = Quill.import('blots/block/embed');
-
-class IframeBlot extends BlockEmbed {
-  static create(value) {
-    const node = super.create();
-    node.setAttribute('src', value.src);
-    node.setAttribute('width', value.width || '100%');
-    node.setAttribute('height', value.height || '400');
-    node.setAttribute('frameborder', '0');
-    node.setAttribute('allowfullscreen', true);
-    return node;
-  }
-  static value(node) {
-    return {
-      src: node.getAttribute('src'),
-      width: node.getAttribute('width'),
-      height: node.getAttribute('height')
-    };
-  }
-}
-
-IframeBlot.blotName = 'iframe';
-IframeBlot.tagName = 'iframe';
-IframeBlot.className = 'custom-iframe';
-
-Quill.register(IframeBlot);
-</script>
-<script>
- function insertIframe() {
-  const urlInput = document.getElementById('iframeInput');
-  if (!urlInput) {
-    alert('Iframe URL input field not found!');
-    return;
-  }
-
-  const url = urlInput.value.trim();
-  if (!url.startsWith('http')) {
-    alert('Please enter a valid iframe URL starting with http or https.');
-    return;
-  }
-
-  const width = prompt('Enter iframe width (e.g. 100% or 1200)', '100%') || '100%';
-  const height = prompt('Enter iframe height in px (e.g. 400)', '400') || '400';
-
-  const range = quill.getSelection(true);
-  if (range) {
-    quill.insertEmbed(range.index, 'iframe', { src: url, width, height }, Quill.sources.USER);
-    quill.setSelection(range.index + 1, Quill.sources.SILENT);
-    urlInput.value = '';
-  } else {
-    alert('Place your cursor in the editor where you want to insert the iframe.');
-  }
-}
-</script>
-<script>
-  const iframeInput = document.getElementById('iframeInput');
-
-  iframeInput.addEventListener('input', () => {
-    const url = iframeInput.value.trim();
-
-    // Check if it's a valid iframe URL
-    const isIframeMode = url.startsWith('http');
-
-    // Hide or show fields dynamically
-    document.getElementById('imageUrl').closest('.input-group').style.display = isIframeMode ? 'none' : '';
-    document.getElementById('editor-container').style.display = isIframeMode ? 'none' : '';
-    document.getElementById('description').closest('.input-group').style.display = isIframeMode ? 'none' : '';
-  });
-</script>
-
 
 <script>
 function setupWordLimit(fieldId, countId, maxWords) {
@@ -564,6 +483,141 @@ function setupWordLimit(fieldId, countId, maxWords) {
   // Setup limits for each field:
   setupWordLimit('title', 'titleWordCount', 15);
   setupWordLimit('description', 'descriptionWordCount', 15);
+</script>
+
+
+<script>
+  // Register iframe blot for Quill to allow iframe embeds
+  const BlockEmbed = Quill.import('blots/block/embed');
+
+  class IframeBlot extends BlockEmbed {
+    static create(value) {
+      const node = super.create();
+      node.setAttribute('src', value.src);
+      node.setAttribute('width', value.width || '100%');
+      node.setAttribute('height', value.height || '400');
+      node.setAttribute('frameborder', '0');
+      node.setAttribute('allowfullscreen', true);
+      return node;
+    }
+
+    static value(node) {
+      return {
+        src: node.getAttribute('src'),
+        width: node.getAttribute('width'),
+        height: node.getAttribute('height')
+      };
+    }
+  }
+
+  IframeBlot.blotName = 'iframe';
+  IframeBlot.tagName = 'iframe';
+  IframeBlot.className = 'custom-iframe';
+
+  Quill.register(IframeBlot);
+</script>
+
+<script>
+// function insertIframe() {
+//   const urlInput = document.getElementById('iframeInput');
+//   if (!urlInput) {
+//     alert('Iframe URL input field not found!');
+//     return;
+//   }
+
+//   const url = urlInput.value.trim();
+//   if (!url.startsWith('http')) {
+//     alert('Please enter a valid iframe URL starting with http or https.');
+//     return;
+//   }
+
+//   const width = prompt('Enter iframe width (e.g. 100% or 1200)', '100%') || '100%';
+//   const height = prompt('Enter iframe height in px (e.g. 400)', '400') || '400';
+
+//   const range = quill.getSelection(true);
+//   if (range) {
+//     quill.insertEmbed(range.index, 'iframe', { src: url, width, height }, Quill.sources.USER);
+//     quill.setSelection(range.index + 1, Quill.sources.SILENT); // Move cursor after iframe
+//     urlInput.value = ''; // Clear input
+//   } else {
+//     alert('Place your cursor in the editor where you want to insert the iframe.');
+//   }
+// }
+function insertIframe() {
+  const urlInput = document.getElementById('iframeInput');
+  if (!urlInput) {
+    alert('Iframe URL input field not found!');
+    return;
+  }
+
+  let url = urlInput.value.trim();
+  if (!url.startsWith('http')) {
+    alert('Please enter a valid iframe URL starting with http or https.');
+    return;
+  }
+
+  url = convertToEmbedUrl(url); // ✅ Convert YouTube URL to embed if needed
+
+  const width = prompt('Enter iframe width (e.g. 100% or 1200)', '100%') || '100%';
+  const height = prompt('Enter iframe height in px (e.g. 400)', '400') || '400';
+
+  const range = quill.getSelection(true);
+  if (range) {
+    quill.insertEmbed(range.index, 'iframe', { src: url, width, height }, Quill.sources.USER);
+    quill.setSelection(range.index + 1, Quill.sources.SILENT);
+    urlInput.value = '';
+  } else {
+    alert('Place your cursor in the editor where you want to insert the iframe.');
+  }
+}
+
+function removeIframes() {
+  const delta = quill.getContents();
+  const newDelta = delta.ops.filter(op => {
+    return !(op.insert && op.insert.iframe);
+  });
+
+  quill.setContents({ ops: newDelta });
+}
+</script>
+
+<script>
+  const iframeInput = document.getElementById('iframeInput');
+  const imageUrlInput = document.getElementById('imageUrl');
+  const descriptionInput = document.getElementById('description');
+  const imageUrlContainer = imageUrlInput.closest('.input-group'); // assuming wrapped in form-group div
+  const descriptionContainer = descriptionInput.closest('.input-group');
+
+  iframeInput.addEventListener('input', () => {
+    const value = iframeInput.value.trim();
+    const isIframeUrl = value.startsWith('http') && value.includes('iframe') || value.includes('youtube.com/embed');
+
+    if (isIframeUrl) {
+      // Hide & disable image and description
+      if (imageUrlContainer) imageUrlContainer.style.display = 'none';
+      if (descriptionContainer) descriptionContainer.style.display = 'none';
+
+      imageUrlInput.value = '';
+      descriptionInput.value = '';
+    } else {
+      // Show image and description fields
+      if (imageUrlContainer) imageUrlContainer.style.display = '';
+      if (descriptionContainer) descriptionContainer.style.display = '';
+    }
+  });
+
+  function convertToEmbedUrl(url) {
+  // If it's a regular YouTube watch URL, convert it to embed format
+  const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]+)/;
+  const match = url.match(youtubeRegex);
+  if (match && match[1]) {
+    return `https://www.youtube.com/embed/${match[1]}`;
+  }
+
+  // If it's already an embed URL or something else, return as is
+  return url;
+}
+
 </script>
 
 <script type="module">

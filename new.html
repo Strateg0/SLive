@@ -88,8 +88,7 @@
 <section class="px-0 py-0 py-lg-0 text-center">
    <div class="container px-3 py-0">
       <div class="innerText justify-content-center align-self-center align-center fx-reveal">
-     <div id="breadcrumb" class="breadcrumb" role="navigation" aria-label="Breadcrumb"></div>
-
+       <div id="breadcrumb"></div>
       </div>
     </div>
   </div>
@@ -534,23 +533,24 @@ function renderMorePosts() {
 
       const postHTML = hasIframe
         ? `
-          <div class="col-lg-12 col-md-12 mt-4">
-          <div class="cardPass shadow-sm h-100">
-            <div class="card-body px-0">
-              <p class="sub-para my-3 px-0">${post.topic}</p>
-              <h4 class="text-head-text-9 px-0">${post.title}</h4>
-              <div class="quill-content no-padding">
-                ${post.content}
+          <div class="col-lg-12 col-md-12">
+              <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
+            <div class="cardPass shadow-sm h-100">
+              <img src="${post.imageUrl || './img/interactive.jpg'}" class="card-img-top" alt="..."
+                  onerror="this.onerror=null;this.src='./img/interactive.jpg';" />
+              <div class="card-body">
+                <p class="sub-para my-3">${post.topic}</p>
+                <h4 class="text-head-text-9">${post.title}</h4>
+                <ul class="blog-author-date mt-4 px-0">
+                  <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
+                </ul>
               </div>
-              <ul class="blog-author-date mt-4 px-0">
-                <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-              </ul>
             </div>
+              </a>
           </div>
-        </div>
         `
         : `
-          <div class="col-lg-12 col-md-12 mt-4">
+          <div class="col-lg-12 col-md-12">
             <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
               <div class="cardPass shadow-sm h-100">
                 <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="..."

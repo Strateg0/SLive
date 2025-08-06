@@ -2633,7 +2633,7 @@ div#breadcrumb {
     padding: 0;
     gap: 0.5rem;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
   }
 
   .breadcrumb-list li::after {
@@ -2659,15 +2659,17 @@ div#breadcrumb {
   max-width: 100%;
   border: none;
 }
-.quill-content iframe {
-  width: 100% !important;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  display: block;
-  border: none;
-  max-width: 100%;
+iframe.custom-iframe {
+    width: 100% !important;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    display: block;
+    border: none;
+    max-width: 100%;
 }
-
+/* ol.breadcrumb-list li {
+    text-transform: uppercase;
+} */
 
 
 /*************************MEDIA QUERY Responsivnes************************************/

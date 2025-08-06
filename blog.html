@@ -578,7 +578,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     posts.forEach(post => {
       container.innerHTML += `
-        <div class="col-md-4 mb-3">
+        <div class="col-md-4 mb-3 px-0">
           <a href="blog-single.html?id=${post.id}" class="card h-100 shadow-sm text-decoration-none text-dark">
             <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="${post.title}" onerror="this.onerror=null;this.src='./img/b1.jpg';" />
             <div class="card-body">
