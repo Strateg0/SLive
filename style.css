@@ -23,7 +23,7 @@
   --bs-font-sans-serif: system-ui, -apple-system, "TaylorSans-Bold", TaylorSans-Bold, "TaylorSans-Bold", TaylorSans-Bold, "TaylorSans-Bold", "TaylorSans-Bold", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-SourceSans3: SourceSans3, Menlo, Monaco, Consolas, "SourceSans3", "SourceSans3-Regular";
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-font:1.2rem;
+  --bs-font:1rem;
   --bs-font-weight:bold;
   --bs-nav-pills-link-active-color: #008177;
   --bs-nav-pills-link-active-bg:#008177;
@@ -124,6 +124,8 @@ h3, h3 a {
 body, p, a, li, a{
     font-family: 'SourceSans3', sans-serif !important;
     text-decoration: none !important;
+    font-size: 1.25rem;
+    font-weight: 300;
   }
 #site-title {
 	color: #fff;
@@ -139,6 +141,7 @@ body{transition: background-color 0.3s ease, color 0.3s ease;}
     /* font-weight: var(--bs-font-weight)!important; */
     color: var(--bs-navbar-active-active-color);
     text-transform: uppercase;
+    font-family: 'TaylorSans-Bold', sans-serif !important;
 }
 li.nav-item {
     margin: 0px 15px;
@@ -223,7 +226,7 @@ position: relative;
 align-items: center;
 background-size: cover;
 -ms-background-size: cover;
-background-image: linear-gradient(to right, rgb(1 0 6 / 50%), rgb(1 0 10 / 70%)), url('./img/global.png');
+background-image: linear-gradient(to right, rgb(1 0 6 / 0%), rgb(1 0 10 / 0%)), url('./img/global.jpg');
 background-repeat: no-repeat, no-repeat, no-repeat;
 background-position: center 150%;
 background-attachment: fixed;
@@ -695,6 +698,8 @@ text-align: center;
 
 h1, .headerP{
 color: #fff!important;
+font-size: 1.25rem;
+font-weight: 300;
 }
 .headerS3{
  color: #872557!important;
@@ -891,7 +896,7 @@ footer p {
   border:0;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 1.6em;
+  font-size: 1.4em;
   transition: transform 0.3s ease;
   color: inherit;
 }
@@ -1107,6 +1112,21 @@ nav.sticky-nav {
     position : relative;
     backdrop-filter: blur(20px);
 }
+
+.offer{
+    border-radius: 20px;
+    transition: 0.3s ease-in;
+    border: 1px solid #eee;
+    padding: 2rem;
+    display: block;
+    height: auto;
+    background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+    text-transform: initial;
+    width: auto;
+    box-shadow: 0 8px 20px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+}
+
 
 .bestseller:after {
   content: attr(data-label);
@@ -1748,9 +1768,11 @@ html {
 }
 .features15-para > p {
     text-align: left;
+    font-size: 1.25rem;
+    font-weight: 300;
 }
 .feature-unit:hover{
-   box-shadow: 0px 0px 8px rgba(53, 54, 102, 0.2);
+  box-shadow: 0px 0px 8px rgba(53, 54, 102, 0.2);
   transition: 0.3s ease-in;
 }
 button.singePage {
@@ -1986,7 +2008,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
 /* End infographic */
 
 
-    /* Your original CSS, with a minor change for expanded state */
     .gallery-wrapper {
       width: 100%;
       max-width: 1265px;
@@ -2070,203 +2091,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
       transition: all 0.3s ease;
     }
 
-/*   
-    .gallery {
-      width: 100%;
-      height: 0;
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
-      justify-content: stretch;
-      border-right: 1px solid #ffffff;
-      border-bottom: 1px solid #e0e0e0;
-      border-left: 1px solid #e2e2e2;
-      position: relative;
-      transition: all 0.5s ease;
-    }
-
-    .gallery::before {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 2px;
-      background-image: linear-gradient(
-        90deg,
-      #008177,
-      #009e6e,
-      #00b965,
-      #00d45d,
-      #00e855,
-      #17f14d,
-      #49f740,
-      #7efc33,
-      #aefc27,
-      #d2f91b,
-      #eaf50f,
-      #f4f40b
-      );
-      content: "";
-      z-index: 2;
-      transition: all 1.2s ease;
-    }
-
-    .gallery.expanded::before {
-      width: 0;
-    }
-
-    .gallery.expanded {
-      height: 250px;
-    }
-
-  
-    .gallery-item {
-      flex-grow: 1;
-      opacity: 0;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: scroll;
-      transition: all 0.3s ease;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(1) {
-      opacity: 1;
-      flex-grow: 2;
-      transition-delay: 0.3s;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(2) {
-      opacity: 1;
-      flex-grow: 2;
-      transition-delay: 0.5s;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(3) {
-      opacity: 1;
-      flex-grow: 2;
-      transition-delay: 0.25s;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(4) {
-      opacity: 1;
-      flex-grow: 2;
-     transition-delay: 0.30s;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(5) {
-      opacity: 1;
-      flex-grow: 2;
-     transition-delay: 0.35s;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(6) {
-      opacity: 1;
-      flex-grow: 5;
-      transition-delay: 0.5s;
-    }
-
-    .gallery.expanded .gallery-item:nth-of-type(n+7) {
-      opacity: 1;
-      flex-grow: 2;
-     transition-delay: 0.20s;
-    }
-
-    .gallery .gallery-item:hover {
-      flex-grow: 3 !important;
-    }
-
-    .gallery:has(.gallery-item:hover) .gallery-item:not(:hover) {
-      flex-grow: 1 !important;
-      transition-delay: 0.2s !important;
-    }
-
-    .gallery.expanded .gallery-item {
-      animation: pointerFix 1.5s linear 0s 1 normal;
-    }
-
-    @keyframes pointerFix {
-      0% {
-        pointer-events: none;
-      }
-      99% {
-        pointer-events: none;
-      }
-      100% {
-        pointer-events: initial;
-      }
-    }
-
-  
-    .gallery1 .gallery-item:nth-of-type(1) { background-image: url("https://picsum.photos/id/337/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(2) { background-image: url("https://picsum.photos/id/515/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(3) { background-image: url("https://picsum.photos/id/424/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(4) { background-image: url("https://picsum.photos/id/849/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(5) { background-image: url("https://picsum.photos/id/476/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(6) { background-image: url("https://picsum.photos/id/57/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(7) { background-image: url("https://picsum.photos/id/82/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(8) { background-image: url("https://picsum.photos/id/680/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(9) { background-image: url("https://picsum.photos/id/553/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(10) { background-image: url("https://picsum.photos/id/193/500/500"); }
-    .gallery1 .gallery-item:nth-of-type(11) { background-image: url("https://picsum.photos/id/565/500/500"); }
-
-    .gallery2 .gallery-item:nth-of-type(1) { background-image: url("https://picsum.photos/id/201/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(2) { background-image: url("https://picsum.photos/id/202/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(3) { background-image: url("https://picsum.photos/id/203/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(4) { background-image: url("https://picsum.photos/id/204/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(5) { background-image: url("https://picsum.photos/id/205/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(6) { background-image: url("https://picsum.photos/id/680/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(7) { background-image: url("https://picsum.photos/id/553/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(8) { background-image: url("https://picsum.photos/id/193/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(9) { background-image: url("https://picsum.photos/id/565/500/500"); }
-    .gallery2 .gallery-item:nth-of-type(10) { background-image: url("https://picsum.photos/id/600/500/500"); }
-
-
-    @media (max-width: 900px) {
-      .gallery-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .gallery-header p .desktop {
-        display: none;
-      }
-      .gallery-header p .mobile {
-        display: initial;
-      }
-      .gallery-toggle button {
-        width: 100%;
-        max-width: 600px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .gallery-header p {
-        max-width: unset;
-      }
-      .gallery-toggle button {
-        max-width: unset;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .gallery {
-        flex-direction: column;
-      }
-      .gallery.expanded {
-        height: 1000px;
-      }
-    } */
-    #lightbox{
-    display: none; 
-    position: fixed; 
-    top: 0; left: 0; 
-    width: 100%; height: 100%; 
-    background: rgba(0,0,0,0.9); 
-    justify-content: center; 
-    align-items: center; 
-    flex-direction: column;
-    z-index: 9999;
-    }
     .accordion-button:not(.collapsed) {
     background-color: var(--bs-secondary);
     border: 1px solid var(--bs-secondary);
@@ -2449,11 +2273,11 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active){
         width: 300px;
     }
 }
-div#notification-posts > a:hover{
+/* div#notification-posts > a:hover{
   background: rgb(255, 255, 255);
   box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
   backdrop-filter: blur(20px);
-}
+} */
 
  .gallery {
     display: block;
@@ -2476,7 +2300,7 @@ div#notification-posts > a:hover{
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 2;
-    overflow: hidden;
+    /* overflow: hidden; */
     cursor: pointer;
   }
 
@@ -2537,11 +2361,6 @@ div#notification-posts > a:hover{
   overflow-y: auto;
   pointer-events: auto;
 }
-
-  /* .gallery-item:hover .gallery-description {
-    opacity: 1;
-  } */
-
   /* On hover, allow scrolling */
 .gallery-item:hover .gallery-description {
   opacity: 2;
@@ -2571,6 +2390,9 @@ div#notification-posts > a:hover{
   width: 100%;
   text-align: center;
 }
+
+
+
 
 /* Show mobile hint only on touch devices */
 @media (hover: none) and (pointer: coarse) {

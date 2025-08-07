@@ -25,7 +25,12 @@ const translations = {
       'structural_reform': 'Оценка на организационния модел на централната администрация на изпълнителната власт',
       'NAMRB': 'Примерни модели за административни структури на седем групи общини и проекти на документи за организационното им развитие',
       'consulting_services': 'Подобряване на ефективността и оптимизиране на структурата на администрацията на Министерството на външните работи',
-      'organizational': 'Организационна оценка и планиране на подобрения'
+      'organizational': 'Организационна оценка и планиране на подобрения',
+      'analyze': 'Консолидиран анализ на организационното състояние на Министерство на отбраната',
+      'actual_standarts': 'Актуализирани стандарти за провеждане на граждански консултации',
+      'nfk': 'Анализ и оценка на въздействието на действащото законодателство за НФК',
+      'impact_assessment': 'Проекти МС регулации, МЕУ Оценка на въздействието на Закон за данните, НФК Оценка на въздействието на действащото законодателство',
+      'preliminary': 'Цялостна предварителна оценка на въздействието във връзка с регулиране на основни икономически сектори',
     }
   };
 
@@ -43,6 +48,11 @@ const translations = {
     'NAMRB.html': ['home', 'sectors', 'NAMRB'],
     'consulting_services.html': ['home', 'sectors', 'consulting_services'],
     'organizational.html': ['home', 'sectors', 'organizational'],
+    'analyze.html': ['home', 'offer', 'analyze'],
+    'actual_standarts.html': ['home', 'offer', 'actual_standarts'],
+    'nfk.html': ['home', 'offer', 'nfk'],
+    'impact_assessment.html': ['home', 'offer', 'impact_assessment'],
+    'preliminary.html': ['home', 'offer', 'preliminary'],
 
   };
 
@@ -59,11 +69,17 @@ const translations = {
 
       const hrefMap = {
         home: 'index.html',
+        offer:'offer.html',
         sectors: 'sectors.html',
         structural_reform: 'structural_reform.html',
         NAMRB: 'NAMRB.html',
         consulting_services: 'consulting_services.html',
-        organizational: 'organizational.html'
+        organizational: 'organizational.html',
+        analyze: 'analyze.html',
+        actual_standarts: 'actual_standarts.html',
+        nfk: 'nfk.html',
+        impact_assessment: 'impact_assessment.html',
+        preliminary: 'impact_assessment.html'
       };
 
       if (isLast) {
