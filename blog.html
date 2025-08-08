@@ -172,10 +172,10 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-3 pt-lg-2">
           <div class="img_storege">
-            <img src="./img/logos.png" alt="union">
+            <!--<img src="./img/logos.png" alt="union">-->
             <img src="./img/logo_rina.jpg" class="pt-4" style="width:250px;height: 184px;">
             <p class="pt-4">Агенция СТРАТЕГМА поддържа Интегрирана система за управление на качеството,
-            сигурността на информацията и околната среда съгласно <a href="docs/STR-9001-BG-EN.pdf" target="_blank"><strong>ISO 9001:2015/ISO</strong></a> 
+            сигурността на информацията и околната среда съгласно <a href="docs/STR-9001-BG-EN.pdf" target="_blank"><strong>ISO 9001:2015/ ISO</strong></a> 
             <a href="docs/STR-14001-BG-EN.pdf" target="_blank"><strong>14001:2015/ </strong></a> 
             <a href="docs/STR-27001-BG.pdf" target="_blank"><strong>ISO 27001:2013.</strong></a></p>
             <p class="pt-4"> <a href="docs/20171123_strategma_QP.pdf" target="_blank"><strong>Политика по качеството, сигурността на информацията и околната среда.</strong></a></p>
@@ -308,12 +308,56 @@ const defaultEnglishSuggestions = [
   "stock market",
   "organizational development and consulting",
   "strategic planning and evaluation",
-  "raining and innovation",
+  "training and innovation",
   "public communications",
   "information technology",
   "AI",
   "artificial intelligence"
 ];
+
+// --- Transliteration maps ---
+const cyrillicToLatinMap = {
+  'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+  'е': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y',
+  'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o',
+  'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+  'ф': 'f', 'х': 'h', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh',
+  'щ': 'sht', 'ъ': 'a', 'ь': '', 'ю': 'yu', 'я': 'ya'
+};
+
+const latinToCyrillicMap = {};
+for (const [cyr, lat] of Object.entries(cyrillicToLatinMap)) {
+  latinToCyrillicMap[lat] = cyr;
+}
+
+// Convert Cyrillic → Latin
+function cyrillicToLatin(text) {
+  return text.toLowerCase().split('').map(char => {
+    return cyrillicToLatinMap[char] || char;
+  }).join('');
+}
+
+// Convert Latin → Cyrillic (basic approach)
+function latinToCyrillic(text) {
+  let lower = text.toLowerCase();
+  // Sort keys by length to handle "sht" before "sh"
+  const keys = Object.keys(latinToCyrillicMap).sort((a, b) => b.length - a.length);
+  keys.forEach(lat => {
+    const regex = new RegExp(lat, 'g');
+    lower = lower.replace(regex, latinToCyrillicMap[lat]);
+  });
+  return lower;
+}
+
+// Normalize text for comparison
+function normalizeText(text) {
+  const lower = text.toLowerCase().trim();
+  return {
+    original: lower,
+    latin: cyrillicToLatin(lower),
+    cyrillic: latinToCyrillic(lower)
+  };
+}
 
 // Fetch all titles/topics once
 async function loadSuggestions() {
@@ -329,37 +373,43 @@ async function loadSuggestions() {
       }
     }
   });
-
-  // console.log("Loaded suggestions:", suggestions); // ✅ Check console for output
 }
 
 await loadSuggestions(); // Wait for data to load before interaction
 
 // Listen for typing
 searchInput.addEventListener('input', () => {
-  const input = searchInput.value.trim().toLowerCase();
+  const input = normalizeText(searchInput.value);
   autocompleteList.innerHTML = '';
 
   // If input cleared, show all posts
-  if (!input) {
+  if (!input.original) {
     const posts = document.querySelectorAll('#blog-posts .blog-article-post');
-    posts.forEach(post => {
-      post.style.display = '';
-    });
+    posts.forEach(post => post.style.display = '');
     return;
   }
 
-  // Match from Firestore titles (Bulgarian)
-  const matches = suggestions.filter(item =>
-    item.toLowerCase().includes(input)
-  ).slice(0, 5); // Limit to 5 results
+  // Match from Firestore titles (Bulgarian or English)
+  const matches = suggestions.filter(item => {
+    const normItem = normalizeText(item);
+    return (
+      normItem.original.includes(input.original) ||
+      normItem.latin.includes(input.latin) ||
+      normItem.cyrillic.includes(input.cyrillic)
+    );
+  }).slice(0, 5); // Limit to 5 results
 
   // If no matches from Firestore, match from default English fallback
-  const finalMatches = matches.length > 0 
-    ? matches 
-    : defaultEnglishSuggestions.filter(topic =>
-        topic.toLowerCase().includes(input)
-      ).slice(0, 5);
+  const finalMatches = matches.length > 0
+    ? matches
+    : defaultEnglishSuggestions.filter(topic => {
+        const normTopic = normalizeText(topic);
+        return (
+          normTopic.original.includes(input.original) ||
+          normTopic.latin.includes(input.latin) ||
+          normTopic.cyrillic.includes(input.cyrillic)
+        );
+      }).slice(0, 5);
 
   if (finalMatches.length === 0) {
     const li = document.createElement('li');
@@ -400,6 +450,7 @@ document.addEventListener('click', (e) => {
     autocompleteList.innerHTML = '';
   }
 });
+
 
 </script>
 
