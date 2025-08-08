@@ -29,7 +29,7 @@ const translations = {
       'analyze': 'Консолидиран анализ на организационното състояние на Министерство на отбраната',
       'actual_standarts': 'Актуализирани стандарти за провеждане на граждански консултации',
       'nfk': 'Анализ и оценка на въздействието на действащото законодателство за НФК',
-      'impact_assessment': 'Проекти МС регулации, МЕУ Оценка на въздействието на Закон за данните, НФК Оценка на въздействието на действащото законодателство',
+      'impact_assessment': 'Цялостна предварителна оценка на въздействието във връзка с регулиране на основни икономически сектори',
       'preliminary': 'Цялостна предварителна оценка на въздействието във връзка с регулиране на основни икономически сектори',
     }
   };
@@ -46,7 +46,7 @@ const translations = {
     'sectors.html': ['home', 'sectors'],
     'structural_reform.html': ['home', 'sectors', 'structural_reform'],
     'NAMRB.html': ['home', 'sectors', 'NAMRB'],
-    'consulting_services.html': ['home', 'sectors', 'consulting_services'],
+    'consulting_services.html': ['home', 'offer', 'consulting_services'],
     'organizational.html': ['home', 'sectors', 'organizational'],
     'analyze.html': ['home', 'offer', 'analyze'],
     'actual_standarts.html': ['home', 'offer', 'actual_standarts'],

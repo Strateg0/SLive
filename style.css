@@ -2477,9 +2477,16 @@ div#breadcrumb {
     content: "";
   }
 
+  .breadcrumb-list li  {
+    font-size: 1rem!important;
+    font-weight: 300;
+  }
+
   .breadcrumb-list li a {
     text-decoration: none;
     color: var(--bs-dark);
+    font-size: 1rem!important;
+    font-weight: 300;
   }
 
   .breadcrumb-list li[aria-current="page"] {
