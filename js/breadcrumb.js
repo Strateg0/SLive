@@ -31,6 +31,9 @@ const translations = {
       'nfk': 'Анализ и оценка на въздействието на действащото законодателство за НФК',
       'impact_assessment': 'Цялостна предварителна оценка на въздействието във връзка с регулиране на основни икономически сектори',
       'preliminary': 'Цялостна предварителна оценка на въздействието във връзка с регулиране на основни икономически сектори',
+      'org_model': 'Нов организационен модел на НСОРБ',
+      'functional_analyze': 'Функционални анализи',
+      'action_plan': 'План за оценка на програма за морско дело, рибарство и аквакултури',
     }
   };
 
@@ -53,7 +56,9 @@ const translations = {
     'nfk.html': ['home', 'offer', 'nfk'],
     'impact_assessment.html': ['home', 'offer', 'impact_assessment'],
     'preliminary.html': ['home', 'offer', 'preliminary'],
-
+    'org_model.html': ['home', 'offer', 'org_model'],
+    'functional_analyze.html': ['home', 'offer', 'functional_analyze'],
+    'action_plan.html': ['home', 'offer', 'action_plan'],
   };
 
   const currentPath = window.location.pathname.split('/').pop();
@@ -79,7 +84,10 @@ const translations = {
         actual_standarts: 'actual_standarts.html',
         nfk: 'nfk.html',
         impact_assessment: 'impact_assessment.html',
-        preliminary: 'impact_assessment.html'
+        preliminary: 'preliminary.html',
+        org_model: 'org_model.html',
+        functional_analyze: 'org_model.html',
+        action_plan: 'action_plan.html'
       };
 
       if (isLast) {

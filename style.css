@@ -1421,6 +1421,14 @@ a#btnTop > i {
     font-weight: bold;
     text-transform: uppercase;
     color: #000000;
+    text-align: left;
+}
+
+h4.text-head-text-9 a {
+    color: #3c7f77;
+    font-weight: bold;
+    text-transform: math-auto;
+    font-size: 23px;
 }
 
 .strateg-blog h4.text-head-text-9 {
