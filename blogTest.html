@@ -6,7 +6,7 @@
   <meta name="description" content="The agency provides a range of services to the public and private sectors in Bulgaria and abroad. It is staffed with skilled professionals who have a thorough knowledge and experience in the implementation of large-scale development projects for various organizations in the following main fields: modernization of public administration and public sector management, economic planning, public communications and media, information technologies human resources and training">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="STRATEGMA AGENCY">
-	<title>STRATEGMA | NAMRB</title>
+	<title>STRATEGMA | NEWS</title>
   <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" integrity="sha384-tViUnnbYAV00FLIhhi3v/dWt3Jxw4gZQcNoSCxCIFNJVCx7/D55/wXsrNIRANwdD" crossorigin="anonymous">
@@ -22,7 +22,7 @@
     }
   </style>
   </head>
-<body id="NAMRB">
+<body id="newsBlog">
 <main>
 <div class="container-fluid px-0">
 <nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom mb-0">
@@ -89,46 +89,63 @@
   </div>
 </nav>
 
-<section class="px-0 py-0 py-lg-5 text-center" id="sectors_heroBG">
+<section class="px-0 py-0 py-lg-5 text-center" id="news_heroBG">
    <div class="container px-3 py-5">
-      <div class="innerText justify-content-center align-self-center align-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-        <!-- <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">Актуализирани стандарти за провеждане на граждански консултации</h1> -->
-      </div>
+        <div class="innerText justify-content-center align-self-center align-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
+          <!-- <h1 class="display-5 fw-bold pt-0 pb-2 mt-0 px-0 header animate__animated animate__zoomIn">новости</h1> -->
+        </div>
     </div>
   </div>
 </section>
 
 <section class="px-0 py-0 py-lg-0 text-center">
    <div class="container px-3 py-0">
-      <div class="justify-content-center align-self-center align-center fx-reveal">
-     <div id="breadcrumb" class="breadcrumb" role="navigation" aria-label="Breadcrumb"></div>
+      <div class="innerText justify-content-center align-self-center align-center fx-reveal">
+       <div id="breadcrumb"></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="px-0 py-0 py-lg-5 text-center">
+
+
+
+<section class="px-0 py-0 pb-lg-5 text-center">
    <div class="container px-3 py-5">
     <div class="row align-items-center g-5 py-1 py-lg-5 animate__animated animate__zoomIn">
-      <div class="col-12 col-sm-12 col-lg-12">
-        <div class="col-md-12 features15-col-text">
-           <a href="#url" class="d-flex flex-wrap feature-unit align-items-center">
-             <div class="col-sm-3">
-               <div class="features15-info">
-                 <i class="bi bi-info-circle-fill cs-dark"></i>
-               </div>
-             </div>
-             <div class="col-sm-9 mt-sm-0 mt-4">
-               <div class="features15-para">
-                <h4 class="cs-text mb-4">План за оценка на програма за морско дело, рибарство и аквакултури</h4>
-                <p class="cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">Възложител: Министерство на земеделието и храните</p>
-                <p class="cs-text mt-2 mx-auto px-0 text-left animate__animated animate__zoomIn">Планът за оценка обхваща програмен период 2021-2027 и подготовката на програма за периода 2028+. Планът за оценка подобрява качеството на нейното разработване и изпълнение при прилагане на критериите за ефективност, ефикасност, относимост, съгласуваност и добавена стойност. Той е гаранция, че дейностите за оценка са достатъчни, подходящи и съгласувани, че проследяват всички програми, финансирани от Европейския фонд за морско дело, рибарство и аквакултури и необходимите ресурсите и информация са налични по време на програмния период и след приключването му.</p>
-               </div>
-             </div>
-           </a>
-         </div>
+        <section class="strateg-blog mt-0 fx-reveal">
+        <div class="text-element-9 py-5 mt-0">
+            <div class="container py-lg-3">
+            <div class="row">
+                <!-- <div class="col-md-12 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
+                <div class="blog-search position-relative">
+                    <form class="d-flex search-form" onsubmit="return false;">
+                    <input id="searchInput" type="search" class="form-control" placeholder="Search..." autocomplete="off">
+                    <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
+                    </form>
+                    <ul id="autocompleteList" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
+                </div>
+                </div> -->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 animate__animated animate__zoomIn" id="blog-posts"></div>
+                <!-- novini -->
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 animate__animated animate__zoomIn" id="news-posts"></div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-3 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
+                    <div id="related-posts-section" class="mt-0 animate__animated animate__zoomIn">
+                    <h4 class="mb-4">Последни новини</h4>
+                    <!-- <div id="related-posts-container" class="row gy-4"></div> -->
+                     <div id="related-posts" class="row gy-4"></div>
+                </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        <!-- Indicator load -->
+        <div id="loadingIndicator" style="text-align:center; display:none; margin: 20px;">
+        <span>Loading...</span>
+        </div>
     </div>
-
   </div>
 </section>
 
@@ -140,11 +157,11 @@
         <div class="col-lg-7 col-md-7 col-sm-7 mt-sm-0 mt-3 mt-lg-0">
           <ul class="footer-list">
             <h1 class="footer-title mb-4">Контакти</h1>
-            <li><a href=""><i class="bi bi-geo-alt-fill"></i> гр. София 1202, ул. „Г. Раковски” № 18, ет. 4</a></li>
-            <li><a href=""><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
-            <li><a href=""><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
+            <li><a href="about.html"><i class="bi bi-geo-alt-fill"></i> гр. София 1202, ул. „Г. Раковски” № 18, ет. 4</a></li>
+            <li><a href="blog.html"><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
+            <li><a href="#pricing"><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
           </ul>
-          <ul class="social_media">
+           <ul class="social_media">
             <h1 class="footer-title">Последвай ни</h1>
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
@@ -165,8 +182,8 @@
                         </a>
                     </li>
                 </ul>
+                <iframe class="mt-4" allowfullscreen="true" frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.9007615559276!2d23.326308515721934!3d42.70582202118777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8563d0e99765%3A0x4614e4467a5d250!2sulitsa+%E2%80%9EGeorgi+S.+Rakovski%E2%80%9C+18%2C+1202+Sofia%2C+Bulgaria!5e0!3m2!1sen!2sus!4v1455725650239" style="border:0; width: 100%"></iframe>
             </div>
-            <iframe class="mt-4" allowfullscreen="true" frameborder="0" height="250" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2931.9007615559276!2d23.326308515721934!3d42.70582202118777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8563d0e99765%3A0x4614e4467a5d250!2sulitsa+%E2%80%9EGeorgi+S.+Rakovski%E2%80%9C+18%2C+1202+Sofia%2C+Bulgaria!5e0!3m2!1sen!2sus!4v1455725650239" style="border:0; width: 100%"></iframe>
           </ul>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-3 pt-lg-2">
@@ -188,7 +205,7 @@
     <div class="container-fluid footer_copyright">
       <div class="container">
         <div class="row justify-content-md-center">
-        <div class="col col-md-6 col-lg-6 col-xxl-8 px-0">
+         <div class="col col-md-6 col-lg-6 col-xxl-8 px-0">
           <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
           </div>
           <div class="col-md-auto">
@@ -209,9 +226,8 @@
 
 <script src="./js/active.js"></script>
 <script src="./js/mode.js"></script>
-<script type="module" src="./js/notify.js"></script>
-<script src="./js/fxreverse_animate.js"></script>
 <script src="./js/breadcrumb.js"></script>
+<script src="./js/fxreverse_animate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -244,6 +260,224 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
+<script>
+  const interactiveMapsCategoryID = 14; // "Interactive Maps" category ID
+
+  // Fetch the main category posts (up to 5)
+  const apiURL = `https://wordpress-fa022.wasmer.app/wp-json/wp/v2/posts?categories=${interactiveMapsCategoryID}&per_page=5&_embed`;
+
+  fetch(apiURL)
+    .then(response => response.json())
+    .then(posts => {
+      let output = '<div class="row g-4">';
+
+      posts.forEach(post => {
+        // Featured image
+        let imgSrc = '';
+        if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
+          imgSrc = post._embedded['wp:featuredmedia'][0].source_url;
+        }
+
+        // Author name
+        let authorName = post._embedded?.author?.[0]?.name || 'Unknown';
+
+        // Category name
+        let categoryName = '';
+        if (post._embedded?.['wp:term']?.[0]) {
+          const foundCat = post._embedded['wp:term'][0].find(cat => cat.id === interactiveMapsCategoryID);
+          if (foundCat) {
+            categoryName = foundCat.name;
+          }
+        }
+
+        // Published date
+        let publishedDate = new Date(post.date).toLocaleDateString('bg-BG', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        output += `
+          <div class="col-md-12 my-3">
+            <div class="cardPass h-100 shadow-sm">
+              ${imgSrc ? `<img src="${imgSrc}" class="card-img-top" alt="${post.title.rendered}">` : ''}
+              <div class="card-body">
+                <p class="sub-para my-3">${categoryName}</p>
+                <h4 class="text-head-text-9">
+                  <a href="${post.link}" target="_blank">${post.title.rendered}</a>
+                </h4>
+              </div>
+              <ul class="blog-author-date mt-4 px-0">
+                <li class="author">By ${authorName} &nbsp; Date: <strong>${publishedDate}</strong></li>
+              </ul>
+            </div>
+          </div>
+        `;
+      });
+
+      output += '</div>';
+      document.getElementById('news-posts').innerHTML = output;
+    })
+    .catch(error => {
+      console.error('Error fetching Interactive Maps posts:', error);
+      document.getElementById('news-posts').innerHTML = '<p>Неуспешно зареждане на новините.</p>';
+    });
+
+
+  // --- RELATED POSTS SECTION ---
+
+  // Shuffle function
+  function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+    return array;
+  }
+
+  // Fetch more posts (20) to pick random 4 for related posts
+  const relatedApiURL = `https://wordpress-fa022.wasmer.app/wp-json/wp/v2/posts?per_page=20&_embed`;
+
+  fetch(relatedApiURL)
+    .then(response => response.json())
+    .then(posts => {
+      const shuffled = shuffle(posts);
+      const relatedPosts = shuffled.slice(0, 4);
+
+      let output = '<div class="row g-4">';
+
+      relatedPosts.forEach(post => {
+        let imgSrc = '';
+        if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
+          imgSrc = post._embedded['wp:featuredmedia'][0].source_url;
+        }
+
+        let publishedDate = new Date(post.date).toLocaleDateString('bg-BG', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        output += `
+          <div class="col-md-12">
+            <div class="cardPass h-100 shadow-sm">
+              ${imgSrc ? `<img src="${imgSrc}" class="card-img-top" alt="${post.title.rendered}">` : ''}
+              <div class="card-body">
+                <h5 class="sub-para my-3">
+                  <a href="${post.link}" target="_blank" rel="noopener noreferrer">${post.title.rendered}</a>
+                </h5>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      output += '</div>';
+      document.getElementById('related-posts').innerHTML = output;
+    })
+    .catch(error => {
+      console.error('Error fetching related posts:', error);
+      document.getElementById('related-posts').innerHTML = '<p>Неуспешно зареждане на свързаните публикации.</p>';
+    });
+</script>
+
+
+
+<!-- Notification badge and dropdown container -->
+<script>
+  // LocalStorage key for read posts
+  const READ_POSTS_KEY = 'readNotificationPosts';
+
+  // Helper to get read post IDs from localStorage
+  function getReadPosts() {
+    const stored = localStorage.getItem(READ_POSTS_KEY);
+    return stored ? JSON.parse(stored) : [];
+  }
+
+  // Helper to mark a post as read and save in localStorage
+  function markPostAsRead(postId) {
+    let readPosts = getReadPosts();
+    if (!readPosts.includes(postId)) {
+      readPosts.push(postId);
+      localStorage.setItem(READ_POSTS_KEY, JSON.stringify(readPosts));
+    }
+    updateNotificationBadgeAndDropdown(currentPosts); // Update UI after marking read
+  }
+
+  // Current posts fetched — kept globally so markPostAsRead can update
+  let currentPosts = [];
+
+  // Update notification dropdown and badge
+  function updateNotificationBadgeAndDropdown(posts) {
+    currentPosts = posts; // Update global reference
+
+    const notifContainer = document.getElementById('notification-posts');
+    const badge = document.getElementById('notificationBadge');
+
+    const readPosts = getReadPosts();
+    const unreadPosts = posts.filter(post => !readPosts.includes(post.id));
+
+    // Show count (even if 0)
+    badge.textContent = unreadPosts.length;
+    badge.style.display = unreadPosts.length > 0 ? 'inline-block' : 'none';
+
+    // Clear current dropdown
+    notifContainer.innerHTML = '';
+
+    if (unreadPosts.length === 0) {
+      notifContainer.innerHTML = `<small class="text-muted">No new articles</small>`;
+      return;
+    }
+
+    // Render each unread post
+    unreadPosts.forEach(post => {
+      const link = document.createElement('a');
+      link.href = post.link; // Direct link to WP post
+      link.className = 'text-decoration-none text-dark d-block small mb-2';
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.innerHTML = `
+        🆕 <strong>${post.title.rendered}</strong><br>
+        <span class="text-muted">${formatDate(post.date)}</span>
+      `;
+
+      // Mark as read when clicked
+      link.addEventListener('click', () => {
+        markPostAsRead(post.id);
+      });
+
+      notifContainer.appendChild(link);
+    });
+  }
+
+  // Helper: format date nicely
+  function formatDate(dateStr) {
+    return new Date(dateStr).toLocaleDateString('bg-BG', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+
+  // Fetch recent posts for notifications (e.g., latest 10)
+  const notificationApiURL = `https://wordpress-fa022.wasmer.app/wp-json/wp/v2/posts?per_page=10&_embed`;
+
+  fetch(notificationApiURL)
+    .then(response => response.json())
+    .then(posts => {
+      updateNotificationBadgeAndDropdown(posts);
+    })
+    .catch(error => {
+      console.error('Error fetching notification posts:', error);
+      const notifContainer = document.getElementById('notification-posts');
+      notifContainer.innerHTML = '<p>Failed to load notifications.</p>';
+    });
+</script>
+
 
 
 </body>

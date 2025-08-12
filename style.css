@@ -1431,6 +1431,16 @@ h4.text-head-text-9 a {
     font-size: 23px;
 }
 
+h5.sub-para {
+    text-align: left;
+}
+
+h5.sub-para a {
+    text-align: left;
+    text-transform: math-auto;
+    color: var(--bs-custom2-green);
+}
+
 .strateg-blog h4.text-head-text-9 {
     color: var(--bs-primary);
     transition: 0.3s ease-in-out;
