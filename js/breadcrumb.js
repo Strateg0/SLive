@@ -34,6 +34,8 @@ const translations = {
       'org_model': 'Нов организационен модел на НСОРБ',
       'functional_analyze': 'Функционални анализи',
       'action_plan': 'План за оценка на програма за морско дело, рибарство и аквакултури',
+      'elec_networks': 'Електроразпределителни мрежи Запад ЕАД',
+      'strategic': 'Министерство на регионалното развитие и благоустройството',
     }
   };
 
@@ -59,6 +61,8 @@ const translations = {
     'org_model.html': ['home', 'offer', 'org_model'],
     'functional_analyze.html': ['home', 'offer', 'functional_analyze'],
     'action_plan.html': ['home', 'offer', 'action_plan'],
+    'elec_networks.html': ['home', 'sectors', 'elec_networks'],
+    'strategic.html': ['home', 'offer', 'strategic'],
   };
 
   const currentPath = window.location.pathname.split('/').pop();
@@ -87,7 +91,9 @@ const translations = {
         preliminary: 'preliminary.html',
         org_model: 'org_model.html',
         functional_analyze: 'org_model.html',
-        action_plan: 'action_plan.html'
+        action_plan: 'action_plan.html',
+        elec_networks: 'elec_networks.html',
+        strategic: 'strategic.html'
       };
 
       if (isLast) {
