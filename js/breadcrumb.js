@@ -70,6 +70,9 @@ const translations = {
       'strategic': 'Последваща оценка за изпълнението на националната стратегия за регионално развитие за периода 2012-2022 г.',
       'reg_plans': 'Последващи оценки на регионалните планове за развитие (РПР) 2014 – 2020 г.',
       'integrated_dev': 'Планове за интегрирано развитие на общини за периода 2021-2027',
+      'tech_roadmaps': 'Технологични пътни карти, свързани с идентифицираните тематични области в Иновационната стратегия за интелигентна специализация',
+      'accreditation_law_analysis': 'Проучване и анализ на новото законодателство в областта на акредитацията',
+      'nfc': 'Законодателна промяна в правната рамка на НФК',
     }
   };
 
@@ -99,6 +102,9 @@ const translations = {
     'strategic.html': ['home', 'offer', 'strategic'],
     'reg_plans.html': ['home', 'offer', 'reg_plans'],
     'integrated_dev.html': ['home', 'offer', 'integrated_dev'],
+    'tech_roadmaps.html': ['home', 'offer', 'tech_roadmaps'],
+    'accreditation_law_analysis.html': ['home', 'offer', 'accreditation_law_analysis'],
+    'nfc.html': ['home', 'offer', 'nfc'],
   };
   
 // Shorten text function
@@ -139,7 +145,10 @@ const translations = {
         elec_networks: 'elec_networks.html',
         strategic: 'strategic.html',
         reg_plans: 'reg_plans.html',
-        integrated_dev: 'integrated_dev.html'
+        integrated_dev: 'integrated_dev.html',
+        tech_roadmaps: 'tech_roadmaps.html',
+        accreditation_law_analysis: 'accreditation_law_analysis.html',
+        nfc: 'nfc.html'
       };
 
       if (isLast) {
