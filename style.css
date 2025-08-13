@@ -33,6 +33,9 @@
   --bs-custom2-green: #008177;
   --bs-custom3-gray: #939597;
   --bs-btn-secondary: #872557;
+  --bs-btn-nextlevel: #B91C1C;
+  --bs-nextlevel-text: #B91C1C;
+  
   
 }
 @font-face {
@@ -101,7 +104,7 @@
 }
 h1, h2 {
     font-family: 'TaylorSans-Bold', sans-serif !important;
-    text-transform: capitalize;
+    text-transform: math-auto;
 }
 .display-5, .display-4{
     font-family: 'TaylorSans-Bold', sans-serif !important;
@@ -146,7 +149,6 @@ body{transition: background-color 0.3s ease, color 0.3s ease;}
 li.nav-item {
     margin: 0px 15px;
 }
-
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #ffffff;
     background-color: #008177;
@@ -162,19 +164,16 @@ li.nav-item {
     font-weight: 400;
 }
 .bg-dark {
-    background-color: var(--bs-footer-color)!important;
-    color: var(--bs-white);
+  background-color: var(--bs-footer-color)!important;
+  color: var(--bs-white);
 }
-
 .btn-primary{
   background-color: var(--bs-primary)!important;
   border: 1px solid #008177;
 }
-
 .bg-secondary{
   background-color:  var(--bs-secondary) !important;
 }
-
 .cs-text{
   color: var(--bs-dark)!important;
 }
@@ -184,6 +183,9 @@ li.nav-item {
 .light-text{
   color: var(--bs-white)!important;
 }
+.btn-nextlevel{--bs-btn-nextlevel: #B91C1C;}
+.bs-nextlevel-text{--bs-nextlevel-text: #B91C1C;}
+
 
 #heroBG{
 z-index: 0;
@@ -210,6 +212,23 @@ background-size: cover;
 -ms-background-size: cover;
 background-image: linear-gradient(to right, rgb(1 0 6 / 25%), rgb(1 0 10 / 35%)), url('./img/aboutbg.png');
 /* box-shadow: inset 0 0 0 1000px rgba(0, 129, 119, 65%); */
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: center;
+background-attachment: fixed;
+height: 100vh;
+min-height: 100vh;
+display: flex;
+justify-content: center; 
+align-items: center;
+}
+
+#heroMCP{
+z-index: 0;
+position: relative;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: linear-gradient(to right, rgb(1 0 6 / 75%), rgb(1 0 10 / 75%)), url('./img/heromcp.png');
 background-repeat: no-repeat, no-repeat, no-repeat;
 background-position: center;
 background-attachment: fixed;
@@ -258,6 +277,20 @@ align-items: center;
 background-size: cover;
 -ms-background-size: cover;
 background-image: linear-gradient(to right, rgb(1 0 6 / 25%), rgb(1 0 10 / 35%)), url('./img/why.png');
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: top 50%;
+background-attachment: fixed;
+height: auto;
+}
+
+#missionBG{
+z-index: 0;
+position: relative;
+display: block;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: linear-gradient(to right, rgb(1 0 6 / 25%), rgb(1 0 10 / 25%)), url('./img/mission.png');
 background-repeat: no-repeat, no-repeat, no-repeat;
 background-position: top 50%;
 background-attachment: fixed;
@@ -404,6 +437,28 @@ align-items: center;
     background-color: var(--bs-bsecondary);
     border-color: var(--bs-secondary);
 }
+
+.btn-nextlevel{
+  background: var(--bs-btn-nextlevel);
+  color: #ffffff;
+  display: block;
+  margin: 0 auto 0 auto;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 60px;
+  padding: 20px;
+  width: auto;
+  border: none;
+}
+
+.btn-nextlevel:hover{
+  border: 1px solid #DD3C2A;
+  transition: all ease-in-out 0.3s;
+  color: #DD3C2A;
+  background: #ffffff;
+   padding: 20px;
+}
+
 
 .btn.contact, button.creation, button#saveBtn{
     border: 1px solid #872557;
@@ -867,7 +922,7 @@ footer p {
 
 .dark-mode .nav-link, .dark-mode .cs-text, .dark-moode h4, h6, 
 .dark-mode .bulletCSlist ul li, .dark-mode .bulletCSlist li i, 
-.dark-mode span.bi.bi-bell, .dark-mode .breadcrumb-list li a {
+.dark-mode span.bi.bi-bell, .dark-mode .breadcrumb-list li a, .dark-mode .cs-text {
   color: #ffffff!important;
 }
 
@@ -875,7 +930,8 @@ footer p {
   background: #00211e;
 }
 
-.dark-mode .card, .dark-mode section, .dark-mode .home-carousel h2, .dark-mode #blog-form {
+.dark-mode .card, .dark-mode section, .dark-mode .home-carousel h2, 
+.dark-mode #blog-form, .dark-mode .bhoechie-tab, .dark-mode div.bhoechie-tab-content {
   background-color: #00211e !important;
   color: #fff !important;
   border-color: #444;

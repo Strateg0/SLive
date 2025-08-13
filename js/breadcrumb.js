@@ -73,6 +73,10 @@ const translations = {
       'tech_roadmaps': 'Технологични пътни карти, свързани с идентифицираните тематични области в Иновационната стратегия за интелигентна специализация',
       'accreditation_law_analysis': 'Проучване и анализ на новото законодателство в областта на акредитацията',
       'nfc': 'Законодателна промяна в правната рамка на НФК',
+      'nif_calls_analysis_impact': 'Анализ на пет конкурсни сесии на Националния иновационен фонд и оценка на ефекта от изпълнението договорите',
+      'training_managing_authority_opta': 'Обучения за повишаване на квалификацията на служителите на Управляващия орган на Оперативна програма „Техническа помощ“',
+      'eures_network_research_evaluation': 'Проучване и оценка на Мрежата Европейски услуги за заетост (EURES)',
+      
     }
   };
 
@@ -105,6 +109,11 @@ const translations = {
     'tech_roadmaps.html': ['home', 'offer', 'tech_roadmaps'],
     'accreditation_law_analysis.html': ['home', 'offer', 'accreditation_law_analysis'],
     'nfc.html': ['home', 'offer', 'nfc'],
+    'nif_calls_analysis_impact.html': ['home', 'offer', 'nif_calls_analysis_impact'],
+    'training_managing_authority_opta.html': ['home', 'offer', 'training_managing_authority_opta'],
+    'eures_network_research_evaluation.html': ['home', 'offer', 'eures_network_research_evaluation'],
+
+   
   };
   
 // Shorten text function
@@ -148,7 +157,10 @@ const translations = {
         integrated_dev: 'integrated_dev.html',
         tech_roadmaps: 'tech_roadmaps.html',
         accreditation_law_analysis: 'accreditation_law_analysis.html',
-        nfc: 'nfc.html'
+        nfc: 'nfc.html',
+        nif_calls_analysis_impact: 'nif_calls_analysis_impact.html',
+        training_managing_authority_opt: 'training_managing_authority_opt.html',
+        eures_network_research_evaluation: 'eures_network_research_evaluation.html',
       };
 
       if (isLast) {
