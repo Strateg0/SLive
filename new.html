@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="The agency provides a range of services to the public and private sectors in Bulgaria and abroad. It is staffed with skilled professionals who have a thorough knowledge and experience in the implementation of large-scale development projects for various organizations in the following main fields: modernization of public administration and public sector management, economic planning, public communications and media, information technologies human resources and training">
+  <meta name="description" content="Агенцията предоставя широк спектър от услуги на публичния и частния сектор в България и в чужбина. Тя разполага с екип от квалифицирани професионалисти с обширни знания и опит в изпълнението на мащабни проекти за развитие за различни организации в следните основни области: модернизация на публичната администрация и управлението на публичния сектор, икономическо планиране, публични комуникации и медии, информационни технологии, човешки ресурси и обучение.">
 	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
 	<meta name="author" content="STRATEGMA AGENCY">
 	<title>STRATEGMA | NEWS</title>
@@ -55,9 +55,9 @@
         <li class="nav-item"><a href="index.html" class="nav-link">Начало</a></li>
         <li class="nav-item"><a href="sectors.html" class="nav-link">сектори</a></li>
         <li class="nav-item"><a href="offer.html" class="nav-link">какво предлагаме</a></li>
-        <li class="nav-item"><a href="new.html" class="nav-link">новости</a></li>
+        <li class="nav-item"><a href="under_construction.html" class="nav-link">новости</a></li>
         <li class="nav-item"><a href="aboutUs.html" class="nav-link">за нас</a></li>
-        <li class="nav-item"><a href="blog.html" class="nav-link">блог</a></li>
+        <li class="nav-item"><a href="under_construction.html" class="nav-link">блог</a></li>
         <div class="dropdown px-3">
           <a class="btn dropdown-toggle mb-2 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
            <span class="fi fi-bg"></span>
@@ -70,7 +70,6 @@
           </ul>
         </div>
         <button id="themeToggleDesk" class="theme-toggle ms-1 d-none d-sm-none d-md-none d-lg-block d-xl-block" aria-label="Toggle theme"><span class="icon">🌙</span></button>
-        <!-- <li class="nav-item mt-0 pt-0" style="font-size: 20px;"><button id="themeToggleDesk" class="theme-toggle" aria-label="Toggle theme"><span class="iconDesk">🌙</span></button></li> -->
       </ul>
     </div>
   </div>
@@ -135,24 +134,12 @@
         <section class="strateg-blog mt-0 fx-reveal">
         <div class="text-element-9 py-5 mt-0">
             <div class="container py-lg-3">
-            <!-- <div class="page-title text-center mx-auto">
-                <h3 class="head mb-lg-5 mb-4">latest news</h3>
-            </div> -->
             <div class="row">
-                <div class="col-md-12 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
-                <div class="blog-search position-relative">
-                    <form class="d-flex search-form" onsubmit="return false;">
-                    <input id="searchInput" type="search" class="form-control" placeholder="Search..." autocomplete="off">
-                    <button type="submit" class="btn search-btn"><i class="bi bi-search"></i></button>
-                    </form>
-                    <ul id="autocompleteList" class="list-group position-absolute w-100" style="z-index: 1000;"></ul>
-                </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-8 animate__animated animate__zoomIn" id="blog-posts"></div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-8 animate__animated animate__zoomIn" id="blog-posts">Статии <!--BLOG POSTS GENERATED GOES HERE--></div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
                     <div id="related-posts-section" class="mt-0 animate__animated animate__zoomIn">
                     <h4 class="mb-4">Последни новини</h4>
-                    <div id="related-posts-container" class="row gy-4"></div>
+                    <div id="related-posts-container" class="row gy-4"><!--BLOG POSTS GENERATED GOES HERE--></div>
                 </div>
                 </div>
             </div>
@@ -233,9 +220,7 @@
           <div class="col col-lg-2">
           <a href="#"><p class="text-right text-aligne-right pt-4">Terms & Conditions</p></a>
           </div>
-          <div class="col-md-auto">
-            <a href="login.html" target="_blank"><p class="text-right text-aligne-right pt-4">Архив</p></a>
-          </div>
+          <!-- More if needed -->
         </div>
       </div>
     </div>
@@ -279,376 +264,5 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-analytics.js";
-  import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    getDoc,
-    updateDoc,
-    deleteDoc,
-    doc
-  } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyBdPuebdQh5m7GoPfUyG-dtL0eCbqE1BtE",
-    authDomain: "blog-bd628.firebaseapp.com",
-    projectId: "blog-bd628",
-    storageBucket: "blog-bd628.firebasestorage.app",
-    messagingSenderId: "548493041269",
-    appId: "1:548493041269:web:07460e97568e656a57623c",
-    measurementId: "G-RCBHBBJWJD"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-  const db = getFirestore(app);
-
-  // Attach Firestore & helpers to global scope
-  window.firebaseDB = db;
-  window.firebaseRefs = {
-    collection,
-    addDoc,
-    getDocs,
-    getDoc,
-    updateDoc,
-    deleteDoc,
-    doc
-  };
-  
-const searchInput = document.getElementById('searchInput');
-const autocompleteList = document.getElementById('autocompleteList');
-
-let suggestions = [];
-
-const defaultEnglishSuggestions = [
-  "investment",
-  "finance",
-  "banks",
-  "administration",
-  "innovation",
-  "news",
-  "real estate",
-  "savings",
-  "invest",
-  "income",
-  "cryptocurrency",
-  "stock market",
-  "organizational development and consulting",
-  "strategic planning and evaluation",
-  "raining and innovation",
-  "public communications",
-  "information technology",
-  "AI",
-  "artificial intelligence"
-];
-
-// Fetch all titles/topics once
-async function loadSuggestions() {
-  const snapshot = await getDocs(collection(db, 'posts'));
-  suggestions = [];
-
-  snapshot.forEach(doc => {
-    const data = doc.data();
-    const category = (data.category || '').toLowerCase(); // Normalize
-
-    if (category === 'news' && data.title) {
-      const cleanTitle = data.title.trim();
-      if (!suggestions.includes(cleanTitle)) {
-        suggestions.push(cleanTitle);
-      }
-    }
-  });
-}
-
-
-await loadSuggestions(); // Wait for data to load before interaction
-
-// Listen for typing
-searchInput.addEventListener('input', () => {
-  const input = searchInput.value.trim().toLowerCase();
-  autocompleteList.innerHTML = '';
-
-  // If input cleared, show all posts
-  if (!input) {
-    const posts = document.querySelectorAll('#blog-posts .blog-article-post');
-    posts.forEach(post => {
-      post.style.display = '';
-    });
-    return;
-  }
-
-  // Match from Firestore titles (Bulgarian)
-  const matches = suggestions.filter(item =>
-    item.toLowerCase().includes(input)
-  ).slice(0, 5); // Limit to 5 results
-
-  // If no matches from Firestore, match from default English fallback
-  const finalMatches = matches.length > 0 
-    ? matches 
-    : defaultEnglishSuggestions.filter(topic =>
-        topic.toLowerCase().includes(input)
-      ).slice(0, 5);
-
-  if (finalMatches.length === 0) {
-    const li = document.createElement('li');
-    li.className = 'list-group-item text-muted';
-    li.textContent = 'No matches';
-    autocompleteList.appendChild(li);
-  } else {
-    finalMatches.forEach(item => {
-      const li = document.createElement('li');
-      li.className = 'list-group-item list-group-item-action';
-      li.textContent = item;
-      li.addEventListener('click', () => {
-        searchInput.value = item;
-        autocompleteList.innerHTML = '';
-
-        // Show only the matched post, hide others
-        const postsContainer = document.getElementById('blog-posts');
-        if (!postsContainer) return;
-
-        const posts = postsContainer.querySelectorAll('.blog-article-post');
-        posts.forEach(post => {
-          const titleElement = post.querySelector('h4.text-head-text-9');
-          if (titleElement && titleElement.textContent.trim() === item) {
-            post.style.display = ''; // Show matched post
-          } else {
-            post.style.display = 'none'; // Hide others
-          }
-        });
-      });
-      autocompleteList.appendChild(li);
-    });
-  }
-});
-
-// Hide suggestions on outside click
-document.addEventListener('click', (e) => {
-  if (!e.target.closest('.blog-search')) {
-    autocompleteList.innerHTML = '';
-  }
-});
-</script>
-
-
-<script>
-let allPosts = [];
-let visiblePosts = 0;
-const postsPerPage = 5;
-let loading = false;
-
-async function loadAllPosts() {
-  const { collection, getDocs } = window.firebaseRefs;
-  const db = window.firebaseDB;
-
-  const container = document.getElementById('blog-posts');
-  if (!container) {
-    console.error('Element with id="blog-posts" not found');
-    return;
-  }
-
-  try {
-    const querySnapshot = await getDocs(collection(db, "posts"));
-    allPosts = [];
-
-    querySnapshot.forEach(docSnap => {
-      const post = docSnap.data();
-      // ✅ Only show published blog posts
-      if (post.published && post.category === 'news') {
-        allPosts.push({ ...post, id: docSnap.id });
-      }
-    });
-
-    // ✅ Sort by most recent
-    allPosts.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
-
-    renderMorePosts();
-  } catch (error) {
-    console.error("Error loading posts:", error);
-  }
-}
-
-// function renderMorePosts() {
-//   const container = document.getElementById('blog-posts');
-//   const loader = document.getElementById('loadingIndicator');
-//   if (!container) return;
-
-//   loading = true;
-//   if (loader) loader.style.display = 'block';
-
-//   setTimeout(() => {
-//     const nextPosts = allPosts.slice(visiblePosts, visiblePosts + postsPerPage);
-
-//     nextPosts.forEach((post, index) => {
-//       const isLast = index === nextPosts.length - 1;
-//       const postHTML = `
-//         <div class="col-lg-12 col-md-12">
-//         <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
-//           <div class="cardPass shadow-sm h-100">
-//             <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="..."
-//               onerror="this.onerror=null;this.src='./img/b1.jpg';" />
-//             <div class="card-body">
-//                <p class="sub-para my-3">${post.topic}</p>
-//                <h4 class="text-head-text-9">${post.title}</h4>
-//             </div>
-//              <ul class="blog-author-date mt-4 px-0">
-//               <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-//             </ul>
-//           </div>
-//         </a>
-//       </div>
-//       `;
-
-//       container.insertAdjacentHTML('beforeend', postHTML);
-//     });
-
-//     visiblePosts += postsPerPage;
-//     if (loader) loader.style.display = 'none';
-//     loading = false;
-//     observeLastPost();
-//   }, 400);
-// }
-function renderMorePosts() {
-  const container = document.getElementById('blog-posts');
-  const loader = document.getElementById('loadingIndicator');
-  if (!container) return;
-
-  loading = true;
-  if (loader) loader.style.display = 'block';
-
-  setTimeout(() => {
-    const nextPosts = allPosts.slice(visiblePosts, visiblePosts + postsPerPage);
-
-    nextPosts.forEach((post, index) => {
-      const isLast = index === nextPosts.length - 1;
-
-      // Detect if post.content contains an iframe
-      const hasIframe = post.content && post.content.includes('<iframe');
-
-      const postHTML = hasIframe
-        ? `
-          <div class="col-lg-12 col-md-12">
-              <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
-            <div class="cardPass shadow-sm h-100">
-              <img src="${post.imageUrl || './img/interactive.jpg'}" class="card-img-top" alt="..."
-                  onerror="this.onerror=null;this.src='./img/interactive.jpg';" />
-              <div class="card-body">
-                <p class="sub-para my-3">${post.topic}</p>
-                <h4 class="text-head-text-9">${post.title}</h4>
-                <ul class="blog-author-date mt-4 px-0">
-                  <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-                </ul>
-              </div>
-            </div>
-              </a>
-          </div>
-        `
-        : `
-          <div class="col-lg-12 col-md-12">
-            <a href="blog-single.html?id=${post.id}" class="col-lg-6 blog-article-post ${isLast ? 'observe-last' : ''}">
-              <div class="cardPass shadow-sm h-100">
-                <img src="${post.imageUrl || './img/b1.jpg'}" class="card-img-top" alt="..."
-                  onerror="this.onerror=null;this.src='./img/b1.jpg';" />
-                <div class="card-body">
-                  <p class="sub-para my-3">${post.topic}</p>
-                  <h4 class="text-head-text-9">${post.title}</h4>
-                </div>
-                <ul class="blog-author-date mt-4 px-0">
-                  <li class="author">By ${post.author} &nbsp; Date: <strong>${post.date}</strong></li>
-                </ul>
-              </div>
-            </a>
-          </div>
-        `;
-
-      container.insertAdjacentHTML('beforeend', postHTML);
-    });
-
-    visiblePosts += postsPerPage;
-    if (loader) loader.style.display = 'none';
-    loading = false;
-    observeLastPost();
-  }, 400);
-}
-
-
-function observeLastPost() {
-  const lastPost = document.querySelector('.blog-article-post.observe-last');
-  if (!lastPost) return;
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !loading && visiblePosts < allPosts.length) {
-        observer.unobserve(entry.target);
-        renderMorePosts();
-      }
-    });
-  }, {
-    rootMargin: '200px'
-  });
-
-  observer.observe(lastPost);
-}
-
-window.addEventListener('DOMContentLoaded', async () => {
-  await loadAllPosts();
-});
-</script>
-
-<script>
-async function loadRelatedPostsOnBlogPage() {
-  const { collection, getDocs } = window.firebaseRefs;
-  const db = window.firebaseDB;
-
-  const container = document.getElementById('related-posts-container');
-  if (!container) return;
-
-  const querySnapshot = await getDocs(collection(db, "posts"));
-  const relatedPosts = [];
-
-  querySnapshot.forEach(docSnap => {
-    const post = docSnap.data();
-    if (post.published) {
-      relatedPosts.push({ ...post, id: docSnap.id });
-    }
-  });
-
-  // Shuffle array randomly
-  for (let i = relatedPosts.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [relatedPosts[i], relatedPosts[j]] = [relatedPosts[j], relatedPosts[i]];
-  }
-
-  // Take first 3 posts
-  const selectedPosts = relatedPosts.slice(0, 4);
-
-  selectedPosts.forEach(post => {
-    container.innerHTML += `
-      <div class="col-lg-12 col-md-12">
-        <a href="blog-single.html?id=${post.id}" class="related-post-card d-block h-100">
-          <div class="card shadow-sm h-100">
-            <img src="${post.imageUrl || './img/interactive.jpg'}" class="card-img-top" alt="..."
-              onerror="this.onerror=null;this.src='./img/interactive.jpg';" />
-            <div class="card-body" style="text-align:left;">
-              <h5 class="card-title">${post.title}</h5>
-              <p class="card-text text-muted">${post.topic || 'Blog'}</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    `;
-  });
-}
-
-document.addEventListener('DOMContentLoaded', loadRelatedPostsOnBlogPage);
-</script>
-
-
 </body>
 </html>

@@ -750,14 +750,22 @@ text-align: left;
 color: #ffffff!important;
 text-align: center;
 }
-
+.error404 > h1, .error404 > p {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+section#under_construction{
+  background-color: #f5b419;
+}
 h1, .headerP{
 color: #fff!important;
 font-size: 1.25rem;
 font-weight: 300;
 }
-h1.footer-title {
-    font-size: 2.5rem;
+h1.footer-title, h4.footer-title {
+  font-size: 2.5rem;
+  color: #fff;
 }
 .headerS3{
  color: #872557!important;

@@ -76,7 +76,10 @@ const translations = {
       'nif_calls_analysis_impact': 'Анализ на пет конкурсни сесии на Националния иновационен фонд и оценка на ефекта от изпълнението договорите',
       'training_managing_authority_opta': 'Обучения за повишаване на квалификацията на служителите на Управляващия орган на Оперативна програма „Техническа помощ“',
       'eures_network_research_evaluation': 'Проучване и оценка на Мрежата Европейски услуги за заетост (EURES)',
-      
+      'technology_audit_rnd_capabilities_ict': 'Технологичен одит на способностите за изследователска и развойна дейност в информационните и комуникационните технологии (ИКТ)',
+      'evaluation_measures_deinstitutionalisation_social_inclusion': 'Оценка на мерките за деинституционализация и насърчаване на социалното включване',
+      'danube_bridge_vidin_calafat_strategy': 'Стратегия за развитие на Дунав мост Видин-Калафат АД за периода 2018 – 2026 г. И прилежащ бизнес план',
+
     }
   };
 
@@ -112,6 +115,9 @@ const translations = {
     'nif_calls_analysis_impact.html': ['home', 'offer', 'nif_calls_analysis_impact'],
     'training_managing_authority_opta.html': ['home', 'offer', 'training_managing_authority_opta'],
     'eures_network_research_evaluation.html': ['home', 'offer', 'eures_network_research_evaluation'],
+    'technology_audit_rnd_capabilities_ict.html': ['home', 'offer', 'technology_audit_rnd_capabilities_ict'],
+    'evaluation_measures_deinstitutionalisation_social_inclusion.html': ['home', 'offer', 'evaluation_measures_deinstitutionalisation_social_inclusion'],
+    'danube_bridge_vidin_calafat_strategy.html': ['home', 'offer', 'danube_bridge_vidin_calafat_strategy'],
 
    
   };
@@ -161,6 +167,9 @@ const translations = {
         nif_calls_analysis_impact: 'nif_calls_analysis_impact.html',
         training_managing_authority_opt: 'training_managing_authority_opt.html',
         eures_network_research_evaluation: 'eures_network_research_evaluation.html',
+        technology_audit_rnd_capabilities_ict: 'technology_audit_rnd_capabilities_ict.html',
+        evaluation_measures_deinstitutionalisation_social_inclusion: 'evaluation_measures_deinstitutionalisation_social_inclusion.html',
+        danube_bridge_vidin_calafat_strategy: 'danube_bridge_vidin_calafat_strategy.html',
       };
 
       if (isLast) {
