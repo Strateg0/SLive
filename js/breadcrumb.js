@@ -109,7 +109,12 @@ const translations = {
       'review_administrative_register_websites': 'Преглед на информацията в Административния регистър и интернет страниците на администрациите',
       'judicial_independence_measures': 'Въвеждане на мерки за повишаване на независимостта на съдебната власт',
       'housing_policy_concept_sofia': 'Концепция за жилищна политика на Столична община',
-
+      'digital_platform_interaction_analysis': 'Дигитална платформа за анализ на потенциални лекарствени взаимодействия',
+      'digital_competence_certification_module': 'Модул за сертифициране на цифрова компетентност',
+      'cms_portal_ministry_transport_communications': 'Проектиране, разработване и внедряване на система за управление на съдържанието и създаване на портал на министерство на транспорта и съобщенията',
+      'intellectual_property_protection_campaigns': 'Кампании за защита на интелектуалната собственост',
+      'eu_common_agricultural_policy_campaigns': 'Кампании за общата селскостопанска политика на Европейския съюз',
+      
     }
   };
 
@@ -151,6 +156,12 @@ const translations = {
     'judicial_independence_measures.html': ['home', 'offer', 'judicial_independence_measures'],
     'review_administrative_register_websites.html': ['home', 'offer', 'review_administrative_register_websites'],
     'housing_policy_concept_sofia.html': ['home', 'offer', 'housing_policy_concept_sofia'],
+    'digital_platform_interaction_analysis.html': ['home', 'offer', 'digital_platform_interaction_analysis'],
+    'digital_competence_certification_module.html': ['home', 'offer', 'digital_competence_certification_module'],
+    'cms_portal_ministry_transport_communications.html': ['home', 'offer', 'cms_portal_ministry_transport_communications'],
+    'intellectual_property_protection_campaigns.html': ['home', 'offer', 'intellectual_property_protection_campaigns'],
+    'eu_common_agricultural_policy_campaigns.html': ['home', 'offer', 'eu_common_agricultural_policy_campaigns'],
+
    
   };
   
@@ -205,6 +216,12 @@ const translations = {
         judicial_independence_measures: 'judicial_independence_measures.html',
         review_administrative_register_websites: 'review_administrative_register_websites.html',
         housing_policy_concept_sofia: 'housing_policy_concept_sofia.html',
+        digital_platform_interaction_analysis: 'digital_platform_interaction_analysis.html',
+        digital_competence_certification_module: 'digital_competence_certification_module.html',
+        cms_portal_ministry_transport_communications: 'cms_portal_ministry_transport_communications.html',
+        intellectual_property_protection_campaigns:'intellectual_property_protection_campaigns.html',
+        eu_common_agricultural_policy_campaigns:'eu_common_agricultural_policy_campaigns.html',
+
       };
 
       if (isLast) {

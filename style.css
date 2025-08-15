@@ -861,6 +861,10 @@ footer p {
     width: 100%;
     border-top: 1px solid #008177;
 }
+.footer_copyright.mcp {
+    width: 100%;
+    border-top: 1px solid #ff0000;
+}
 .img_storege > img {
     width: 50%;
 }
@@ -2650,6 +2654,25 @@ iframe.custom-iframe {
   backdrop-filter: blur(20px);
   max-width: 100%;
   font-size: 0.9em;
+  height: 230px;
+  margin-bottom: 15px;
+}
+.custom-card.mcp {
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
+  background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+  text-transform: capitalize;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  align-items: center; 
+  justify-content: flex-start; 
+  gap: 12px;
+  backdrop-filter: blur(20px);
+  max-width: 100%;
+  font-size: 0.9em;
 }
 .icon-circle-normal {
   background: var(--bs-btn-nextlevel);
@@ -2664,6 +2687,8 @@ iframe.custom-iframe {
 }
 .icon-circle-normal i {
   font-size: 18px;
+  position: relative;
+  top: 2px;
 }
 .card-title-header {
   font-weight: bold;
@@ -2719,8 +2744,14 @@ iframe.custom-iframe {
   position: relative;
   float: left;
   width: 40%;
-  padding: 0 20px 20px 30px;
+  /* padding: 0 20px 20px 30px; */
   text-align: right;
+  border-radius: 10px;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
+  background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+  backdrop-filter: blur(20px);
 }
 
 .zigzagline>li .zigzagline-panel:before {
@@ -2758,7 +2789,7 @@ iframe.custom-iframe {
 
 .zigzagline>li.zigzagline-inverted>.zigzagline-panel {
     float: right;
-    padding: 0 30px 20px 20px;
+    /* padding: 0 30px 20px 20px; */
     text-align: left;
 }
 
@@ -2791,7 +2822,7 @@ iframe.custom-iframe {
   margin:0;
   padding:0;
   text-transform: none;
-  font-size:20px;
+  font-size:23px;
   color: var(--bs-btn-nextlevel);
 }
 
@@ -2839,7 +2870,56 @@ iframe.custom-iframe {
     height: auto!important;
     right: -100px;
 }
+.zigzagline > li .zigzagline-panel {
+  position: relative;
+  float: left;
+  width: 40%;
+  padding: 0 20px 20px 30px;
+  background: none;
+  box-shadow: none;
 
+}
+
+}
+/* Medium Devices, .visible-md-* */
+@media (max-width: 1024px) and (min-width: 1024px) and (orientation: portrait){
+  .zigzagline > li:nth-child(even) {
+    margin-bottom: 0px;
+    min-height: 0px;
+    right: 0px;
+  }
+  .zigzagline>li:nth-child(even), .zigzagline>li:nth-child(even){
+    height: auto!important;
+}
+  .zigzagline > li:nth-child(odd) {
+    /* margin-bottom: 0px; */
+    min-height: 0px;
+    left: 0px;
+    /* height: auto !important; */
+  }
+  .zigzagline>li:nth-child(even) .zigzagline-image {
+    left: 0;
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  .zigzagline>li:nth-child(odd) .zigzagline-image {
+    left: 0;
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  .zigzagline > li:nth-child(even) .zigzagline-panel {
+    width: auto;
+    padding: 0 25px 20px 25px;
+    text-align: left;
+  }
+  .zigzagline > li:nth-child(odd) .zigzagline-panel {
+    width: auto;
+    padding: 0 25px 20px 25px;
+    text-align: right;
+  }
+  .zigzagline > li .line {
+    display: none;
+  }
 }
 /* Medium Devices, .visible-md-* */
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -2894,12 +2974,12 @@ iframe.custom-iframe {
   .zigzagline>li:nth-child(even) .zigzagline-image {
     left: 0;
     margin-left: 0px;
-            margin-top: 8px;
+    margin-top: 5px;
   }
   .zigzagline>li:nth-child(odd) .zigzagline-image {
     left: 0;
     margin-left: 0px;
-            margin-top: 8px;
+    margin-top: 5px;
   }
   .zigzagline > li:nth-child(even) .zigzagline-panel {
     width: auto;
@@ -2914,6 +2994,10 @@ iframe.custom-iframe {
   .zigzagline > li .line {
     display: none;
   }
+    .zigzagline>li:after {
+    clear: both;
+    min-height: inherit;
+  }
 }
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 767px) {
@@ -2922,35 +3006,43 @@ iframe.custom-iframe {
     min-height: 0px;
     right: 0px;
   }
+  .zigzagline>li:nth-child(even), .zigzagline>li:nth-child(even){
+    height: auto!important;
+}
   .zigzagline > li:nth-child(odd) {
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
     min-height: 0px;
     left: 0px;
-  }
-  .zigzagline>li .zigzagline-image {
-    position: static;
-    width: 150px;
-    height: 150px;
-    margin-bottom:0px;
+    /* height: auto !important; */
   }
   .zigzagline>li:nth-child(even) .zigzagline-image {
     left: 0;
-    margin-left: 0;
+    margin-left: 0px;
+    margin-top: 5px;
   }
   .zigzagline>li:nth-child(odd) .zigzagline-image {
-    float:right;
-    left: 0px;
-    margin-left:0;
+    left: 0;
+    margin-left: 0px;
+    margin-top: 5px;
   }
   .zigzagline > li:nth-child(even) .zigzagline-panel {
-    width: 100%;
-    padding: 0 0 20px 14px;
+    width: auto;
+    padding: 0 25px 20px 25px;
+    text-align: left;
   }
   .zigzagline > li:nth-child(odd) .zigzagline-panel {
-    width: 100%;
-    padding: 0 14px 20px 0px;
+    width: auto;
+    padding: 0 25px 20px 25px;
+    text-align: right;
   }
   .zigzagline > li .line {
+    display: none;
+  }
+  .zigzagline>li:after {
+    clear: both;
+    min-height: inherit;
+  }
+  .zigzagline-image {
     display: none;
   }
 }
@@ -3024,6 +3116,9 @@ iframe.custom-iframe {
   ul.navbar-nav li a {
     font-size: 12px;
   }
+  a.nav-link.mcp{
+    font-size: 11px;
+  }
    ul.footer-list, .social_media{
     padding-left: 0rem;
   }
@@ -3059,6 +3154,11 @@ iframe.custom-iframe {
     flex: inherit !important;
     margin: 0 !important;
   }
+  .zigzagline>li.zigzagline-inverted>.zigzagline-panel{float: none;}
+  .zigzagline-image {
+    display: none;
+  }
+  .zigzagline > li .zigzagline-panel{box-shadow: none;}
 }
 
 @media only screen and (max-width: 1024px) and (min-width:1024px) and (orientation: portrait){
@@ -3082,6 +3182,9 @@ iframe.custom-iframe {
   }
   .home-demo h2{
     text-align: center;
+  }
+  a.nav-link.mcp{
+    font-size: 11px;
   }
   section.S5, .owl-stage { height: auto;}
   .graphic{
@@ -3407,4 +3510,5 @@ iframe.custom-iframe {
   .headerS3, h4.footer-title {
     font-size: calc(1.25rem + 2.1vw);
   }
+  .custom-card{height: auto;}
 }
