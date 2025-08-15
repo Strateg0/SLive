@@ -20,7 +20,21 @@ const translations = {
       'functional_analyze': 'Функционални анализи',
       'action_plan': 'План за оценка на програма за морско дело, рибарство и аквакултури',
       'elec_networks': 'Социалноикономически анализ и обобщен доклад с резултати от проект „Опазване на застрашени видове птици чрез обезопасяване на опасни за тях въздушни електропроводи в защитени зони от НАТУРА 2000 в Западна България/ LIFE BIRDS ON POWER LINES“',
-      'strategic': 'Последваща оценка за изпълнението на Националната стратегия за регионално развитие за периода 2012-2022 г.',
+      'strategic': 'Последваща оценка за изпълнението на националната стратегия за регионално развитие за периода 2012-2022 г.',
+      'reg_plans': 'Последващи оценки на регионалните планове за развитие (РПР) 2014 – 2020 г.',
+      'integrated_dev': 'Планове за интегрирано развитие на общини за периода 2021-2027',
+      'tech_roadmaps': 'Технологични пътни карти, свързани с идентифицираните тематични области в Иновационната стратегия за интелигентна специализация',
+      'accreditation_law_analysis': 'Проучване и анализ на новото законодателство в областта на акредитацията',
+      'nfc': 'Законодателна промяна в правната рамка на НФК',
+      'nif_calls_analysis_impact': 'Анализ на пет конкурсни сесии на Националния иновационен фонд и оценка на ефекта от изпълнението договорите',
+      'training_managing_authority_opta': 'Обучения за повишаване на квалификацията на служителите на Управляващия орган на Оперативна програма „Техническа помощ“',
+      'eures_network_research_evaluation': 'Проучване и оценка на Мрежата Европейски услуги за заетост (EURES)',
+      'technology_audit_rnd_capabilities_ict': 'Технологичен одит на способностите за изследователска и развойна дейност в информационните и комуникационните технологии (ИКТ)',
+      'evaluation_measures_deinstitutionalisation_social_inclusion': 'Оценка на мерките за деинституционализация и насърчаване на социалното включване',
+      'danube_bridge_vidin_calafat_strategy': 'Стратегия за развитие на Дунав мост Видин-Калафат АД за периода 2018 – 2026 г. И прилежащ бизнес план',
+      'review_administrative_register_websites': 'Преглед на информацията в Административния регистър и интернет страниците на администрациите',
+      'judicial_independence_measures': 'Въвеждане на мерки за повишаване на независимостта на съдебната власт',
+      'housing_policy_concept_sofia': 'Концепция за жилищна политика на Столична община',
     },
     es: {
      'home': 'Начало',
@@ -43,8 +57,21 @@ const translations = {
       'functional_analyze': 'Функционални анализи',
       'action_plan': 'План за оценка на програма за морско дело, рибарство и аквакултури',
       'elec_networks': 'Социалноикономически анализ и обобщен доклад с резултати от проект „Опазване на застрашени видове птици чрез обезопасяване на опасни за тях въздушни електропроводи в защитени зони от НАТУРА 2000 в Западна България/ LIFE BIRDS ON POWER LINES“',
-      'strategic': 'Последваща оценка за изпълнението на Националната стратегия за регионално развитие за периода 2012-2022 г.',
-      'reg_plans': 'Последваща оценка за изпълнението на Националната стратегия за регионално развитие за периода 2012-2022 г.',
+      'strategic': 'Последваща оценка за изпълнението на националната стратегия за регионално развитие за периода 2012-2022 г.',
+      'reg_plans': 'Последващи оценки на регионалните планове за развитие (РПР) 2014 – 2020 г.',
+      'integrated_dev': 'Планове за интегрирано развитие на общини за периода 2021-2027',
+      'tech_roadmaps': 'Технологични пътни карти, свързани с идентифицираните тематични области в Иновационната стратегия за интелигентна специализация',
+      'accreditation_law_analysis': 'Проучване и анализ на новото законодателство в областта на акредитацията',
+      'nfc': 'Законодателна промяна в правната рамка на НФК',
+      'nif_calls_analysis_impact': 'Анализ на пет конкурсни сесии на Националния иновационен фонд и оценка на ефекта от изпълнението договорите',
+      'training_managing_authority_opta': 'Обучения за повишаване на квалификацията на служителите на Управляващия орган на Оперативна програма „Техническа помощ“',
+      'eures_network_research_evaluation': 'Проучване и оценка на Мрежата Европейски услуги за заетост (EURES)',
+      'technology_audit_rnd_capabilities_ict': 'Технологичен одит на способностите за изследователска и развойна дейност в информационните и комуникационните технологии (ИКТ)',
+      'evaluation_measures_deinstitutionalisation_social_inclusion': 'Оценка на мерките за деинституционализация и насърчаване на социалното включване',
+      'danube_bridge_vidin_calafat_strategy': 'Стратегия за развитие на Дунав мост Видин-Калафат АД за периода 2018 – 2026 г. И прилежащ бизнес план',
+      'review_administrative_register_websites': 'Преглед на информацията в Административния регистър и интернет страниците на администрациите',
+      'judicial_independence_measures': 'Въвеждане на мерки за повишаване на независимостта на съдебната власт',
+      'housing_policy_concept_sofia': 'Концепция за жилищна политика на Столична община',
     },
     bg: {
       'home': 'Начало',
@@ -79,6 +106,9 @@ const translations = {
       'technology_audit_rnd_capabilities_ict': 'Технологичен одит на способностите за изследователска и развойна дейност в информационните и комуникационните технологии (ИКТ)',
       'evaluation_measures_deinstitutionalisation_social_inclusion': 'Оценка на мерките за деинституционализация и насърчаване на социалното включване',
       'danube_bridge_vidin_calafat_strategy': 'Стратегия за развитие на Дунав мост Видин-Калафат АД за периода 2018 – 2026 г. И прилежащ бизнес план',
+      'review_administrative_register_websites': 'Преглед на информацията в Административния регистър и интернет страниците на администрациите',
+      'judicial_independence_measures': 'Въвеждане на мерки за повишаване на независимостта на съдебната власт',
+      'housing_policy_concept_sofia': 'Концепция за жилищна политика на Столична община',
 
     }
   };
@@ -118,7 +148,9 @@ const translations = {
     'technology_audit_rnd_capabilities_ict.html': ['home', 'offer', 'technology_audit_rnd_capabilities_ict'],
     'evaluation_measures_deinstitutionalisation_social_inclusion.html': ['home', 'offer', 'evaluation_measures_deinstitutionalisation_social_inclusion'],
     'danube_bridge_vidin_calafat_strategy.html': ['home', 'offer', 'danube_bridge_vidin_calafat_strategy'],
-
+    'judicial_independence_measures.html': ['home', 'offer', 'judicial_independence_measures'],
+    'review_administrative_register_websites.html': ['home', 'offer', 'review_administrative_register_websites'],
+    'housing_policy_concept_sofia.html': ['home', 'offer', 'housing_policy_concept_sofia'],
    
   };
   
@@ -170,6 +202,9 @@ const translations = {
         technology_audit_rnd_capabilities_ict: 'technology_audit_rnd_capabilities_ict.html',
         evaluation_measures_deinstitutionalisation_social_inclusion: 'evaluation_measures_deinstitutionalisation_social_inclusion.html',
         danube_bridge_vidin_calafat_strategy: 'danube_bridge_vidin_calafat_strategy.html',
+        judicial_independence_measures: 'judicial_independence_measures.html',
+        review_administrative_register_websites: 'review_administrative_register_websites.html',
+        housing_policy_concept_sofia: 'housing_policy_concept_sofia.html',
       };
 
       if (isLast) {
