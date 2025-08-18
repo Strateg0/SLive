@@ -233,6 +233,19 @@ justify-content: center;
 align-items: center;
 }
 
+#activities{
+position: relative;
+align-items: center;
+background-size: cover;
+-ms-background-size: cover;
+background-image: url('./img/bubbleBackground.png');
+background-repeat: no-repeat, no-repeat, no-repeat;
+background-position: center;
+/* background-attachment: fixed;
+height: 100vh;
+min-height: 100vh; */
+}
+
 #heroMCP{
 z-index: 0;
 position: relative;
@@ -2646,7 +2659,7 @@ iframe.custom-iframe {
   padding: 16px;
   background-color: #fff;
   box-shadow: 0 8px 22px 0 rgb(184 189 253 / 37%);
-  background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box;
+  /* background: transparent linear-gradient(299deg, hsla(255, 255%, 255%, .1), hsla(255, 255%, 255%, .1)) 0 0 no-repeat padding-box; */
   text-transform: capitalize;
   display: flex;
   align-items: flex-start;
@@ -2772,10 +2785,10 @@ iframe.custom-iframe {
     z-index: 100;
     position: absolute;
     left: 58%;
-    border: 1px solid #eb0000;
+    border: 2px solid #f79494;
     border-radius: 100%;
     background-color: #eb0000;
-    box-shadow: 0 0 5px #eb0000;
+    box-shadow: 0 0 5px #cd0000;
     width: 20px;
     height: 20px;
     margin-left: -100px;
@@ -2835,9 +2848,9 @@ iframe.custom-iframe {
 .zigzagline>li:nth-child(odd) .line:before {
     content: "";
     position: absolute;
-    top: -12px;
+    top: -11px;
     bottom: 12px;
-    left: 59%;
+    left: 58.7%;
     height: 270px;
     border: 1px dotted #eb0000;
     -ms-transform: rotate(-44deg);
@@ -2848,7 +2861,7 @@ iframe.custom-iframe {
 .zigzagline>li:nth-child(even) .line:before  {
    content: "";
     position: absolute;
-    top: -12px;
+    top: -10px;
     bottom: 0;
     left: 42.3%;
     /* width: 4px; */
