@@ -1,0 +1,29 @@
+{
+"bg": {
+    "header": "Стратегическите решения се основават на стратегическо знание",
+    "btnH": "виж повече",
+    "btnC": "свържи се с нас",
+    "about": "кои сме ние",
+    "aboutD": "Агенция СТРАТЕГМА ООД e професионална компания, специализирана в предоставяне на персонализирани консултантски услуги за развитие на организациите от публичния и частния сектор."
+  },
+  "en": {
+    "header": "Strategic decisions are based on strategic knowledge",
+    "btnH": "See more",
+    "btnC": "Contact us",
+    "about": "About us",
+    "aboutD": "STRATEGMA Agency Ltd. Is a professional company specialised in the delivery of organisational development customized consultancy services in the public and private sector."
+
+  },
+  "es": {
+    "header": "Bienvenido",
+    "btnH": "See more"
+  },
+  "fr": {
+    "header": "Bienvenue",
+    "btnH": "See more"
+  },
+  "hr": {
+    "header": "Dobrodošli",
+    "btnH": "See more"
+  }
+}
