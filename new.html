@@ -40,14 +40,12 @@
     <!-- dropdown selection menu Mobile -->
      <div class="dropdown d-none d-sm-none d-md-none d-lg-none d-xl-none">
         <a class="btn dropdown-toggle mb-0 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="fi fi-bg"></span>
+       <span class="currentFlag fi fi-bg"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item lang-option" href="#"> <span class="fi fi-gb"></span> English</a></li>
-          <li><a class="dropdown-item lang-option" href="#"><span class="fi fi-es"></span> Spanish</a></li>
-          <li><a class="dropdown-item lang-option" href="#"><span class="fi fi-fr"></span> French</a></li>
-          <li><a class="dropdown-item lang-option" href="#"><span class="fi fi-hr"></span> Croatian</a></li>
-        </ul>
+            <li><a class="dropdown-item lang-option" data-lang="bg" href="#"><span class="fi fi-bg"></span> Bulgarian</a></li>
+            <li><a class="dropdown-item lang-option" data-lang="en" href="#"><span class="fi fi-gb"></span> English</a></li>
+          </ul>
       </div>
     <!-- Collapsible menu items -->
     <div class="collapse navbar-collapse pt-4 pt-lg-0" id="mainNavbar">
@@ -60,13 +58,11 @@
         <li class="nav-item"><a href="under_construction.html" class="nav-link" data-i18n="blog">блог</a></li>
         <div class="dropdown px-3">
           <a class="btn dropdown-toggle mb-2 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-           <span class="fi fi-bg"></span>
+        <span class="currentFlag fi fi-bg"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item lang-option" data-lang="en" href="#"> <span class="fi fi-gb"></span> English</a></li>
-            <li><a class="dropdown-item lang-option" data-lang="es"href="#"><span class="fi fi-es"></span> Spanish</a></li>
-            <li><a class="dropdown-item lang-option" data-lang="fr"href="#"><span class="fi fi-fr"></span> French</a></li>
-            <li><a class="dropdown-item lang-option" data-lang="hr" href="#"><span class="fi fi-hr"></span> Croatian</a></li>
+            <li><a class="dropdown-item lang-option" data-lang="bg" href="#"><span class="fi fi-bg"></span> Bulgarian</a></li>
+            <li><a class="dropdown-item lang-option" data-lang="en" href="#"><span class="fi fi-gb"></span> English</a></li>
           </ul>
         </div>
         <button id="themeToggleDesk" class="theme-toggle ms-1 d-none d-sm-none d-md-none d-lg-block d-xl-block" aria-label="Toggle theme"><span class="icon">🌙</span></button>
@@ -113,13 +109,13 @@
           <div class="features15-info bounce mb-4">
               <i class="bi bi-info-circle-fill cs-dark"></i>
           </div>
-            <h5><strong>ВАЖНО!</strong> Как да използвате картата:</h5>
+            <h5 class="fw-bold" data-i18n="important">ВАЖНО! Как да използвате картата:</h5>
             <ul class="px-0" style="list-style-type: none;">
-              <li class="cs-text">🖱️ Натиснете върху различните икони на картата.</li>
-              <li class="cs-text">🔁 Следвайте указанията на екрана.</li>
-              <li class="cs-text">ℹ️ Ще се появява информация или изображения.</li>
-              <li class="cs-text">🔁 Можете да се връщате и да изследвате различни части.</li>
-              <li class="cs-text">ℹ️ Ако нещо не работи, опитайте да презаредите страницата.</li>
+              <li class="cs-text"><span data-i18n="importantli1">🖱️ Натиснете върху различните икони на картата.</span></li>
+              <li class="cs-text"><span data-i18n="importantli2">🔁 Следвайте указанията на екрана.</span></li>
+              <li class="cs-text"><span data-i18n="importantli3">ℹ️ Ще се появява информация или изображения.</span></li>
+              <li class="cs-text"><span data-i18n="importantli4">🔁 Можете да се връщате и да изследвате различни части.</span></li>
+              <li class="cs-text"><span data-i18n="importantli5">ℹ️ Ако нещо не работи, опитайте да презаредите страницата.</span></li>
             </ul>
           </div>
       </div>
@@ -138,8 +134,8 @@
                 <div class="col-12 col-sm-12 col-md-12 col-lg-8 animate__animated animate__zoomIn" id="news-posts">Статии <!--BLOG POSTS GENERATED GOES HERE--></div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-3 left-text-9 mt-md-0 mt-0 pl-md-4 mb-5">
                     <div id="related-posts-section" class="mt-0 animate__animated animate__zoomIn">
-                    <h4 class="mb-4">Последни новини</h4>
-                    <div id="related-posts-container" class="row gy-4"><!--BLOG POSTS GENERATED GOES HERE--></div>
+                    <h4 class="mb-4" data-i18n="lastposts">Последни новини</h4>
+                    <div id="related-posts" class="row gy-4"><!--BLOG POSTS GENERATED GOES HERE--></div>
                 </div>
                 </div>
             </div>
@@ -162,13 +158,13 @@
       <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-7 mt-sm-0 mt-3 mt-lg-0">
           <ul class="footer-list">
-            <h1 class="footer-title mb-4">Контакти</h1>
+            <h1 class="footer-title mb-4" data-i18n="footer_cont">Контакти</h1>
             <li><a href="about.html"><i class="bi bi-geo-alt-fill"></i> гр. София 1202, ул. „Г. Раковски” № 18, ет. 4</a></li>
             <li><a href="blog.html"><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
             <li><a href="#pricing"><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
           </ul>
            <ul class="social_media">
-            <h1 class="footer-title">Последвай ни</h1>
+ <h1 class="footer-title" data-i18n="follow">Последвай ни</h1>
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
                   <li>
@@ -196,11 +192,11 @@
           <div class="img_storege">
             <!--<img src="./img/logos.png" alt="union">-->
             <img src="./img/logo_rina.jpg" class="pt-4" style="width:250px;height: 184px;">
-            <p class="pt-4">Агенция СТРАТЕГМА поддържа Интегрирана система за управление на качеството,
-            сигурността на информацията и околната среда съгласно <a href="docs/STR-9001-BG-EN.pdf" target="_blank"><strong>ISO 9001:2015/ </strong></a> 
+            <p class="pt-4" data-i18n="footer_desc">Агенция СТРАТЕГМА поддържа Интегрирана система за управление на качеството,
+            сигурността на информацията и околната среда съгласно</p> <a href="docs/STR-9001-BG-EN.pdf" target="_blank"><strong>ISO 9001:2015/ </strong></a> 
             <a href="docs/STR-14001-BG-EN.pdf" target="_blank"><strong>ISO 14001:2015/ </strong></a> 
             <a href="docs/STR-27001-BG.pdf" target="_blank"><strong>ISO 27001:2013.</strong></a></p>
-            <p class="pt-4"> <a href="docs/20171123_strategma_QP.pdf" target="_blank"><strong>Политика по качеството, сигурността на информацията и околната среда.</strong></a></p>
+            <p class="pt-2"><a href="docs/20171123_strategma_QP.pdf" target="_blank" data-i18n="footer_plc"><strong>Политика по качеството, сигурността на информацията и околната среда.</strong></a></p></p></p>
             <p class="pt-4"></p>
           </div>
         </div>
@@ -212,7 +208,7 @@
       <div class="container">
         <div class="row justify-content-md-center">
          <div class="col col-md-6 col-lg-6 col-xxl-8 px-0">
-          <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
+          <p class="text-left text-aligne-left pt-4">All rights reserved. &copy; STRATEGMA.BG 2025</p>
           </div>
           <div class="col-md-auto">
            <a href="#"><p class="text-right text-aligne-right pt-4">Privacy Policy</p></a>
@@ -231,7 +227,9 @@
 <script src="./js/active.js"></script>
 <script src="./js/mode.js"></script>
 <script src="./js/breadcrumb.js"></script>
+<script src="./js/lang.js"></script>
 <script src="./js/fxreverse_animate.js"></script>
+<script src="./js/newsPost.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -265,129 +263,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<script>
-  const newsCategoryID = 14; // "Interactive Maps" category ID
 
-  // Fetch latest posts from category, newest first
-  const apiURL = `https://strategma.bg/content/wp-json/wp/v2/posts?categories=${newsCategoryID}&per_page=5&orderby=date&order=desc&_embed`;
-
-  fetch(apiURL)
-    .then(response => response.json())
-    .then(posts => {
-      let output = '<div class="row g-4">';
-
-      posts.forEach(post => {
-        // Featured image
-        let imgSrc = '';
-        if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
-          imgSrc = post._embedded['wp:featuredmedia'][0].source_url;
-        }
-
-        // Author name
-        let authorName = post._embedded?.author?.[0]?.name || 'Unknown';
-
-        // Category name
-        let categoryName = '';
-        if (post._embedded?.['wp:term']?.[0]) {
-          const foundCat = post._embedded['wp:term'][0].find(cat => cat.id === newsCategoryID);
-          if (foundCat) {
-            categoryName = foundCat.name;
-          }
-        }
-
-        // Published date
-        let publishedDate = new Date(post.date).toLocaleDateString('bg-BG', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-
-        output += `
-          <div class="col-md-12 my-3">
-            <div class="cardPass h-100 shadow-sm">
-              ${imgSrc ? `<img src="${imgSrc}" class="card-img-top" alt="${post.title.rendered}">` : ''}
-              <div class="card-body">
-                <p class="sub-para my-3">${categoryName}</p>
-                <h4 class="text-head-text-9">
-                  <a href="${post.link}" target="_blank">${post.title.rendered}</a>
-                </h4>
-              </div>
-              <ul class="blog-author-date mt-4 px-0">
-                <li class="author">By ${authorName} &nbsp; Date: <strong>${publishedDate}</strong></li>
-              </ul>
-            </div>
-          </div>
-        `;
-      });
-
-      output += '</div>';
-      document.getElementById('news-posts').innerHTML = output;
-    })
-    .catch(error => {
-      console.error('Error fetching Interactive Maps posts:', error);
-      document.getElementById('news-posts').innerHTML = '<p>Неуспешно зареждане на новините.</p>';
-    });
-
-
-
-  // --- RELATED POSTS SECTION ---
-
-  // Shuffle function
-  function shuffle(array) {
-    let currentIndex = array.length, randomIndex;
-
-    while (currentIndex != 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
-    }
-    return array;
-  }
-
-  // Fetch more posts (20) to pick random 4 for related posts
-  const relatedApiURL = `https://wordpress-fa022.wasmer.app/wp-json/wp/v2/posts?per_page=20&_embed`;
-
-  fetch(relatedApiURL)
-    .then(response => response.json())
-    .then(posts => {
-      const shuffled = shuffle(posts);
-      const relatedPosts = shuffled.slice(0, 4);
-
-      let output = '<div class="row g-4">';
-
-      relatedPosts.forEach(post => {
-        let imgSrc = '';
-        if (post._embedded?.['wp:featuredmedia']?.[0]?.source_url) {
-          imgSrc = post._embedded['wp:featuredmedia'][0].source_url;
-        }
-
-        let publishedDate = new Date(post.date).toLocaleDateString('bg-BG', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric'
-        });
-
-        output += `
-          <div class="col-md-12">
-            <div class="cardPass h-100 shadow-sm">
-              ${imgSrc ? `<img src="${imgSrc}" class="card-img-top" alt="${post.title.rendered}">` : ''}
-              <div class="card-body">
-                <h5 class="sub-para my-3">
-                  <a href="${post.link}" target="_blank" rel="noopener noreferrer">${post.title.rendered}</a>
-                </h5>
-              </div>
-            </div>
-          </div>
-        `;
-      });
-
-      output += '</div>';
-      document.getElementById('related-posts').innerHTML = output;
-    })
-    .catch(error => {
-      console.error('Error fetching related posts:', error);
-      document.getElementById('related-posts').innerHTML = '<p>Неуспешно зареждане на свързаните публикации.</p>';
-    });
-</script>
 </body>
 </html>

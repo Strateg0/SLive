@@ -1,11 +1,11 @@
 const translations = {
     en: {
-     'home': 'Начало',
-      'sectors': 'Сектори',
-      'aboutUs': 'За нас',
-      'offer': 'Какво предлагаме',
-      'new': 'Новости',
-      'blog': 'Блог',
+     'home': 'Home',
+      'sectors': 'Sectors',
+      'aboutUs': 'About us',
+      'offer': 'What we offer',
+      'new': 'Novelties',
+      'blog': 'Blog',
       'contact': 'Контакт',
       'structural_reform': 'Оценка на организационния модел на централната администрация на изпълнителната власт',
       'NAMRB': 'Примерни модели за административни структури на седем групи общини и проекти на документи за организационното им развитие',
@@ -35,9 +35,14 @@ const translations = {
       'review_administrative_register_websites': 'Преглед на информацията в Административния регистър и интернет страниците на администрациите',
       'judicial_independence_measures': 'Въвеждане на мерки за повишаване на независимостта на съдебната власт',
       'housing_policy_concept_sofia': 'Концепция за жилищна политика на Столична община',
+      'digital_platform_interaction_analysis': 'Дигитална платформа за анализ на потенциални лекарствени взаимодействия',
+      'digital_competence_certification_module': 'Модул за сертифициране на цифрова компетентност',
+      'cms_portal_ministry_transport_communications': 'Проектиране, разработване и внедряване на система за управление на съдържанието и създаване на портал на министерство на транспорта и съобщенията',
+      'intellectual_property_protection_campaigns': 'Кампании за защита на интелектуалната собственост',
+      'eu_common_agricultural_policy_campaigns': 'Кампании за общата селскостопанска политика на Европейския съюз',
     },
     es: {
-     'home': 'Начало',
+    'home': 'Начало',
       'sectors': 'Сектори',
       'aboutUs': 'За нас',
       'offer': 'Какво предлагаме',
@@ -72,6 +77,11 @@ const translations = {
       'review_administrative_register_websites': 'Преглед на информацията в Административния регистър и интернет страниците на администрациите',
       'judicial_independence_measures': 'Въвеждане на мерки за повишаване на независимостта на съдебната власт',
       'housing_policy_concept_sofia': 'Концепция за жилищна политика на Столична община',
+      'digital_platform_interaction_analysis': 'Дигитална платформа за анализ на потенциални лекарствени взаимодействия',
+      'digital_competence_certification_module': 'Модул за сертифициране на цифрова компетентност',
+      'cms_portal_ministry_transport_communications': 'Проектиране, разработване и внедряване на система за управление на съдържанието и създаване на портал на министерство на транспорта и съобщенията',
+      'intellectual_property_protection_campaigns': 'Кампании за защита на интелектуалната собственост',
+      'eu_common_agricultural_policy_campaigns': 'Кампании за общата селскостопанска политика на Европейския съюз',
     },
     bg: {
       'home': 'Начало',
@@ -165,14 +175,9 @@ const translations = {
    
   };
   
-// Shorten text function
-// function shortenText(text, maxLength = 100) {
-//   if (text.length > maxLength) {
-//     return text.slice(0, maxLength - 5) + '…';
-//   }
-//   return text;
-// }
 
+  // Renders breadcrumbs based on lang + translations
+function renderBreadcrumb(lang, translations) {
   const currentPath = window.location.pathname.split('/').pop();
   const trail = breadcrumbMap[currentPath];
   const breadcrumb = document.getElementById('breadcrumb');
@@ -180,9 +185,8 @@ const translations = {
 
   if (trail && trail.length > 0) {
     trail.forEach((key, index) => {
-      const label = translations[lang][key] || key;
+      const label = translations[lang]?.[key] || key;
       const isLast = index === trail.length - 1;
-      // const shortened = shortenText(label, 100);
 
       const hrefMap = {
         home: 'index.html',
@@ -198,7 +202,7 @@ const translations = {
         impact_assessment: 'impact_assessment.html',
         preliminary: 'preliminary.html',
         org_model: 'org_model.html',
-        functional_analyze: 'org_model.html',
+        functional_analyze: 'functional_analyze.html',
         action_plan: 'action_plan.html',
         elec_networks: 'elec_networks.html',
         strategic: 'strategic.html',
@@ -208,7 +212,7 @@ const translations = {
         accreditation_law_analysis: 'accreditation_law_analysis.html',
         nfc: 'nfc.html',
         nif_calls_analysis_impact: 'nif_calls_analysis_impact.html',
-        training_managing_authority_opt: 'training_managing_authority_opt.html',
+        training_managing_authority_opta: 'training_managing_authority_opta.html',
         eures_network_research_evaluation: 'eures_network_research_evaluation.html',
         technology_audit_rnd_capabilities_ict: 'technology_audit_rnd_capabilities_ict.html',
         evaluation_measures_deinstitutionalisation_social_inclusion: 'evaluation_measures_deinstitutionalisation_social_inclusion.html',
@@ -220,19 +224,19 @@ const translations = {
         digital_competence_certification_module: 'digital_competence_certification_module.html',
         cms_portal_ministry_transport_communications: 'cms_portal_ministry_transport_communications.html',
         intellectual_property_protection_campaigns:'intellectual_property_protection_campaigns.html',
-        eu_common_agricultural_policy_campaigns:'eu_common_agricultural_policy_campaigns.html',
-
+        eu_common_agricultural_policy_campaigns:'eu_common_agricultural_policy_campaigns.html'
       };
 
       if (isLast) {
-         html += `<li aria-current="page" class="truncate" title="${label}">${label}</li>`;
+        html += `<li aria-current="page" class="truncate" title="${label}">${label}</li>`;
       } else {
-      html += `<li><a href="${hrefMap[key]}" class="truncate" title="${label}">${label}</a></li>`;
+        html += `<li><a href="${hrefMap[key]}" class="truncate" title="${label}">${label}</a></li>`;
       }
     });
   }
 
   html += `</ol>`;
   breadcrumb.innerHTML = html;
+}
 
   //---END 

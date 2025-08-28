@@ -57,26 +57,40 @@ function switchLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
 
-  // Update flag in dropdown button
-  const flagSpan = document.getElementById('currentFlag');
-  if (flagSpan) {
-    // Remove previous flag classes
+  // Update ALL flags
+  const flagSpans = document.querySelectorAll('.currentFlag');
+  flagSpans.forEach(flagSpan => {
     Object.values(flagMap).forEach(cls => flagSpan.classList.remove(cls));
-    // Add new flag class
     flagSpan.classList.add(flagMap[lang]);
-  }
+  });
 
-  // Update all elements with data-i18n
+  // Update ALL elements with data-i18n
   fetch('../js/lang.json')
     .then(res => res.json())
     .then(translations => {
+      // Update all data-i18n elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         el.textContent = translations[lang]?.[key] || key;
       });
+
+      // ✅ Update breadcrumbs ONLY if it exists
+      const breadcrumb = document.getElementById('breadcrumb');
+      if (breadcrumb) {
+        renderBreadcrumb(lang, translations);
+      }
+
+    // ✅ Update images for this lang
+      document.querySelectorAll('img[data-img-bg]').forEach(img => {
+        const newSrc = img.getAttribute(`data-img-${lang}`);
+        if (newSrc) img.src = newSrc;
+      });
+
     })
     .catch(err => console.error('Failed to load translations:', err));
 }
+
+
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {

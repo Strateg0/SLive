@@ -44,34 +44,34 @@
     <!-- dropdown selection menu Mobile -->
      <div class="dropdown d-none d-sm-none d-md-none d-lg-none d-xl-none">
         <a class="btn dropdown-toggle mb-0 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <span class="fi fi-bg"></span>
+       <span class="currentFlag fi fi-bg"></span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li><a class="dropdown-item lang-option" href="#"> <span class="fi fi-gb"></span> English</a></li>
-          <li><a class="dropdown-item lang-option" href="#"><span class="fi fi-es"></span> Spanish</a></li>
-          <li><a class="dropdown-item lang-option" href="#"><span class="fi fi-fr"></span> French</a></li>
-          <li><a class="dropdown-item lang-option" href="#"><span class="fi fi-hr"></span> Croatian</a></li>
-        </ul>
+        <li><a class="dropdown-item lang-option" data-lang="bg" href="#"><span class="fi fi-bg"></span> Bulgarian</a></li>
+        <li><a class="dropdown-item lang-option" data-lang="en" href="#"><span class="fi fi-gb"></span> English</a></li>
+          </ul>
       </div>
     <!-- Collapsible menu items -->
     <div class="collapse navbar-collapse pt-4 pt-lg-0" id="mainNavbar">
       <ul class="navbar-nav ms-auto mb-2 mb-md-0 mb-lg-0">
-        <li class="nav-item"><a href="index.html" class="nav-link mcp">Начало</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link mcp">проекти</a></li>
-        <li class="nav-item"><a href="#missionBG" class="nav-link mcp">мисия</a></li>
-        <li class="nav-item"><a href="#activities" class="nav-link mcp">дейности</a></li>
-        <li class="nav-item"><a href="#offer" class="nav-link mcp">какво предлагаме</a></li>
-        <li class="nav-item"><a href="#whoweare" class="nav-link mcp">кои сме ние</a></li>
-        <li class="nav-item"><img src="./img/01_logo_SMEs project.png" class="mt-0 d-none d-sm-none d-md-none d-lg-block d-xl-block" style="width: 200px;" alt="union"></li>
+        <li class="nav-item"><a href="mcp.html" class="nav-link mcp" data-i18n="home">Начало</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link mcp" data-i18n="smart_profiling">Smart Profiling</a></li>
+        <li class="nav-item"><a href="#missionBG" class="nav-link mcp" data-i18n="who">За кого</a></li>
+        <li class="nav-item"><a href="#data" class="nav-link mcp" data-i18n="data">Данните</a></li>
+        <li class="nav-item"><img 
+          data-img-bg="./img/01_logo_SMEs project.png" 
+          data-img-en="./img/EN_Funded-by-the-EU-NextGenEU_POS.jpg" 
+          src="./img/01_logo_SMEs project.png" 
+          class="mt-0 d-none d-sm-none d-md-none d-lg-block d-xl-block" 
+          style="width: 200px;" alt="union">
+        </li>
         <div class="dropdown px-3">
           <a class="btn dropdown-toggle mb-2 mb-lg-0" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-           <span class="fi fi-bg"></span>
+        <span class="currentFlag fi fi-bg"></span>
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item lang-option" data-lang="en" href="#"> <span class="fi fi-gb"></span> English</a></li>
-            <li><a class="dropdown-item lang-option" data-lang="es"href="#"><span class="fi fi-es"></span> Spanish</a></li>
-            <li><a class="dropdown-item lang-option" data-lang="fr"href="#"><span class="fi fi-fr"></span> French</a></li>
-            <li><a class="dropdown-item lang-option" data-lang="hr" href="#"><span class="fi fi-hr"></span> Croatian</a></li>
+        <li><a class="dropdown-item lang-option" data-lang="bg" href="#"><span class="fi fi-bg"></span> Bulgarian</a></li>
+        <li><a class="dropdown-item lang-option" data-lang="en" href="#"><span class="fi fi-gb"></span> English</a></li>
           </ul>
         </div>
       </ul>
@@ -84,9 +84,7 @@
     <div class="row py-3 py-lg-5 animate__animated animate__zoomIn">
       <div class="col-12 col-sm-12 col-lg-12">
         <div class="justify-content-center align-self-center px-0 px-lg-0 mt-0 mt-lg-0 pt-0 pt-lg-0 fx-reveal">
-          <h1 class="display-4 fw-bold pt-0 pb-1 mt-0 px-0 header animate__animated animate__zoomIn">Организационно развитие за МСП</h1>
-          <p class="light-text text-center text-md-center text-lg-center">Бизнес решения, основани на данни, издигат МСП (Data driven business decisions elevate SMEs)</p>
-           <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn btn-nextlevel mt-1 mx-auto px-5 text-center animate__animated animate__zoomIn">свържете се с нас</button>
+          <h1 class="display-4 fw-bold pt-0 pb-1 mt-0 px-0 header animate__animated animate__zoomIn" data-i18n="home_mcp">Организационно развитие за МСП - умни бизнес решения, основани на данни</h1>
         </div>
       </div>
     </div>
@@ -96,29 +94,60 @@
 <section class="S3" id="projects">
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row align-items-center g-5 py-5 animate__animated animate__zoomIn">
-        <div class="col-12 col-md-12 col-lg-6">
-          <div class="union cardUnion align-self-center align-center px-0">
-            <img src="./img/01_logo_SMEs project.png" alt="union">
+        <div class="smart col-12 col-sm-12 col-md-12 col-xl-12">
+          <h1 class="display-5 fw-bold lh-1 mb-3 text-center bs-nextlevel-text">Smart Profiling</h1>
+        </div>
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
+          <div class="custom-card mcp h-100">
+            <div class="icon-circle-normal">
+              <i class="bi bi-check"></i>
+            </div>
+             <div class="card_header mt-1">
+              <div class="card-title-header" data-i18n="mcp_smartProfiling1">SMART Profiling е иновативен проект на СТРАТЕГМА, който разработва доверен виртуален съветник за устойчиво развитие на МСП. В днешната динамична цифрова среда това е един хъб за трансфер на знания и умения, който предоставя на предприемачите ключова конкретна информация, която им помага да изследват предизвикателствата, да откриват решения и да отключат потенциала си за устойчивост, иновации и приобщаващ растеж. </div>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-12 col-lg-6">
-          <h1 class="display-5 fw-bold lh-1 mb-3 text-star bs-nextlevel-text">За проекта</h1>
-          <p class="lead text-start">Проектът "Организационно развитие за МСП" е отговор на необходимостта 
-            бизнесът в съвременното информационно общество да работи по нов 
-            начин, който включва нови и по-сложни подходи за работа с 
-            информацията, свързана с процесите и организационното развитие. 
-            Той цели да предостави на малките и средни предприятия конкурентно 
-            предимство чрез достъпна услуга за генериране на информация и анализ, 
-            с което поне частично да се преодолеят различията между малките и средни
-            предприятия и големите компании, свързани с достъп до качествена бизнес 
-            информация и ресурси за организационно развитие.</p>
-          <p class="lead text-start">Амбицията на този проект е да модернизира управлението на малки и 
-            средни предприятия с помощта на електронна услуга на достъпна цена. 
-            Тази услуга дава възможност на ръководството на предприятията да взема 
-            обосновани управленски решения, основани на данни. Това е консултантска 
-            услуга с висока добавена стойност, каквато малките и средни предприятия
-            обичайно не могат да си позволят поради високата й цена.</p>
-        </div>
+      </div>
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
+          <div class="custom-card mcp h-100">
+            <div class="icon-circle-normal">
+              <i class="bi bi-check"></i>
+            </div>
+            <div class="card_header mt-1">
+              <div class="card-title-header" data-i18n="mcp_smartProfiling2">SMART Profiling превръща данните на предприятието в стратегически актив, за да посрещне техните нужди. Посредством анализ и контекстуализация услугата позволява ранно идентифициране и смекчаване на оперативни и стратегически рискове, адаптивни и гъвкави решения и развитие на управленските способности чрез демонстрация и подкрепа.</div>
+            </div>
+          </div>
+      </div>
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
+          <div class="custom-card mcp h-100">
+            <div class="icon-circle-normal">
+             <i class="bi bi-check"></i>
+            </div>
+             <div class="card_header mt-1">
+              <div class="card-title-header" data-i18n="mcp_smartProfiling3">SMART Profiling е достъпна, интегрирана колаборация, основана на данни и приспособена към променящите се нужди на малкия и средния бизнес. Услугата интегрира утвърдени управленски модели и научно обосновани методи и подобрява радикално техните резултати с помощта на ново знание, придобито чрез прилагане на модерни дигитални аналитични средства и големи и разнообразни данни. </div>
+            </div>
+          </div>
+      </div>
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
+          <div class="custom-card mcp h-100">
+            <div class="icon-circle-normal">
+              <i class="bi bi-check"></i>
+            </div>
+            <div class="card_header mt-1">
+              <div class="card-title-header" data-i18n="mcp_smartProfiling4">SMART profiling е систематичен и задълбочен изследователски процес, в който се събират, анализират и интерпретират широк набор от данни на микро ниво. Резултатът не е ограничен до статична снимка на текущото състояние, а представя присъщата динамика на конкретния бизнес, в това число анализ на процесите, доминиращите тенденции и бъдещия потенциал.</div>
+            </div>
+          </div>
+      </div>
+       <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
+          <div class="custom-card mcp h-100">
+            <div class="icon-circle-normal">
+             <i class="bi bi-check"></i>
+            </div>
+            <div class="card_header mt-1">
+              <div class="card-title-header" data-i18n="mcp_smartProfiling5">SMART profiling демократизира експертното знание и променя цялостно начина на функциониране на малкия и среден бизнес и конкуренцията между тях. Това е стратегически двигател от ново поколение, който предоставя конкурентно предимство на онези, които имат най-голяма нужда от него. </div>
+            </div>
+          </div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
@@ -127,264 +156,62 @@
     <div class="container col-xxl-8 px-4 py-5">
       <div class="row align-items-center g-5 py-5 animate__animated animate__zoomIn">
         <div class="col-lg-12">
-          <h1 class="display-5 fw-bold lh-1 mb-3 text-center headerSS3">Мисия</h1>
-          <p class="light-text text-center text-md-center text-lg-center">Да ви помогнем да изградите успешен бизнес като ви предоставим достъп до качествена бизнес информация и инструменти за организационно развитие.</p>
-           <h2 class="light-text text-center text-md-center text-lg-center">Готови ли сте да трансформирате бизнеса си?</h2>
-          <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn btn-nextlevel mt-3 mx-auto px-5 text-center animate__animated animate__zoomIn">свържете се с нас</button>
+          <h1 class="display-5 fw-bold lh-1 mb-3 text-center headerSS3" data-i18n="who">За кого</h1>
+          <p class="light-text text-center text-md-center text-lg-center" data-i18n="who_mcpdesc1">Услугата Smart Profiling е предназначена за малки и средни предприятия, опериращи на територията на България и седем други държави от Европейския съюз. </p>
+           <p class="light-text text-center text-md-center text-lg-center" data-i18n="who_mcpdesc2">Подборът е направен от съвкупността на всички държави членки на ЕС чрез прилагане на критерии, които се основават на заключенията на ежегодния доклад на Европейската комисия за МСП в Европа. Основен критерий е произведената добавена стойност на заето лице. Към него са добавени годишният темп на растеж на добавената стойност, коригирана спрямо инфлацията и годишният темп на нарастване на заетостта в МСП.</p>
+           <p class="light-text text-center text-md-center text-lg-center" data-i18n="who_mcpdesc3">Избраните държави са Румъния, Хърватия, Словения, Гърция, Кипър, Естония и Португалия.</p>
+           <p class="light-text text-center text-md-center text-lg-center" data-i18n="who_mcpdesc4">Профили на държавите, съдържащи макроикономически показатели, информация за МСП и източници на информация:</p>
+          <button type="button" onclick="document.getElementById('footer').scrollIntoView({ behavior: 'smooth' })" class="btn btn-nextlevel mt-3 mx-auto px-5 text-center animate__animated animate__zoomIn" data-i18n="btnC">свържете се с нас</button>
         </div>
     </div>
   </div>
 </section>
 
-<section class="S3 fx-reveal" id="activities">
+
+<section class="S3 fx-reveal" id="data">
   <div class="container col-xxl-8 px-4 py-5">
     <div class="row align-items-left animate__animated animate__zoomIn">
       <div class="smart col-12 col-sm-12 col-md-12 col-xl-12">
-        <h1 class="display-5 fw-bold lh-1 mb-3 text-center bs-nextlevel-text">Дейности</h1>
-        <p class="cs-text mx-auto px-0 text-center mb-5">Събиране на данни и изследвания: За да предоставим най-качествената 
-        бизнес информация, анализираме и интегрираме данни за МСП в Европа и извън нея.</p>
+        <h1 class="display-5 fw-bold lh-1 mb-3 text-center bs-nextlevel-text" data-i18n="data">Данните</h1>
+        <p class="cs-text mx-auto px-0 text-center mb-5" data-i18n="data_mcp_smartProfiling1">Данните, които се събират и подлежат на съхранение и обработка са класифицирани по:</p>
       </div>
       <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-              <i class="bi bi-bullseye"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">Целта?</div>
-              <p class="card-text-normal">
-                Да трансформираме суровите данни в стратегическа информация, която подпомага управленските решения и организационното развитие.
-              </p>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-              <i class="bi bi-file-earmark-bar-graph"></i>
-            </div>
-           <div class="card_header mt-1">
-              <div class="card-title-header">Методологични изследвания и интеграция на данни</div>
-              <p class="card-text-normal">                
-              Разработваме иновативен и ефикасен методологичен 
-              инструментариум, който оптимизира обработката на информация. Този метод превръща големи масиви от
-              данни в ценна за бизнеса информация.
-              </p>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-             <i class="bi bi-phone"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">Разработване на ИТ приложение</div>
-              <p class="card-text-normal">
-                В основата на нашия проект стои изграждането на 
-                облачна платформа, която интегрира най-новите 
-                алгоритми и натрупаното ноу-хау за организационно
-                развитие. Нашето смарт приложение предоставя 
-                абонаментни услуги, които автоматизират и улесняват
-                бизнес анализа.
-              </p>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-             <i class="bi bi-gear"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">Тестване и проверка на ефективността</div>
-              <p class="card-text-normal">
-                Нашият подход е ориентиран към реални резултати – 
-                затова включваме крайните потребители и 
-                потенциалните клиенти в процеса на тестване. Чрез съвместна работа гарантираме, че разработеното ИТ решение отговаря на нуждите на бизнеса и води до 
-                реална трансформация.
-              </p>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-             <i class="bi bi-shield-check"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">Защита на права на интелектуална собственост</div>
-              <p class="card-text-normal">
-                Иновативните технологии заслужават защита. 
-                Подаваме заявления за търговска марка и патент, за да 
-                гарантираме сигурността и уникалността на нашето 
-                решение на глобално ниво.
-              </p>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-              <i class="bi bi-reception-4"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">Маркетингова кампания и комуникационни дейности</div>
-              <p class="card-text-normal">
-                За да направим нашия продукт разпознаваем, 
-                провеждаме целева маркетингова кампания. 
-                Активното ни присъствие в различни комуникационни канали гарантира, че информацията за проекта достига 
-                до точните хора – бизнеса, който търси иновации в организационното развитие.
-              </p>
-            </div>
-          </div>
-      </div>
-
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
-          <div class="custom-card h-100">
-            <div class="icon-circle-normal">
-             <i class="bi bi-file-earmark-pdf"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">Маркетингова кампания и комуникационни дейности</div>
-              <a href="docs/STR-9001-BG-EN.pdf" target="_blank">
-              <p class="card-text-normal fw-bold">
-                <strong class="fw-bold bs-nextlevel-text">PDF - documents</strong></a> 
-              </p>
-            </div>
-          </div>
-      </div>
-  </div>
-</div>
-  </div>
-  </div>
-</section>
-
-<section class="fx-reveal" id="offer">
-  <div class="container py-5">
-    <div class="row">
-      <div class="smart mcp col-12 col-sm-12 col-md-12 col-xl-12">
-        <h1 class="display-5 fw-bold lh-1 mb-3 text-center bs-nextlevel-text">Какви са нашите възможности и Какво предлагаме?</h1>
-        <p class="cs-text mx-auto px-0 text-center mb-5">В съвременното информационно общество динамиката на бизнеса се променя бързо. 
-          За да останете конкурентоспособни, ви трябва ефективен начин за управление на данните и процесите. Нашето интегрирано смарт ИТ приложение автоматизира
-          събирането, анализа и трансформацията на информация, осигурявайки ви качествени бизнес данни и стратегически насоки.</p>
-          <div class="timeline-wrapper">
-            <ul class="zigzagline">
-              <li>
-                <div class="zigzagline-image">
-                </div>
-                <div class="zigzagline-panel">
-                  <div class="zigzagline-heading">
-                    <h4 class="subheading">Какво предлагаме?</h4>
-                  </div>
-                  <div class="zigzagline-body mt-4">
-                    <p class="text-muted text-start">
-                    Иновативна технологична платформа – превръщаме огромни масиви от данни в практична база знания, която подпомага вземането на информирани решения.
-                    </p>
-                  </div>
-                </div>
-                <div class="line"></div>
-              </li>
-              <li class="zigzagline-inverted">
-                <div class="zigzagline-image">
-                </div>
-                <div class="zigzagline-panel">
-                  <div class="zigzagline-heading">
-                    <h4 class="subheading">Възможности за консултации и развитие</h4>
-                  </div>
-                  <div class="zigzagline-body mt-4">
-                    <p class="text-muted text-start">
-                    Консултации и стратегическо развитие – собствениците на малки и средни предприятия (МСП) получават информация за бариерите и възможностите пред бизнеса си.
-                    </p>
-                      <!-- <img src="./img/1.png" alt="Илюстрация" class="image w-100"> -->
-                  </div>
-                </div>
-                <div class="line"></div>
-              </li>
-              <li>
-                <div class="zigzagline-image">
-                </div>
-                <div class="zigzagline-panel">
-                  <div class="zigzagline-heading">
-                    <h4 class="subheading">Пазарна ниша</h4>
-                  </div>
-                  <div class="zigzagline-body mt-4">
-                    <p class="text-muted text-start">
-                      Пазарната ниша на услугата има мащабен потенциал поради броя на потенциалните клиенти и възможността за разширяване на пазара извън пределите на страната.
-                    </p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="S3 fx-reveal" id="whoweare">
-  <div class="container col-xxl-8 px-4 py-5">
-    <div class="row align-items-left animate__animated animate__zoomIn">
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-12">
-        <h1 class="display-5 fw-bold lh-1 mb-3 text-center bs-nextlevel-text">Кои сме ние</h1>
-        <p class="cs-text mx-auto px-0 text-center mb-5">Агенция СТРАТЕГМА ООД e професионална компания, специализирана в предоставяне на персонализирани консултантски услуги за развитие на организациите от публичния и частния сектор</p>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-4 my-4">
           <div class="custom-card mcp h-100">
             <div class="icon-circle-normal">
-              <i class="bi bi-people"></i>
+              <i class="bi bi-info-circle"></i>
             </div>
              <div class="card_header mt-1">
-              <div class="card-title-header">ОРГАНИЗАЦИОННО РАЗВИТИЕ И КОНСУЛТИРАНЕ</div>
+              <div class="card-title-header" data-i18n="data_mcp_smartProfiling2">вид на информацията, която съдържат: цифрова (количествени данни) 	и описателна (качествени данни)</div>
             </div>
           </div>
       </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-4 my-4">
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
           <div class="custom-card mcp h-100">
             <div class="icon-circle-normal">
               <i class="bi bi-graph-up"></i>
             </div>
              <div class="card_header mt-1">
-              <div class="card-title-header">СТРАТЕГИЧЕСКО ПЛАНИРАНЕ И ОЦЕНКА</div>
+              <div class="card-title-header" data-i18n="data_mcp_smartProfiling3">предметна област, която отразяват: финансови;	икономически;	маркетингови</div>
             </div>
           </div>
       </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-4 my-4">
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
           <div class="custom-card mcp h-100">
             <div class="icon-circle-normal">
-             <i class="bi bi-briefcase"></i>
+             <i class="bi bi-layers"></i>
             </div>
             <div class="card_header mt-1">
-              <div class="card-title-header">УПРАВЛЕНИЕ</div>
+              <div class="card-title-header" data-i18n="data_mcp_smartProfiling4">ниво, на което регистрират състоянието: микро данни,	мезо данни,	макро данни</div>
             </div>
           </div>
       </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-4 my-4">
+      <div class="smart col-12 col-sm-12 col-md-12 col-xl-6 my-4">
           <div class="custom-card mcp h-100">
             <div class="icon-circle-normal">
-             <i class="bi bi-lightbulb"></i>
+             <i class="bi bi-exclamation-circle"></i>
             </div>
              <div class="card_header mt-1">
-              <div class="card-title-header">ОБУЧЕНИЕ И ИНОВАЦИИ</div>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-4 my-4">
-          <div class="custom-card mcp h-100">
-            <div class="icon-circle-normal">
-             <i class="bi bi-chat-dots"></i>
-            </div>
-            <div class="card_header mt-1">
-              <div class="card-title-header">ОБЩЕСТВЕНИ КОМУНИКАЦИИ</div>
-            </div>
-          </div>
-      </div>
-      <div class="smart col-12 col-sm-12 col-md-12 col-xl-4 my-4">
-          <div class="custom-card mcp h-100">
-            <div class="icon-circle-normal">
-              <i class="bi bi-laptop"></i>
-            </div>
-             <div class="card_header mt-1">
-              <div class="card-title-header">ИНФОРМАЦИОННИ ТЕХНОЛОГИИ</div>
+              <div class="card-title-header" data-i18n="data_mcp_smartProfiling5">Данните се събират от публично достъпни източници в суров вид и подлежат на изчистване, обработка и съхранение.</div>
             </div>
           </div>
       </div>
@@ -400,13 +227,13 @@
       <div class="row">
         <div class="col-lg-7 col-md-7 col-sm-7 mt-sm-0 mt-3 mt-lg-0">
           <ul class="footer-list">
-            <h1 class="footer-title mb-4">Контакти</h1>
+            <h1 class="footer-title mb-4" data-i18n="footer_cont">Контакти</h1>
            <li><a href=""><i class="bi bi-geo-alt-fill"></i><span data-i18n="add">гр. София 1202, ул. „Г. Раковски” № 18, ет. 4</span></a></li>
             <li><a href=""><i class="bi bi-telephone-fill"></i> (+359 2) 981 47 38</a></li>
             <li><a href=""><i class="bi bi-envelope-check-fill"></i> agency@strategma.bg</a></li>
           </ul>
           <ul class="social_media">
-            <h1 class="footer-title">Последвай ни</h1>
+          <h1 class="footer-title" data-i18n="follow">Последвай ни</h1>
             <div class="social-icons-main mt-4 pb-3 FooterSocial">
                 <ul class="social-icons3 px-0 mx-auto">
                   <li>
@@ -431,8 +258,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 footer-list-29 footer-3 mt-lg-0 mt-3 pt-lg-2">
           <div class="img_storege">
-            <p class="pt-0"></p>
-            <p class="pt-4">Финансирано от Европейския съюз. Изразените мнения и становища обаче са само на автора (авторите) и не отразяват непременно мнението и становището на Европейския съюз. Нито Европейският съюз, нито предоставящият орган носят отговорност за тях.</p>
+            <p class="pt-0" data-i18n="footer_mcp">Финансирано от Европейския съюз. Изразените мнения и становища обаче са само на автора (авторите) и не отразяват непременно мнението и становището на Европейския съюз. Нито Европейският съюз, нито предоставящият орган носят отговорност за тях.</p>
           </div>
         </div>
       </div>
@@ -443,7 +269,7 @@
       <div class="container">
         <div class="row justify-content-md-center">
           <div class="col col-md-6 col-lg-6 col-xxl-8 px-0">
-          <p class="text-left text-aligne-left pt-4">Всички права запазени &copy; STRATEGMA.BG 2025</p>
+          <p class="text-left text-aligne-left pt-4">All rights reserved. &copy; STRATEGMA.BG 2025</p>
           </div>
           <div class="col-md-auto">
            <a href="#"><p class="text-right text-aligne-right pt-4">Privacy Policy</p></a>
@@ -460,6 +286,7 @@
 <!-- Scripts -->
 <script src="./js/active.js"></script>
 <!-- <script src="./js/mode.js"></script> -->
+ <script src="./js/lang.js"></script>
 <script src="./js/fxreverse_animate.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
