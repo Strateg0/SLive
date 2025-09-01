@@ -65,7 +65,7 @@ function switchLang(lang) {
   });
 
   // Update ALL elements with data-i18n
-  fetch('/js/lang.json')
+  fetch('./js/lang.json')
     .then(res => res.json())
     .then(translations => {
       // Update all data-i18n elements
