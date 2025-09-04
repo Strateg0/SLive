@@ -1,6 +1,6 @@
 // * Fetching data from Strategma Blog - Generated in new.html Page * //
 document.addEventListener('DOMContentLoaded', function() {
-  const newsCategoryID = 19; // Category ID for your new URL
+  const newsCategoryID = 14; // Category ID for your new URL
   const container = document.getElementById('news-posts');
 
   if (!container) {
