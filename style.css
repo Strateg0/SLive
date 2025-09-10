@@ -329,8 +329,8 @@ background-image: linear-gradient(to right, rgb(1 0 6 / 65%), rgb(1 0 10 / 65%))
 background-repeat: no-repeat, no-repeat, no-repeat;
 background-position: center;
 background-attachment: fixed;
-height: 100vh;
-min-height: 100vh;
+height: auto;
+/* min-height: 100vh; */
 display: flex;
 justify-content: center; 
 align-items: center;
