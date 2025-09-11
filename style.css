@@ -3643,6 +3643,10 @@ iframe.custom-iframe {
     font-size: calc(1.25rem + 2.1vw);
   }
   .custom-card{height: auto;}
+  .arrow-down {
+  position: absolute;
+  bottom: -5px;        
+  }
 }
 
 @keyframes zoomIn {
